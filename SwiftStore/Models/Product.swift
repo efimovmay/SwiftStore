@@ -525,12 +525,11 @@ extension Product {
 extension Product {
     static func getRandomProducts(count: Int) -> [Product] {
         
+        let shared = DataStore.shared
         var products: [Product] = []
         
         for _ in 1...count {
-            let shared = DataStore.shared
             let category = shared.categories.randomElement() ?? "iPhone"
-            
             let model: String
             
             switch category {
