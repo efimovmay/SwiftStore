@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+class DataStore {
+    static let shared = DataStore()
+    
+    let categories = [
+        "Mac",
+        "iPhone",
+        "Watch",
+        "iPad",
+        "AirPods",
+    ]
+    
+    private init() {}
+}
