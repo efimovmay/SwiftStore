@@ -521,3 +521,64 @@ extension Product {
         return products
     }
 }
+
+extension Product {
+    static func getRandomProducts(count: Int) -> [Product] {
+        
+        var products: [Product] = []
+        
+        for _ in 1...count {
+            let shared = DataStore.shared
+            let category = shared.categories.randomElement() ?? "iPhone"
+            
+            let model: String
+            
+            switch category {
+            case "Mac":
+                model = shared.macs.randomElement() ?? ""
+            case "iPhone":
+                model = shared.iPhones.randomElement() ?? ""
+            case "Watch":
+                model = shared.watches.randomElement() ?? ""
+            case "iPad":
+                model = shared.iPads.randomElement() ?? ""
+            default:
+                model = shared.airPods.randomElement() ?? ""
+            }
+            
+            let chip = shared.processors[model]?.randomElement() ?? ""
+            let color = shared.colors[model]?.randomElement() ?? ""
+            let display = shared.displays[model]?.randomElement() ?? ""
+            let memory = shared.memoryConfigurations[model]?.randomElement()
+            ?? ""
+            let storage = shared.storageConfigurations[model]?.randomElement()
+            ?? ""
+            let onSale = Bool.random()
+            let isBestseller = Bool.random()
+            let isRecommended = Bool.random()
+            let price = 1999
+            let priceDiscount = 1999
+            
+            products.append(
+                Product(
+                    category: category,
+                    model: model,
+                    chip: chip,
+                    color: color,
+                    display: display,
+                    memory: memory,
+                    storage: storage,
+                    onSale: onSale,
+                    isBestseller: isBestseller,
+                    isRecommended: isRecommended,
+                    price: price,
+                    priceDiscount: priceDiscount
+                )
+            )
+        }
+        
+        return products
+    }
+}
+
+

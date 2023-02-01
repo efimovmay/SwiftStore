@@ -19,7 +19,8 @@ class DataStore {
     ]
     
     let macs = [
-        "MacBook Air",
+        "MacBook Air M1",
+        "MacBook Air M2",
         "MacBook Pro 13",
         "MacBook Pro 14",
         "MacBook Pro 16",
@@ -287,10 +288,10 @@ class DataStore {
         "MacBook Air M1" : ["8GB", "16GB"],
         "MacBook Air M2" : ["8GB", "16GB", "24GB"],
         "MacBook Pro 13" : ["8GB", "16GB", "24GB"],
-        "MacBook Pro 14" : ["16GB", "32GB", "64GB", "96GB"], // доделать
-        "MacBook Pro 16" : ["16GB", "32GB", "64GB", "96GB"], // доделать
+        "MacBook Pro 14" : ["16GB", "32GB", "64GB", "96GB"],
+        "MacBook Pro 16" : ["16GB", "32GB", "64GB", "96GB"],
         "iMac 24" : ["8GB", "16GB"],
-        "Mac mini" : ["8GB", "16GB", "24GB", "32GB"], // доделать
+        "Mac mini" : ["8GB", "16GB", "24GB", "32GB"],
         "Mac Studio" : ["32GB", "64GB", "128GB"],
         "Mac Pro" : [
             "32GB",
