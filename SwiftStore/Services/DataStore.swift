@@ -324,5 +324,38 @@ class DataStore {
         "AirPods Max" : []
     ]
     
+    let storageConfigurations = [
+        "MacBook Air M1" : ["256GB", "512GB", "1TB", "2TB"],
+        "MacBook Air M2" : ["256GB", "512GB", "1TB", "2TB"],
+        "MacBook Pro 13" : ["256GB", "512GB", "1TB", "2TB"],
+        "MacBook Pro 14" : ["512GB", "1TB", "2TB", "4TB", "8TB"],
+        "MacBook Pro 16" : ["512GB", "1TB", "2TB", "4TB", "8TB"],
+        "iMac 24" : ["256GB", "512GB", "1TB", "2TB"],
+        "Mac mini" : ["256GB", "512GB", "1TB", "2TB", "4TB", "8TB"],
+        "Mac Studio" : ["1TB", "2TB", "4TB", "8TB"],
+        "Mac Pro" : ["512GB", "1TB", "2TB", "4TB", "8TB"],
+        "iPhone 14 Pro" : ["128GB", "256GB", "512GB", "1TB"],
+        "iPhone 14 Pro Max" : ["128GB", "256GB", "512GB", "1TB"],
+        "iPhone 14" : ["128GB", "256GB", "512GB"],
+        "iPhone 14 Plus" : ["128GB", "256GB", "512GB"],
+        "iPhone 13 mini" : ["128GB", "256GB", "512GB"],
+        "iPhone 13" : ["128GB", "256GB", "512GB"],
+        "iPhone SE" : ["64GB", "128GB", "256GB"],
+        "iPhone 12" : ["64GB", "128GB", "256GB"],
+        "Apple Watch Ultra" : [],
+        "Apple Watch Series 8" : [],
+        "Apple Watch SE" : [],
+        "iPad Pro 11" : ["128GB", "256GB", "512GB", "1TB", "2TB"],
+        "iPad Pro 12.9" : ["128GB", "256GB", "512GB", "1TB", "2TB"],
+        "iPad Air" : ["64GB", "256GB"],
+        "iPad 10th generation" : ["64GB", "256GB"],
+        "iPad 9th generation" : ["64GB", "256GB"],
+        "iPad mini" : ["64GB", "256GB"],
+        "AirPods 2nd generation" : [],
+        "AirPods 3nd generation" : [],
+        "AirPods Pro 2nd generation" : [],
+        "AirPods Max" : []
+    ]
+    
     private init() {}
 }
