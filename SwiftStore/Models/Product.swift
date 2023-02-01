@@ -17,7 +17,7 @@ struct Product {
     let isBestseller: Bool
     let isRecommended: Bool
     let price: Int
-    let priceOnSale: Int
+    let priceDiscount: Int
     
     var image: String {
         "\(model) \(color)".trimmingCharacters(in: .whitespaces)
@@ -39,7 +39,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 1399,
-                priceOnSale: 1099
+                priceDiscount: 1099
             ),
             Product(
                 category: "Mac",
@@ -53,7 +53,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 999,
-                priceOnSale: 899
+                priceDiscount: 899
             ),
             Product(
                 category: "Mac",
@@ -67,7 +67,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1999,
-                priceOnSale: 1890
+                priceDiscount: 1890
             ),
             Product(
                 category: "Mac",
@@ -81,7 +81,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 3099,
-                priceOnSale: 3099
+                priceDiscount: 3099
             ),
             Product(
                 category: "Mac",
@@ -95,7 +95,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: false,
                 price: 2499,
-                priceOnSale: 2299
+                priceDiscount: 2299
             ),
             Product(
                 category: "Mac",
@@ -109,7 +109,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 3499,
-                priceOnSale: 3499
+                priceDiscount: 3499
             ),
             Product(
                 category: "Mac",
@@ -123,7 +123,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1299,
-                priceOnSale: 1199
+                priceDiscount: 1199
             ),
             Product(
                 category: "Mac",
@@ -137,7 +137,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1699,
-                priceOnSale: 1699
+                priceDiscount: 1699
             ),
             Product(
                 category: "Mac",
@@ -151,7 +151,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: false,
                 price: 599,
-                priceOnSale: 599
+                priceDiscount: 599
             ),
             Product(
                 category: "Mac",
@@ -165,7 +165,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 999,
-                priceOnSale: 899
+                priceDiscount: 899
             ),
             Product(
                 category: "Mac",
@@ -179,7 +179,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 1899,
-                priceOnSale: 1899
+                priceDiscount: 1899
             ),
             Product(
                 category: "Mac",
@@ -193,7 +193,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1999,
-                priceOnSale: 1899
+                priceDiscount: 1899
             ),
             Product(
                 category: "Mac",
@@ -207,7 +207,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 3999,
-                priceOnSale: 3999
+                priceDiscount: 3999
             ),
             Product(
                 category: "Mac",
@@ -221,7 +221,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 49799,
-                priceOnSale: 47799
+                priceDiscount: 47799
             ),
             Product(
                 category: "Mac",
@@ -235,7 +235,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 5999,
-                priceOnSale: 5999
+                priceDiscount: 5999
             ),
             Product(
                 category: "iPad",
@@ -249,7 +249,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 799,
-                priceOnSale: 799
+                priceDiscount: 799
             ),
             Product(
                 category: "iPad",
@@ -263,7 +263,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1399,
-                priceOnSale: 1299
+                priceDiscount: 1299
             ),
             Product(
                 category: "iPad",
@@ -277,7 +277,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 749,
-                priceOnSale: 749
+                priceDiscount: 749
             ),
             Product(
                 category: "iPad",
@@ -291,7 +291,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 499,
-                priceOnSale: 499
+                priceDiscount: 499
             ),
             Product(
                 category: "iPad",
@@ -305,7 +305,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 499,
-                priceOnSale: 449
+                priceDiscount: 449
             ),
             Product(
                 category: "iPhone",
@@ -319,7 +319,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1099,
-                priceOnSale: 999
+                priceDiscount: 999
             ),
             Product(
                 category: "iPhone",
@@ -333,7 +333,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1399,
-                priceOnSale: 1399
+                priceDiscount: 1399
             ),
             Product(
                 category: "iPhone",
@@ -347,7 +347,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 799,
-                priceOnSale: 799
+                priceDiscount: 799
             ),
             Product(
                 category: "iPhone",
@@ -361,7 +361,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: false,
                 price: 1199,
-                priceOnSale: 1199
+                priceDiscount: 1199
             ),
             Product(
                 category: "iPhone",
@@ -375,7 +375,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 599,
-                priceOnSale: 599
+                priceDiscount: 599
             ),
             Product(
                 category: "iPhone",
@@ -389,7 +389,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 799,
-                priceOnSale: 799
+                priceDiscount: 799
             ),
             Product(
                 category: "iPhone",
@@ -403,7 +403,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 429,
-                priceOnSale: 429
+                priceDiscount: 429
             ),
             Product(
                 category: "iPhone",
@@ -417,7 +417,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 749,
-                priceOnSale: 749
+                priceDiscount: 749
             ),
             Product(
                 category: "Watch",
@@ -431,7 +431,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 799,
-                priceOnSale: 799
+                priceDiscount: 799
             ),
             Product(
                 category: "Watch",
@@ -445,7 +445,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 499,
-                priceOnSale: 499
+                priceDiscount: 499
             ),
             Product(
                 category: "Watch",
@@ -459,7 +459,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 279,
-                priceOnSale: 279
+                priceDiscount: 279
             ),
             Product(
                 category: "AirPods",
@@ -473,7 +473,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 129,
-                priceOnSale: 129
+                priceDiscount: 129
             ),
             Product(
                 category: "AirPods",
@@ -487,7 +487,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 169,
-                priceOnSale: 169
+                priceDiscount: 169
             ),
             Product(
                 category: "AirPods",
@@ -501,7 +501,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 249,
-                priceOnSale: 229
+                priceDiscount: 229
             ),
             Product(
                 category: "AirPods",
@@ -515,7 +515,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 549,
-                priceOnSale: 549
+                priceDiscount: 549
             )
         ]
         return products
