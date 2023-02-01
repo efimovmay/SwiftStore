@@ -283,5 +283,46 @@ class DataStore {
         "AirPods Max" : []
     ]
     
+    let memoryConfigurations = [
+        "MacBook Air M1" : ["8GB", "16GB"],
+        "MacBook Air M2" : ["8GB", "16GB", "24GB"],
+        "MacBook Pro 13" : ["8GB", "16GB", "24GB"],
+        "MacBook Pro 14" : ["16GB", "32GB", "64GB", "96GB"], // доделать
+        "MacBook Pro 16" : ["16GB", "32GB", "64GB", "96GB"], // доделать
+        "iMac 24" : ["8GB", "16GB"],
+        "Mac mini" : ["8GB", "16GB", "24GB", "32GB"], // доделать
+        "Mac Studio" : ["32GB", "64GB", "128GB"],
+        "Mac Pro" : [
+            "32GB",
+            "48GB",
+            "96GB",
+            "192GB",
+            "384GB",
+            "768GB",
+            "1.5TB"
+        ],
+        "iPhone 14 Pro" : ["6GB"],
+        "iPhone 14 Pro Max" : ["6GB"],
+        "iPhone 14" : ["6GB"],
+        "iPhone 14 Plus" : ["6GB"],
+        "iPhone 13 mini" : ["4GB"],
+        "iPhone 13" : ["4GB"],
+        "iPhone SE" : ["4GB"],
+        "iPhone 12" : ["4GB"],
+        "Apple Watch Ultra" : [],
+        "Apple Watch Series 8" : [],
+        "Apple Watch SE" : [],
+        "iPad Pro 11" : ["8GB"],
+        "iPad Pro 12.9" : ["8GB"],
+        "iPad Air" : ["8GB"],
+        "iPad 10th generation" : [],
+        "iPad 9th generation" : [],
+        "iPad mini" : [],
+        "AirPods 2nd generation" : [],
+        "AirPods 3nd generation" : [],
+        "AirPods Pro 2nd generation" : [],
+        "AirPods Max" : []
+    ]
+    
     private init() {}
 }
