@@ -250,5 +250,38 @@ class DataStore {
         ]
     ]
     
+    let displays = [
+        "MacBook Air M1" : ["13.3"],
+        "MacBook Air M2" : ["13.6"],
+        "MacBook Pro 13" : ["13.3"],
+        "MacBook Pro 14" : ["14.2"],
+        "MacBook Pro 16" : ["16.2"],
+        "iMac 24" : ["24"],
+        "Mac mini" : [],
+        "Mac Studio" : [],
+        "Mac Pro" : [],
+        "iPhone 14 Pro" : ["6.1"],
+        "iPhone 14 Pro Max" : ["6.7"],
+        "iPhone 14" : ["6.1"],
+        "iPhone 14 Plus" : ["6.7"],
+        "iPhone 13 mini" : ["5.4"],
+        "iPhone 13" : ["6.1"],
+        "iPhone SE" : ["4.7"],
+        "iPhone 12" : ["6.1"],
+        "Apple Watch Ultra" : ["49mm"],
+        "Apple Watch Series 8" : ["41mm", "45mm"],
+        "Apple Watch SE" : ["40mm", "44mm"],
+        "iPad Pro 11" : ["11"],
+        "iPad Pro 12.9" : ["12.9"],
+        "iPad Air" : ["10.9"],
+        "iPad 10th generation" : ["10.9"],
+        "iPad 9th generation" : ["10.2"],
+        "iPad mini" : ["8.3"],
+        "AirPods 2nd generation" : [],
+        "AirPods 3nd generation" : [],
+        "AirPods Pro 2nd generation" : [],
+        "AirPods Max" : []
+    ]
+    
     private init() {}
 }
