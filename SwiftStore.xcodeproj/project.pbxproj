@@ -23,6 +23,7 @@
 		D8AEFA62298987C9003737A9 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AEFA61298987C9003737A9 /* Catalogue.storyboard */; };
 		D8AEFA64298987DE003737A9 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AEFA63298987DE003737A9 /* Cart.storyboard */; };
 		D8AEFA66298987EC003737A9 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AEFA65298987EC003737A9 /* Team.storyboard */; };
+		D8AEFA8C298AE751003737A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA8B298AE751003737A9 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D8AEFA61298987C9003737A9 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		D8AEFA63298987DE003737A9 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		D8AEFA65298987EC003737A9 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
+		D8AEFA8B298AE751003737A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				D8AEFA3829897E08003737A9 /* MainViewController.swift */,
+				D8AEFA8B298AE751003737A9 /* HomeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				D8AEFA3529897E08003737A9 /* AppDelegate.swift in Sources */,
 				D8AEFA54298983C0003737A9 /* ProductInfoViewController.swift in Sources */,
 				D8AEFA3729897E08003737A9 /* SceneDelegate.swift in Sources */,
+				D8AEFA8C298AE751003737A9 /* HomeViewController.swift in Sources */,
 				D8AEFA5D2989862B003737A9 /* CartViewController.swift in Sources */,
 				D8AEFA562989840B003737A9 /* CategoryListViewController.swift in Sources */,
 				D8AEFA5F29898649003737A9 /* TeamViewController.swift in Sources */,

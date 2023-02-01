@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2i-7Z-XBV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -9,22 +9,75 @@
     </dependencies>
     <scenes>
         <!--Main View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="uTF-gz-gwf">
             <objects>
-                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="MainViewController" customModule="SwiftStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tabBarController storyboardIdentifier="mainVC" automaticallyAdjustsScrollViewInsets="NO" id="d2i-7Z-XBV" customClass="MainViewController" customModule="SwiftStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VbY-L1-TEs">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tsP-Sy-h8C" kind="relationship" relationship="viewControllers" id="09s-3c-917"/>
+                        <segue destination="v41-Cs-PTo" kind="relationship" relationship="viewControllers" id="xST-qp-KiU"/>
+                        <segue destination="7zz-AM-cMb" kind="relationship" relationship="viewControllers" id="da3-Qd-BPp"/>
+                        <segue destination="B8q-NL-XXl" kind="relationship" relationship="viewControllers" id="ZeJ-EG-esq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rUv-QI-hjj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
+        </scene>
+        <!--catalogueVC-->
+        <scene sceneID="yeV-tc-oCZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Catalogue" referencedIdentifier="catalogueVC" id="v41-Cs-PTo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="urB-bN-1mU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFV-aS-Joh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="531"/>
+        </scene>
+        <!--cartVC-->
+        <scene sceneID="n2u-Bc-4pD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Cart" referencedIdentifier="cartVC" id="7zz-AM-cMb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="uvw-vB-dKZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDr-Nh-iuD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="469" y="531"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="2dt-ek-alQ">
+            <objects>
+                <viewController storyboardIdentifier="homeVC" id="tsP-Sy-h8C" customClass="HomeViewController" customModule="SwiftStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YYY-Db-UyD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="mih-TP-a4v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="house.fill" catalog="system" id="PQn-Pz-b4g"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hbw-ua-HsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="115"/>
+            <point key="canvasLocation" x="987" y="115"/>
+        </scene>
+        <!--teamVC-->
+        <scene sceneID="NWa-gf-UPf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Team" referencedIdentifier="teamVC" id="B8q-NL-XXl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ULs-vT-hLk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ljG-xE-AVc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805" y="531"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
