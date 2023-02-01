@@ -20,7 +20,7 @@ struct Product {
     let priceOnSale: Int
     
     var image: String {
-        "\(model) \(color)"
+        "\(model) \(color)".trimmingCharacters(in: .whitespaces)
     }
 }
 
@@ -521,7 +521,3 @@ extension Product {
         return products
     }
 }
-
-
-
-
