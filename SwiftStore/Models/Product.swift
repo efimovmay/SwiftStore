@@ -26,7 +26,7 @@ struct Product {
 
 extension Product {
     static func getProducts() -> [Product] {
-        let products = [
+        [
             Product(
                 category: "Mac",
                 model: "MacBook Air M1",
@@ -518,7 +518,6 @@ extension Product {
                 priceDiscount: 549
             )
         ]
-        return products
     }
 }
 
