@@ -10,6 +10,7 @@ import Foundation
 class DataStore {
     static let shared = DataStore()
     
+    // MARK: - Categories
     let categories = [
         "Mac",
         "iPhone",
@@ -18,6 +19,7 @@ class DataStore {
         "AirPods"
     ]
     
+    // MARK: - Mac models
     let macs = [
         "MacBook Air M1",
         "MacBook Air M2",
@@ -30,6 +32,7 @@ class DataStore {
         "Mac Pro"
     ]
     
+    // MARK: - iPhone models
     let iPhones = [
         "iPhone 14 Pro",
         "iPhone 14 Pro Max",
@@ -41,12 +44,14 @@ class DataStore {
         "iPhone 12"
     ]
     
+    // MARK: - Watch models
     let watches = [
         "Apple Watch Ultra",
         "Apple Watch Series 8",
         "Apple Watch SE"
     ]
     
+    // MARK: - iPad models
     let iPads = [
         "iPad Pro 11",
         "iPad Pro 12.9",
@@ -56,6 +61,7 @@ class DataStore {
         "iPad mini"
     ]
     
+    // MARK: - AirPods models
     let airPods = [
         "AirPods 2nd generation",
         "AirPods 3nd generation",
@@ -63,6 +69,7 @@ class DataStore {
         "AirPods Max"
     ]
     
+    // MARK: - Processors
     let processors = [
         "MacBook Air M1" : ["M1"],
         "MacBook Air M2" : ["M2"],
@@ -102,6 +109,7 @@ class DataStore {
         "AirPods Max" : ["H1"]
     ]
     
+    // MARK: - Colors
     let colors = [
         "MacBook Air M1" : [
             "Space Gray",
@@ -251,6 +259,7 @@ class DataStore {
         ]
     ]
     
+    // MARK: - Displays
     let displays = [
         "MacBook Air M1" : ["13.3"],
         "MacBook Air M2" : ["13.6"],
@@ -284,6 +293,7 @@ class DataStore {
         "AirPods Max" : []
     ]
     
+    // MARK: - Memory Configurations
     let memoryConfigurations = [
         "MacBook Air M1" : ["8GB", "16GB"],
         "MacBook Air M2" : ["8GB", "16GB", "24GB"],
@@ -325,6 +335,7 @@ class DataStore {
         "AirPods Max" : []
     ]
     
+    // MARK: - Storage Configurations
     let storageConfigurations = [
         "MacBook Air M1" : ["256GB", "512GB", "1TB", "2TB"],
         "MacBook Air M2" : ["256GB", "512GB", "1TB", "2TB"],
