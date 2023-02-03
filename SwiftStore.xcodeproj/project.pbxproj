@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B31744D298DAEB0005A2518 /* ItemCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31744C298DAEB0005A2518 /* ItemCartTableViewCell.swift */; };
 		D8AEFA3529897E08003737A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA3429897E08003737A9 /* AppDelegate.swift */; };
 		D8AEFA3729897E08003737A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA3629897E08003737A9 /* SceneDelegate.swift */; };
 		D8AEFA3929897E08003737A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA3829897E08003737A9 /* MainViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B31744C298DAEB0005A2518 /* ItemCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCartTableViewCell.swift; sourceTree = "<group>"; };
 		D8AEFA3129897E07003737A9 /* SwiftStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AEFA3429897E08003737A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AEFA3629897E08003737A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D8AEFA5C2989862B003737A9 /* CartViewController.swift */,
+				5B31744C298DAEB0005A2518 /* ItemCartTableViewCell.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				D8AEFA8C298AE751003737A9 /* HomeViewController.swift in Sources */,
 				D8AEFA5D2989862B003737A9 /* CartViewController.swift in Sources */,
 				D8AEFA562989840B003737A9 /* CategoryListViewController.swift in Sources */,
+				5B31744D298DAEB0005A2518 /* ItemCartTableViewCell.swift in Sources */,
 				D8AEFA5F29898649003737A9 /* TeamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
