@@ -11,12 +11,13 @@ final class HomeViewController: UIViewController {
 
     // MARK: - IB Outlets
     @IBOutlet var sellsCollectionView: UICollectionView!
-    @IBOutlet var bestCollectionView: UICollectionView!
-    @IBOutlet var recommendCollectionView: UICollectionView!
+//    @IBOutlet var bestCollectionView: UICollectionView!
+//    @IBOutlet var recommendCollectionView: UICollectionView!
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
     }
     
@@ -33,19 +34,35 @@ final class HomeViewController: UIViewController {
         tabBarController?.selectedViewController = tabBarController?.viewControllers?.first
     }
     
-
-//    private func registerTableViewCells() {
-//        let cell = UINib(nibName: "CustomCell", bundle: nil)
-//        tableView.register(cell, forCellReuseIdentifier: "customCell")
-//    }
+    private func setupCollectionViews() {
+        sellsCollectionView.dataSource = self
+        sellsCollectionView.delegate = self
+        
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.scrollDirection = .horizontal
+        sellsCollectionView.collectionViewLayout = collectionViewLayout
+    }
 }
 
-// MARK: - UICollectionView Delegate
-extension HomeViewController: UICollectionViewDelegate {
+// MARK: - UICollectionViewDataSource
+extension HomeViewController: UICollectionViewDataSource {
+  
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        8
+    }
     
-    private func setupCollectionViews() {
-        sellsCollectionView.delegate = self
-        bestCollectionView.delegate = self
-        recommendCollectionView.delegate = self
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell {
+            return cell
+        } else {
+            return CollectionViewCell()
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 135, height: sellsCollectionView.frame.height - 10)
     }
 }

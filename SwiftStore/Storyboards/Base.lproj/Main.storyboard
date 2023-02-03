@@ -58,81 +58,112 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QLm-VG-lXH">
-                                <rect key="frame" x="0.0" y="99" width="414" height="173"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.81163816740000005" green="0.99976571999999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Распродажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvl-RL-8ec">
+                                <rect key="frame" x="20" y="66" width="154.5" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QLm-VG-lXH">
+                                <rect key="frame" x="0.0" y="104" width="414" height="214"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="b3v-Fs-9we"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hz4-Sq-lhP">
-                                    <size key="itemSize" width="130" height="130"/>
+                                    <size key="itemSize" width="135" height="181"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                    <inset key="sectionInset" minX="20" minY="5" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="7IF-A8-PiS">
-                                        <rect key="frame" x="20" y="22.5" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="7IF-A8-PiS" customClass="CollectionViewCell" customModule="SwiftStore" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="9" width="135" height="181"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zrd-Ph-15c">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X3f-SW-5Oz">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="181"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6qj-ue-IYB">
+                                                    <rect key="frame" x="0.0" y="108.5" width="135" height="64.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Dv4-Vr-i5d">
+                                                            <rect key="frame" x="13" y="0.0" width="109" height="18"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29 990 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMN-Um-pJ6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="63.5" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29 990 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPK-zu-FeE">
+                                                                    <rect key="frame" x="72.5" y="4" width="36.5" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MacBook Pro 16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuU-87-Idc">
+                                                            <rect key="frame" x="22" y="21" width="91.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-YE-9DI">
+                                                            <rect key="frame" x="10" y="38.5" width="115" height="26"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <state key="normal" title="Купить"/>
+                                                            <connections>
+                                                                <action selector="buyButtonTapped:" destination="7IF-A8-PiS" eventType="touchUpInside" id="xNv-if-0Fi"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="qg0-YE-9DI" firstAttribute="leading" secondItem="6qj-ue-IYB" secondAttribute="leading" constant="10" id="9ZP-Tb-Hui"/>
+                                                        <constraint firstAttribute="trailing" secondItem="qg0-YE-9DI" secondAttribute="trailing" constant="10" id="B4P-DV-ZBa"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple Watch SE Sunglow" translatesAutoresizingMaskIntoConstraints="NO" id="gu7-Lw-80e">
+                                                    <rect key="frame" x="24" y="8" width="87" height="95"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gu7-Lw-80e" firstAttribute="height" secondItem="X3f-SW-5Oz" secondAttribute="height" multiplier="0.526012" id="3CG-Vs-LjY"/>
+                                                <constraint firstAttribute="trailing" secondItem="6qj-ue-IYB" secondAttribute="trailing" id="Cet-Da-Fyq"/>
+                                                <constraint firstItem="gu7-Lw-80e" firstAttribute="width" secondItem="X3f-SW-5Oz" secondAttribute="height" multiplier="83:173" id="IWR-Vb-Riv"/>
+                                                <constraint firstItem="6qj-ue-IYB" firstAttribute="leading" secondItem="X3f-SW-5Oz" secondAttribute="leading" id="Uga-mq-Uj7"/>
+                                                <constraint firstItem="gu7-Lw-80e" firstAttribute="top" secondItem="X3f-SW-5Oz" secondAttribute="top" constant="8" id="i7E-tG-qZq"/>
+                                                <constraint firstAttribute="bottom" secondItem="6qj-ue-IYB" secondAttribute="bottom" constant="8" id="mVQ-T5-teF"/>
+                                                <constraint firstItem="gu7-Lw-80e" firstAttribute="centerX" secondItem="X3f-SW-5Oz" secondAttribute="centerX" id="rV6-eF-xIV"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="128" height="128"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wlJ-YB-gxW">
-                                <rect key="frame" x="0.0" y="483" width="414" height="330"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.87139049951460168" blue="0.62957024797019723" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zk6-zX-3j4">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="4hA-C4-Ia1">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cw8-ON-NdF">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eFq-oh-dRV">
-                                <rect key="frame" x="0.0" y="303" width="414" height="154"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.78359725520000001" green="1" blue="0.77513248710000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RWH-ee-Ool">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="LKW-n8-XrT">
-                                        <rect key="frame" x="0.0" y="13" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CIY-QH-kQ2">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="135" height="181"/>
+                                        <connections>
+                                            <outlet property="buyButton" destination="qg0-YE-9DI" id="Ii0-QH-K5W"/>
+                                            <outlet property="modelLabel" destination="AuU-87-Idc" id="8pL-8K-ngb"/>
+                                            <outlet property="priceDiscountLabel" destination="UMN-Um-pJ6" id="fhd-ap-hhJ"/>
+                                            <outlet property="priceLabel" destination="cPK-zu-FeE" id="spn-eN-0pt"/>
+                                            <outlet property="productImage" destination="gu7-Lw-80e" id="n62-UT-H3n"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mih-TP-a4v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QLm-VG-lXH" firstAttribute="top" secondItem="lvl-RL-8ec" secondAttribute="bottom" constant="8" symbolic="YES" id="5hk-uF-iHK"/>
+                            <constraint firstItem="lvl-RL-8ec" firstAttribute="leading" secondItem="mih-TP-a4v" secondAttribute="leading" constant="20" id="5lu-zd-mtf"/>
+                            <constraint firstItem="lvl-RL-8ec" firstAttribute="top" secondItem="mih-TP-a4v" secondAttribute="top" constant="22" id="HcG-Mg-c4I"/>
+                            <constraint firstItem="QLm-VG-lXH" firstAttribute="leading" secondItem="mih-TP-a4v" secondAttribute="leading" id="c2u-pe-yBA"/>
+                            <constraint firstItem="QLm-VG-lXH" firstAttribute="trailing" secondItem="mih-TP-a4v" secondAttribute="trailing" id="kZP-L4-dab"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="PQn-Pz-b4g"/>
                     <connections>
-                        <outlet property="bestCollectionView" destination="eFq-oh-dRV" id="Jep-1b-BEw"/>
-                        <outlet property="recommendCollectionView" destination="wlJ-YB-gxW" id="yKw-bM-H7x"/>
                         <outlet property="sellsCollectionView" destination="QLm-VG-lXH" id="Zig-IU-B5d"/>
                     </connections>
                 </viewController>
@@ -152,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Apple Watch SE Sunglow" width="1400" height="1400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
