@@ -11,6 +11,7 @@ class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var productImage: UIImageView!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var priceDiscountLabel: UILabel!
     @IBOutlet var modelLabel: UILabel!
     @IBOutlet var buyButton: UIButton!
     
