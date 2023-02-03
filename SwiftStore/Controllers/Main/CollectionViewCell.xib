@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="SwiftStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="193" height="357"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="193" height="357"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple Watch SE Sunglow" translatesAutoresizingMaskIntoConstraints="NO" id="gQw-yo-5wB">
+                        <rect key="frame" x="-603.5" y="7" width="1400" height="206"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ORb-1g-q5e">
+                        <rect key="frame" x="34.5" y="221" width="124" height="116"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29 990 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaA-kH-Ym0">
+                                <rect key="frame" x="12.5" y="0.0" width="99" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MacBook Pro 16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qeb-Qw-agZ">
+                                <rect key="frame" x="0.0" y="45.5" width="124" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ig-Fq-p7v">
+                                <rect key="frame" x="28.5" y="78" width="67" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Купить"/>
+                                <connections>
+                                    <action selector="buyButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="aii-PR-RUr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ORb-1g-q5e" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="PWj-im-0oW"/>
+                <constraint firstItem="LaA-kH-Ym0" firstAttribute="top" secondItem="gQw-yo-5wB" secondAttribute="bottom" constant="8" symbolic="YES" id="RlO-dP-Cj0"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="ORb-1g-q5e" secondAttribute="bottom" constant="20" id="ZNT-XL-9p1"/>
+                <constraint firstItem="ORb-1g-q5e" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.642487" id="dfR-4y-TSf"/>
+                <constraint firstItem="gQw-yo-5wB" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.576602" id="gBk-Rl-Vzr"/>
+                <constraint firstItem="gQw-yo-5wB" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="q2o-7e-JZL"/>
+            </constraints>
+            <size key="customSize" width="193" height="357"/>
+            <connections>
+                <outlet property="buyButton" destination="6ig-Fq-p7v" id="1Pb-Co-4QU"/>
+                <outlet property="modelLabel" destination="Qeb-Qw-agZ" id="ucS-5S-Y5h"/>
+                <outlet property="priceLabel" destination="LaA-kH-Ym0" id="gSW-E9-5CP"/>
+                <outlet property="productImage" destination="gQw-yo-5wB" id="OZW-3z-lfh"/>
+            </connections>
+            <point key="canvasLocation" x="121.0144927536232" y="178.45982142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Apple Watch SE Sunglow" width="1400" height="1400"/>
+    </resources>
+</document>
