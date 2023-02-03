@@ -554,7 +554,7 @@ extension Product {
             let onSale = Bool.random()
             let isBestseller = Bool.random()
             let isRecommended = Bool.random()
-            let price = 1999
+            let price = getPrice(model: model, processor: chip, memory: memory, storage: storage, display: display)
             let priceDiscount = 1999
             
             products.append(
@@ -577,6 +577,53 @@ extension Product {
         
         return products
     }
+}
+
+private func getPrice(
+    model: String,
+    processor: String?,
+    memory: String?,
+    storage: String?,
+    display: String?
+) -> Int
+{
+    var price = 0
+    
+    guard let info = DataStore.shared.prices[model] else { return 0 }
+//    info.compactMap { $0 }
+    
+    
+    if let basePrice = info["base"] as? Int {
+        price += basePrice
+    } else {
+        price += 0
+    }
+    
+    if let processorPrice = info["processor"] as? [String: Int] {
+        price += processorPrice[processor ?? ""] ?? 0
+    } else {
+        price += 0
+    }
+    
+    if let memoryPrice = info["memory"] as? [String: Int] {
+        price += memoryPrice[memory ?? ""] ?? 0
+    } else {
+        price += 0
+    }
+    
+    if let storagePrice = info["storage"] as? [String: Int] {
+        price += storagePrice[storage ?? ""] ?? 0
+    } else {
+        price += 0
+    }
+    
+    if let displayPrice = info["display"] as? [String: Int] {
+        price += displayPrice[display ?? ""] ?? 0
+    } else {
+        price += 0
+    }
+    
+    return price
 }
 
 
