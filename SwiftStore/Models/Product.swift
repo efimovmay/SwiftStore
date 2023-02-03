@@ -17,6 +17,7 @@ struct Product {
     let isBestseller: Bool
     let isRecommended: Bool
     let price: Int
+    let discountAmount: Int
     let priceDiscount: Int
     
     var image: String {
@@ -39,6 +40,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 1399,
+                discountAmount: 10,
                 priceDiscount: 1099
             ),
             Product(
@@ -53,6 +55,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 999,
+                discountAmount: 10,
                 priceDiscount: 899
             ),
             Product(
@@ -67,6 +70,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1999,
+                discountAmount: 10,
                 priceDiscount: 1890
             ),
             Product(
@@ -81,6 +85,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 3099,
+                discountAmount: 10,
                 priceDiscount: 3099
             ),
             Product(
@@ -95,6 +100,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: false,
                 price: 2499,
+                discountAmount: 10,
                 priceDiscount: 2299
             ),
             Product(
@@ -109,6 +115,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 3499,
+                discountAmount: 10,
                 priceDiscount: 3499
             ),
             Product(
@@ -123,6 +130,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1299,
+                discountAmount: 10,
                 priceDiscount: 1199
             ),
             Product(
@@ -137,6 +145,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1699,
+                discountAmount: 10,
                 priceDiscount: 1699
             ),
             Product(
@@ -151,6 +160,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: false,
                 price: 599,
+                discountAmount: 10,
                 priceDiscount: 599
             ),
             Product(
@@ -165,6 +175,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 999,
+                discountAmount: 10,
                 priceDiscount: 899
             ),
             Product(
@@ -179,6 +190,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 1899,
+                discountAmount: 10,
                 priceDiscount: 1899
             ),
             Product(
@@ -193,6 +205,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1999,
+                discountAmount: 10,
                 priceDiscount: 1899
             ),
             Product(
@@ -207,6 +220,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 3999,
+                discountAmount: 10,
                 priceDiscount: 3999
             ),
             Product(
@@ -221,6 +235,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 49799,
+                discountAmount: 10,
                 priceDiscount: 47799
             ),
             Product(
@@ -235,6 +250,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 5999,
+                discountAmount: 10,
                 priceDiscount: 5999
             ),
             Product(
@@ -249,6 +265,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 799,
+                discountAmount: 10,
                 priceDiscount: 799
             ),
             Product(
@@ -263,6 +280,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1399,
+                discountAmount: 10,
                 priceDiscount: 1299
             ),
             Product(
@@ -277,6 +295,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 749,
+                discountAmount: 10,
                 priceDiscount: 749
             ),
             Product(
@@ -291,6 +310,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 499,
+                discountAmount: 10,
                 priceDiscount: 499
             ),
             Product(
@@ -305,6 +325,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 499,
+                discountAmount: 10,
                 priceDiscount: 449
             ),
             Product(
@@ -319,6 +340,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1099,
+                discountAmount: 10,
                 priceDiscount: 999
             ),
             Product(
@@ -333,6 +355,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 1399,
+                discountAmount: 10,
                 priceDiscount: 1399
             ),
             Product(
@@ -347,6 +370,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 799,
+                discountAmount: 10,
                 priceDiscount: 799
             ),
             Product(
@@ -361,6 +385,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: false,
                 price: 1199,
+                discountAmount: 10,
                 priceDiscount: 1199
             ),
             Product(
@@ -375,6 +400,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 599,
+                discountAmount: 10,
                 priceDiscount: 599
             ),
             Product(
@@ -389,6 +415,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 799,
+                discountAmount: 10,
                 priceDiscount: 799
             ),
             Product(
@@ -403,6 +430,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 429,
+                discountAmount: 10,
                 priceDiscount: 429
             ),
             Product(
@@ -417,6 +445,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 749,
+                discountAmount: 10,
                 priceDiscount: 749
             ),
             Product(
@@ -431,6 +460,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 799,
+                discountAmount: 10,
                 priceDiscount: 799
             ),
             Product(
@@ -445,6 +475,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 499,
+                discountAmount: 10,
                 priceDiscount: 499
             ),
             Product(
@@ -459,6 +490,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 279,
+                discountAmount: 10,
                 priceDiscount: 279
             ),
             Product(
@@ -473,6 +505,7 @@ extension Product {
                 isBestseller: true,
                 isRecommended: true,
                 price: 129,
+                discountAmount: 10,
                 priceDiscount: 129
             ),
             Product(
@@ -487,6 +520,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 169,
+                discountAmount: 10,
                 priceDiscount: 169
             ),
             Product(
@@ -501,6 +535,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: false,
                 price: 249,
+                discountAmount: 10,
                 priceDiscount: 229
             ),
             Product(
@@ -515,6 +550,7 @@ extension Product {
                 isBestseller: false,
                 isRecommended: true,
                 price: 549,
+                discountAmount: 10,
                 priceDiscount: 549
             )
         ]
@@ -555,7 +591,8 @@ extension Product {
             let isBestseller = Bool.random()
             let isRecommended = Bool.random()
             let price = getPrice(model: model, processor: chip, memory: memory, storage: storage, display: display)
-            let priceDiscount = 1999
+            let discountAmount = getDiscountAmount(onSale: onSale)
+            let priceDiscount = price - price * discountAmount / 100
             
             products.append(
                 Product(
@@ -570,6 +607,7 @@ extension Product {
                     isBestseller: isBestseller,
                     isRecommended: isRecommended,
                     price: price,
+                    discountAmount: discountAmount,
                     priceDiscount: priceDiscount
                 )
             )
@@ -626,4 +664,7 @@ private func getPrice(
     return price
 }
 
+private func getDiscountAmount(onSale: Bool) -> Int {
+    onSale == true ? Int.random(in: 5...25) : 0
+}
 
