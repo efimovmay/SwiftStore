@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-bG-Zgf">
-                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category" rowHeight="149" id="gPo-LO-3RT" customClass="CustomTableViewCell" customModule="SwiftStore" customModuleProvider="target">
@@ -140,10 +140,12 @@
             </objects>
             <point key="canvasLocation" x="2311.594202898551" y="131.91964285714286"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="FEK-NF-uUJ">
             <objects>
                 <navigationController id="Vjt-dk-fXJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Odd-Is-N9O"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="don-9g-F73">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -156,12 +158,12 @@
             </objects>
             <point key="canvasLocation" x="-327" y="132"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Catalog-->
         <scene sceneID="HLV-oK-fvX">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qm8-0f-zWg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="r87-qH-cnG"/>
+                    <navigationItem key="navigationItem" title="Catalog" id="r87-qH-cnG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U1B-CS-HEI">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
