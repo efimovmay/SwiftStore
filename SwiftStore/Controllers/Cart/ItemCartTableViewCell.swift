@@ -14,7 +14,7 @@ class ItemCartTableViewCell: UITableViewCell {
     @IBOutlet var nameLable: UILabel!
     @IBOutlet var priceLable: UILabel!
     
-    @IBOutlet var deleteButton: UIButton!
+
     
     
 }
