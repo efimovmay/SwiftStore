@@ -25,8 +25,9 @@ class CollectionViewCell: UICollectionViewCell {
     
     private func setupItem() {
         backgroundColor = #colorLiteral(red: 0.9976320863, green: 0.9901652932, blue: 0.8451907039, alpha: 1)
-        layer.cornerRadius = 10
-        productImage.layer.cornerRadius = 10
+        layer.cornerRadius = 15
+        productImage.layer.cornerRadius = 15
+        productImage.backgroundColor = .white
         
         buyButton.layer.cornerRadius = buyButton.frame.height / 2
         buyButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
