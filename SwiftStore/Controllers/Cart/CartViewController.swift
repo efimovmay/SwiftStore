@@ -39,14 +39,13 @@ class CartViewController: UITableViewController {
         super.viewDidLoad()
         nowInCart = getProducts2()
         
-        if nowInCart.count<1 {
-            firstLabel.isHidden = false
-            tableView.isHidden = true
-        }
+//        if nowInCart.count < 1 {
+//            firstLabel.isHidden = false
+//            tableView.isHidden = true
+//        }
     }
     
     // MARK: - Table view data source
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nowInCart.count
@@ -66,9 +65,6 @@ class CartViewController: UITableViewController {
         100
     }
     
-
-    
-
      // MARK: - Navigation
  
 

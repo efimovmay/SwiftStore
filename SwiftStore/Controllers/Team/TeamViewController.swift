@@ -2,28 +2,54 @@
 //  TeamViewController.swift
 //  SwiftStore
 //
-//  Created by Виталий Гринчик on 31.01.23.
+//  Created by Aleksey Efimov on 31.01.23.
 //
+
 
 import UIKit
 
-class TeamViewController: UIViewController {
 
+
+class TeamViewController: UIViewController {
+    
+    var team = getTeam()
+    
+    @IBOutlet var teamCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        teamCollectionView.delegate = self
+        teamCollectionView.dataSource = self
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return team.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = teamCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TeamCollectionViewCell
+        
+        let currentDeveloper = team[indexPath.item]
+        
+        cell.devImage.image = UIImage(named: currentDeveloper.image)
+        cell.nameLable.text = currentDeveloper.name
+        cell.charpterLable.text = "Разделы: \(currentDeveloper.charpter)"
+        cell.githubLinkLabel.text = currentDeveloper.githubLink
+        
+        cell.layer.cornerRadius = 15
+        cell.devImage.layer.cornerRadius = 15
+        
+        return cell
+    }
 
+    
 }
+
+
