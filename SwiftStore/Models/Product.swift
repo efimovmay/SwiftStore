@@ -19,6 +19,7 @@ struct Product {
     let price: Int
     let discountAmount: Int
     let priceDiscount: Int
+    var inCart = false
     
     var image: String {
         "\(model) \(color)".trimmingCharacters(in: .whitespaces)

@@ -9,6 +9,8 @@ import UIKit
 
 class CatalogueViewController: UITableViewController {
 
+    var cart: [Product]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

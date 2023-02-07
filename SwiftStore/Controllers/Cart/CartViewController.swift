@@ -9,6 +9,8 @@ import UIKit
 
 class CartViewController: UITableViewController {
 
+    var cart: [Product]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,7 +59,7 @@ class CartViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

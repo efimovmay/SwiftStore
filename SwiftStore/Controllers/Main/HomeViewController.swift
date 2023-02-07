@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     // MARK: - IB Outlets
     @IBOutlet var sellsCollectionView: UICollectionView!
-    //    @IBOutlet var bestCollectionView: UICollectionView!
+    @IBOutlet var bestCollectionView: UICollectionView!
 //    @IBOutlet var recommendCollectionView: UICollectionView!
     
     // MARK: - Data for collection views
@@ -19,16 +19,17 @@ final class HomeViewController: UIViewController {
     let bestProducts = Product.getRandomProducts(count: 6)
     let recomendedProducts = Product.getRandomProducts(count: 8)
     
+    var cart: [Product]!
+    
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+     
     // MARK: - Setup views
     private func setupUI() {
         setupTabBar()
-        setupCollectionViews()
     }
     
     private func setupTabBar() {
@@ -37,50 +38,47 @@ final class HomeViewController: UIViewController {
         // First tab selection on lounch
         tabBarController?.selectedViewController = tabBarController?.viewControllers?.first
     }
-    
-    private func setupCollectionViews() {
-        sellsCollectionView.dataSource = self
-        sellsCollectionView.delegate = self
-        
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.scrollDirection = .horizontal
-        sellsCollectionView.collectionViewLayout = collectionViewLayout
-    }
-}
 
-// MARK: - UICollectionViewDataSource
-extension HomeViewController: UICollectionViewDataSource {
-  
+    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        sellsProducts.count
+        switch collectionView {
+        case sellsCollectionView:
+            return sellsProducts.count
+        default:
+            return bestProducts.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell {
-            
+        
+        switch collectionView {
+        case sellsCollectionView:
+            let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! SellsCollectionViewCell
             let product = sellsProducts[indexPath.row]
             
-            // Форматируем текстовое значение полной цены как зачёркнутое
+            // Format nominal product price text to be stroken out
             let productPriceText = String(product.price)
             let productPriceTextStroken = NSMutableAttributedString(string: productPriceText)
             productPriceTextStroken.addAttribute(.strikethroughStyle, value: 1, range: NSRange(location: 0, length: productPriceText.count))
             
-                        
+            // Filling content of a cell
             cell.productImage.image = UIImage(named: product.image)
+            cell.modelLabel.text = product.image
             cell.priceDiscountLabel.text = String(product.priceDiscount)
             cell.priceLabel.attributedText = productPriceTextStroken
-            cell.modelLabel.text = product.image
             
             return cell
-        } else {
-            return CollectionViewCell()
+            
+        default:
+            let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! BestCollectionViewCell
+            let product = bestProducts[indexPath.row]
+            
+            // Filling content of a cell
+            cell.productImage.image = UIImage(named: product.image)
+            cell.modelLabel.text = product.image
+            cell.priceLabel.text = String(product.price)
+            
+            return cell
         }
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 135, height: sellsCollectionView.frame.height - 10)
     }
 }
