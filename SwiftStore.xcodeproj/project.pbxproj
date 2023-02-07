@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D882E56D2991395E00362841 /* SellsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882E56C2991395E00362841 /* SellsCollectionViewCell.swift */; };
+		D882E56D2991395E00362841 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882E56C2991395E00362841 /* CollectionViewCell.swift */; };
 		D8AEFA3529897E08003737A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA3429897E08003737A9 /* AppDelegate.swift */; };
 		D8AEFA3729897E08003737A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA3629897E08003737A9 /* SceneDelegate.swift */; };
 		D8AEFA3929897E08003737A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA3829897E08003737A9 /* MainViewController.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D882E56C2991395E00362841 /* SellsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D882E56C2991395E00362841 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		D8AEFA3129897E07003737A9 /* SwiftStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AEFA3429897E08003737A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AEFA3629897E08003737A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			children = (
 				D8AEFA3829897E08003737A9 /* MainViewController.swift */,
 				D8AEFA8B298AE751003737A9 /* HomeViewController.swift */,
-				D882E56C2991395E00362841 /* SellsCollectionViewCell.swift */,
+				D882E56C2991395E00362841 /* CollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AEFA52298982E6003737A9 /* CatalogueViewController.swift in Sources */,
-				D882E56D2991395E00362841 /* SellsCollectionViewCell.swift in Sources */,
+				D882E56D2991395E00362841 /* CollectionViewCell.swift in Sources */,
 				D8AEFA3929897E08003737A9 /* MainViewController.swift in Sources */,
 				D8AEFA4E298980FA003737A9 /* DataStore.swift in Sources */,
 				D8AEFA502989813E003737A9 /* Product.swift in Sources */,

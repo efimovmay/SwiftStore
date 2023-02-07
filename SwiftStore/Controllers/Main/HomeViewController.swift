@@ -52,7 +52,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         
         switch collectionView {
         case sellsCollectionView:
-            let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! SellsCollectionViewCell
+            let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! CollectionViewCell
             let product = sellsProducts[indexPath.row]
             
             // Format nominal product price text to be stroken out
@@ -69,7 +69,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             return cell
             
         case bestCollectionView:
-            let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! SellsCollectionViewCell
+            let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! CollectionViewCell
             let product = bestProducts[indexPath.row]
             
             // Filling content of a cell
@@ -81,7 +81,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             return cell
             
         default:
-            let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! SellsCollectionViewCell
+            let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! CollectionViewCell
             let product = recomendedProducts[indexPath.row]
             
             // Filling content of a cell
