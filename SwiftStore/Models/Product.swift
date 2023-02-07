@@ -24,6 +24,7 @@ struct Product {
     var image: String {
         "\(model) \(color)".trimmingCharacters(in: .whitespaces)
     }
+    var inCart = false
 }
 
 extension Product {
