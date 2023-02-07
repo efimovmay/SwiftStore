@@ -8,12 +8,10 @@
 
 import UIKit
 
-
-
 class TeamViewController: UIViewController {
     
-    var team = getTeam()
-    
+    let team = Developer.getTeam()
+
     @IBOutlet var teamCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -48,8 +46,12 @@ extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return cell
     }
-
+    
     
 }
 
+extension TeamViewController: UICollectionViewDelegateFlowLayout {
+    
 
+
+}
