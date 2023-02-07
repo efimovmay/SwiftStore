@@ -12,7 +12,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK: - IB Outlets
     @IBOutlet var sellsCollectionView: UICollectionView!
     @IBOutlet var bestCollectionView: UICollectionView!
-//    @IBOutlet var recommendCollectionView: UICollectionView!
+    @IBOutlet var recommendCollectionView: UICollectionView!
     
     // MARK: - Data for collection views
     let sellsProducts = Product.getRandomProducts(count: 8)
@@ -42,10 +42,9 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case sellsCollectionView:
-            return sellsProducts.count
-        default:
-            return bestProducts.count
+        case sellsCollectionView: return sellsProducts.count
+        case bestCollectionView: return bestProducts.count
+        default: return recomendedProducts.count
         }
     }
     
@@ -69,14 +68,27 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             
             return cell
             
-        default:
-            let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! BestCollectionViewCell
+        case bestCollectionView:
+            let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! SellsCollectionViewCell
             let product = bestProducts[indexPath.row]
             
             // Filling content of a cell
             cell.productImage.image = UIImage(named: product.image)
             cell.modelLabel.text = product.image
-            cell.priceLabel.text = String(product.price)
+            cell.priceDiscountLabel.text = String(product.price)
+            cell.priceLabel.isHidden = true
+            
+            return cell
+            
+        default:
+            let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! SellsCollectionViewCell
+            let product = recomendedProducts[indexPath.row]
+            
+            // Filling content of a cell
+            cell.productImage.image = UIImage(named: product.image)
+            cell.modelLabel.text = product.image
+            cell.priceDiscountLabel.text = String(product.price)
+            cell.priceLabel.isHidden = true
             
             return cell
         }
