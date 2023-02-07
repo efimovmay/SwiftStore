@@ -367,6 +367,7 @@ class DataStore {
         "AirPods Max": []
     ]
     
+    // MARK: - Prices
     let prices = [
         "MacBook Air M1": [
             "base": 999,
