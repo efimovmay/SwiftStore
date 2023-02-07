@@ -61,9 +61,9 @@ class DataStore {
     
     // MARK: - AirPods models
     let airPods = [
-        "AirPods 2nd generation",
-        "AirPods 3nd generation",
-        "AirPods Pro 2nd generation",
+        "AirPods (2nd generation)",
+        "AirPods (3nd generation)",
+        "AirPods Pro (2nd generation)",
         "AirPods Max"
     ]
     
