@@ -631,5 +631,15 @@ class DataStore {
         ]
     ]
     
+    let icons = [
+        "circle.grid.2x1",
+        "circlebadge",
+        "cpu",
+        "paintpalette",
+        "display",
+        "memorychip",
+        "internaldrive"
+    ]
+    
     private init() {}
 }
