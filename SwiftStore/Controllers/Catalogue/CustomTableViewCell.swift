@@ -16,24 +16,18 @@ class CustomTableViewCell: UITableViewCell {
     
   
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        
-//    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        buyButton.layer.cornerRadius = buyButton.frame.height / 2
+        buyButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
+        buyButton.setTitleColor(.black, for: .normal)
+        buyButton.setTitle("Купить", for: .normal)
+    }
     
 
     @IBAction func buyButtonDidTapped() {
 //            buyButton.configuration = setupButton(with: "В корзине")
         buyButton.setTitle("В корзине", for: .normal)
-        buyButton.tintColor = .lightGray
-    }
-
-    @available(iOS 15.0, *)
-    private func setupButton(with title: String) -> UIButton.Configuration {
-        var buttonConfiguration = UIButton.Configuration.borderedTinted()
-        buttonConfiguration.buttonSize = .medium
-        buttonConfiguration.title = title
-
-        return buttonConfiguration
+        buyButton.backgroundColor = .lightGray
     }
 }
