@@ -21,11 +21,9 @@ class TeamViewController: UIViewController {
         teamCollectionView.dataSource = self
     }
 }
+//MARK: - CollectionViewDelegateFlowLayout, CollectionViewDataSource
 
 extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return team.count
@@ -37,6 +35,9 @@ extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let currentDeveloper = team[indexPath.item]
         
         cell.devImage.image = UIImage(named: currentDeveloper.image)
+        cell.devImage.widthAnchor.constraint(
+            equalToConstant: cell.frame.width - 17).isActive = true
+        
         cell.nameLable.text = currentDeveloper.name
         cell.charpterLable.text = "Разделы: \(currentDeveloper.charpter)"
         cell.githubLinkLabel.text = currentDeveloper.githubLink
@@ -46,12 +47,27 @@ extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return cell
     }
-    
-    
 }
 
+//MARK: - CollectionViewDelegateFlowLayout
+
 extension TeamViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: teamCollectionView.frame.width/2 - 21 ,
+                      height: teamCollectionView.frame.width/2 - 21)
+    }
     
-
-
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 }
