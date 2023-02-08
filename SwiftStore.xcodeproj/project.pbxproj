@@ -158,6 +158,7 @@
 				D8AEFA51298982E6003737A9 /* CatalogueViewController.swift */,
 				D8AEFA53298983C0003737A9 /* ProductInfoViewController.swift */,
 				D8AEFA552989840B003737A9 /* CategoryListViewController.swift */,
+				3CC74406298D70FF00A42A54 /* CustomTableViewCell.swift */,
 			);
 			path = Catalogue;
 			sourceTree = "<group>";
@@ -259,6 +260,7 @@
 				D8AEFA502989813E003737A9 /* Product.swift in Sources */,
 				D8AEFA3529897E08003737A9 /* AppDelegate.swift in Sources */,
 				D8AEFA54298983C0003737A9 /* ProductInfoViewController.swift in Sources */,
+				3CC74407298D70FF00A42A54 /* CustomTableViewCell.swift in Sources */,
 				D8AEFA3729897E08003737A9 /* SceneDelegate.swift in Sources */,
 				D8AEFA8C298AE751003737A9 /* HomeViewController.swift in Sources */,
 				D8AEFA5D2989862B003737A9 /* CartViewController.swift in Sources */,
