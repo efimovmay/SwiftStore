@@ -14,18 +14,26 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     
-    @available(iOS 15.0, *)
-    @IBAction func buyButtonDidTapped() {
-            buyButton.configuration = setupButton(with: "В корзине")
-      
-        }
+    var count = 0
     
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        
+//    }
+    
+
+    @IBAction func buyButtonDidTapped() {
+//            buyButton.configuration = setupButton(with: "В корзине")
+        buyButton.setTitle("В корзине", for: .normal)
+        buyButton.tintColor = .lightGray
+    }
+
     @available(iOS 15.0, *)
     private func setupButton(with title: String) -> UIButton.Configuration {
         var buttonConfiguration = UIButton.Configuration.borderedTinted()
         buttonConfiguration.buttonSize = .medium
         buttonConfiguration.title = title
-        
+
         return buttonConfiguration
     }
 }

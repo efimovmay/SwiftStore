@@ -30,8 +30,9 @@ class CategoryListViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell =  tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! CustomTableViewCell
+        
         let currentProducts = currentProducts[indexPath.row]
-
+      
         cell.productNameLabel.text = currentProducts.model
         cell.priceLabel.text = "\(currentProducts.price) $"
         cell.productImageView.image = UIImage(named: currentProducts.image)
@@ -42,7 +43,4 @@ class CategoryListViewController: UIViewController, UITableViewDataSource, UITab
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 150
         }
-
-   
-
 }

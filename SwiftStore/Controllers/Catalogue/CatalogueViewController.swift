@@ -31,13 +31,13 @@ class CatalogueViewController: UITableViewController {
         
         content.text = category
         content.image = UIImage(named: category.lowercased())
+        
         cell.contentConfiguration = content
         
         return cell
     }
     
 //     MARK: UITableViewDelegate
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let catalogListVC = segue.destination as? CategoryListViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -79,8 +79,5 @@ class CatalogueViewController: UITableViewController {
                 }
             }
         }
-   
     }
-
-
 }

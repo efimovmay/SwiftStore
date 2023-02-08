@@ -44,12 +44,11 @@
                             <outlet property="delegate" destination="aXl-5B-htC" id="cUK-sE-P7h"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Catalog" image="doc.text.magnifyingglass" catalog="system" id="aFv-WO-k9v"/>
                     <navigationItem key="navigationItem" title="Catalog" id="ACl-Z4-1LV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Yc-bZ-W9k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="132"/>
+            <point key="canvasLocation" x="2328.985507246377" y="131.91964285714286"/>
         </scene>
         <!--Category List View Controller-->
         <scene sceneID="dHO-xb-fdl">
@@ -60,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-bG-Zgf">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category" rowHeight="149" id="gPo-LO-3RT" customClass="CustomTableViewCell" customModule="SwiftStore" customModuleProvider="target">
@@ -94,7 +93,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-H1-eLV">
                                                             <rect key="frame" x="80.5" y="73" width="53.5" height="34"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="filled" title="Buy"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="Buy" cornerStyle="capsule"/>
                                                             <connections>
                                                                 <action selector="buyButtonDidTapped" destination="gPo-LO-3RT" eventType="touchUpInside" id="rEZ-Le-6DY"/>
                                                             </connections>
@@ -117,6 +116,7 @@
                                             <outlet property="priceLabel" destination="D7k-ja-6Ed" id="689-IE-cl3"/>
                                             <outlet property="productImageView" destination="Abd-8U-rhw" id="5UC-rQ-S9R"/>
                                             <outlet property="productNameLabel" destination="UPy-sy-pdO" id="AGr-gd-TPf"/>
+                                            <segue destination="wt3-j2-TA7" kind="presentation" id="yiX-vu-tbp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -138,44 +138,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tl1-jB-bCG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2311.594202898551" y="131.91964285714286"/>
+            <point key="canvasLocation" x="3221.739130434783" y="131.91964285714286"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="FEK-NF-uUJ">
+        <!--productInfoVC-->
+        <scene sceneID="Eur-cU-zGu">
             <objects>
-                <navigationController id="Vjt-dk-fXJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Odd-Is-N9O"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="don-9g-F73">
+                <viewControllerPlaceholder storyboardName="ProductInfo" referencedIdentifier="productInfoVC" id="wt3-j2-TA7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAn-E7-n0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3910" y="144"/>
+        </scene>
+        <!--Catalog-->
+        <scene sceneID="jJH-Vg-KrX">
+            <objects>
+                <navigationController storyboardIdentifier="navigationCatalogVC" automaticallyAdjustsScrollViewInsets="NO" id="j3b-ee-6md" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Catalog" image="doc.text.magnifyingglass" catalog="system" id="aFv-WO-k9v"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gL-7s-k0U">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qm8-0f-zWg" kind="relationship" relationship="rootViewController" id="F9W-nf-oTZ"/>
+                        <segue destination="aXl-5B-htC" kind="relationship" relationship="rootViewController" id="JZV-E2-y51"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WG6-xa-kxd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYI-ym-2hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-327" y="132"/>
-        </scene>
-        <!--Catalog-->
-        <scene sceneID="HLV-oK-fvX">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qm8-0f-zWg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Catalog" id="r87-qH-cnG"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U1B-CS-HEI">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="aXl-5B-htC" kind="relationship" relationship="viewControllers" id="blm-Mw-wBn"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ssi-QA-vNC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="564" y="132"/>
+            <point key="canvasLocation" x="1418.840579710145" y="131.91964285714286"/>
         </scene>
     </scenes>
     <resources>
