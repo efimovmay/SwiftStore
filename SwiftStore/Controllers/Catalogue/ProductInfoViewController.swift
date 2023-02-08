@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ProductInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - IB Outlets
     @IBOutlet weak var productImage: UIImageView!
@@ -18,6 +18,7 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Public Properties
 //    var products = Product.getRandomProducts(count: 1)
     var product: Product?
+    var cart: [Product]?
     
     // MARK: - Private Properties
     private var productSpecs: [String] {
