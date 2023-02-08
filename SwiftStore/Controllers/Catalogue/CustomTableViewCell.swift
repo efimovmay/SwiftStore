@@ -14,7 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     
-    var count = 0
+  
     
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

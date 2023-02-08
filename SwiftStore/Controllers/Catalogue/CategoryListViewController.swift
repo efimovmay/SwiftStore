@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CategoryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +23,9 @@ class CategoryListViewController: UIViewController, UITableViewDataSource, UITab
         title = currentTitle
         
     }
+
+}
+extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         currentProducts.count
     }
