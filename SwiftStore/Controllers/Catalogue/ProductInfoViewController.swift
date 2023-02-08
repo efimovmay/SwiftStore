@@ -9,6 +9,8 @@ import UIKit
 
 class ProductInfoViewController: UIViewController {
 
+    var cart: [Product]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

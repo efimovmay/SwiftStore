@@ -12,6 +12,8 @@ class CatalogueViewController: UITableViewController {
     let categories = DataStore.shared.categories
     let allProducts = Product.getProducts()
 
+    var cart: [Product]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 200

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Catalog-->
+        <!--Каталог-->
         <scene sceneID="lEA-Zq-KzW">
             <objects>
                 <tableViewController storyboardIdentifier="catalogueVC" id="aXl-5B-htC" customClass="CatalogueViewController" customModule="SwiftStore" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="catalog" textLabel="2Ny-at-pzn" style="IBUITableViewCellStyleDefault" id="COW-l0-Ve9">
-                                <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="COW-l0-Ve9" id="gpu-W3-TH1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -44,7 +43,7 @@
                             <outlet property="delegate" destination="aXl-5B-htC" id="cUK-sE-P7h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Catalog" id="ACl-Z4-1LV"/>
+                    <navigationItem key="navigationItem" title="Каталог" id="ACl-Z4-1LV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Yc-bZ-W9k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,11 +58,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-bG-Zgf">
-                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category" rowHeight="149" id="gPo-LO-3RT" customClass="CustomTableViewCell" customModule="SwiftStore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="149"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gPo-LO-3RT" id="4qc-FY-O86">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="149"/>
@@ -79,21 +78,24 @@
                                                     <rect key="frame" x="170" y="21" width="214" height="107"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPy-sy-pdO">
-                                                            <rect key="frame" x="84.5" y="0.0" width="45" height="20.5"/>
+                                                            <rect key="frame" x="84.5" y="0.0" width="45" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7k-ja-6Ed">
-                                                            <rect key="frame" x="87.5" y="36.5" width="39" height="20.5"/>
+                                                            <rect key="frame" x="87.5" y="37.5" width="39" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-H1-eLV">
-                                                            <rect key="frame" x="80.5" y="73" width="53.5" height="34"/>
+                                                            <rect key="frame" x="57" y="81" width="100" height="26"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="MzM-I4-t2I"/>
+                                                                <constraint firstAttribute="height" constant="26" id="s0k-4d-S3G"/>
+                                                            </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="filled" title="Buy" cornerStyle="capsule"/>
                                                             <connections>
                                                                 <action selector="buyButtonDidTapped" destination="gPo-LO-3RT" eventType="touchUpInside" id="rEZ-Le-6DY"/>
                                                             </connections>
@@ -154,8 +156,8 @@
                 <navigationController storyboardIdentifier="navigationCatalogVC" automaticallyAdjustsScrollViewInsets="NO" id="j3b-ee-6md" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Catalog" image="doc.text.magnifyingglass" catalog="system" id="aFv-WO-k9v"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gL-7s-k0U">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7gL-7s-k0U">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -169,7 +171,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc.text.magnifyingglass" catalog="system" width="110" height="128"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
