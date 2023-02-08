@@ -61,9 +61,9 @@ class DataStore {
     
     // MARK: - AirPods models
     let airPods = [
-        "AirPods 2nd generation",
-        "AirPods 3nd generation",
-        "AirPods Pro 2nd generation",
+        "AirPods (2nd generation)",
+        "AirPods (3nd generation)",
+        "AirPods Pro (2nd generation)",
         "AirPods Max"
     ]
     
@@ -367,6 +367,7 @@ class DataStore {
         "AirPods Max": []
     ]
     
+    // MARK: - Prices
     let prices = [
         "MacBook Air M1": [
             "base": 999,
