@@ -617,13 +617,13 @@ class DataStore {
                 "256GB": 150
             ]
         ],
-        "AirPods 2nd generation": [
+        "AirPods (2nd generation)": [
             "base": 129
         ],
-        "AirPods 3nd generation": [
+        "AirPods (3nd generation)": [
             "base": 169
         ],
-        "AirPods Pro 2nd generation": [
+        "AirPods Pro (2nd generation)": [
             "base": 249
         ],
         "AirPods Max": [
