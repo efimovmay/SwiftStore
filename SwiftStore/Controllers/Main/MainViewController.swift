@@ -31,7 +31,7 @@ final class MainViewController: UITabBarController {
                 vc.cart = cart
             case let vc as CartViewController:
                 vc.cart = cart
-            case let vc as ProductsViewController:
+            case let vc as ProductInfoViewController:
                 vc.cart = cart
             default: break
             }

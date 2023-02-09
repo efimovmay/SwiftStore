@@ -40,7 +40,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 
     // Programmatically done segue to ProductInfoViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productInfoVC = ProductsViewController()
+        let productInfoVC = ProductInfoViewController()
         switch collectionView {
         case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
         case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]

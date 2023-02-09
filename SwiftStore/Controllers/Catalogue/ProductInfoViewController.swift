@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ProductInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - IB Outlets
     @IBOutlet weak var productImage: UIImageView!
