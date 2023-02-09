@@ -63,7 +63,6 @@ extension Product {
             let isRecommended = Bool.random()
             let price = getPrice(model: model, processor: chip, memory: memory, storage: storage, display: display)
             let discountAmount = getDiscountAmount(onSale: onSale)
-            let priceDiscount = price - price * discountAmount / 100
             
             products.append(
                 Product(
