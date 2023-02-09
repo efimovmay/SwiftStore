@@ -21,6 +21,8 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func buyButtonTapped(_ sender: UIButton) {
+        buyButton.setTitle("В корзине", for: .normal)
+        buyButton.backgroundColor = .lightGray
     }
     
     private func setupItem() {
