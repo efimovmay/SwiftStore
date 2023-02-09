@@ -14,11 +14,10 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet var bestCollectionView: UICollectionView!
     @IBOutlet var recommendCollectionView: UICollectionView!
     
-    // MARK: - Data for collection views
-    let sellsProducts = Product.getRandomProducts(count: 8)
-    let bestProducts = Product.getRandomProducts(count: 6)
-    let recomendedProducts = Product.getRandomProducts(count: 8)
-    
+    // Data being received from MainViewController
+    var sellsProducts: [Product]!
+    var bestProducts: [Product]!
+    var recomendedProducts: [Product]!
     var cart: [Product]!
     
     // MARK: - Override methods
