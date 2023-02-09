@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UITabBarController {
+final class MainViewController: UITabBarController {
     
     
     let sellsProducts = Product.getRandomProducts(count: 8)
@@ -31,7 +31,7 @@ class MainViewController: UITabBarController {
                 vc.cart = cart
             case let vc as CartViewController:
                 vc.cart = cart
-            case let vc as ProductInfoViewController:
+            case let vc as ProductsViewController:
                 vc.cart = cart
             default: break
             }
