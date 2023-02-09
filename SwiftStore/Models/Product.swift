@@ -18,8 +18,10 @@ struct Product {
     let isRecommended: Bool
     let price: Int
     let discountAmount: Int
-    let priceDiscount: Int
     
+    var priceDiscount: Int {
+        price - price * discountAmount / 100
+    }
     var image: String {
         "\(model) \(color)".trimmingCharacters(in: .whitespaces)
     }
@@ -76,8 +78,7 @@ extension Product {
                     isBestseller: isBestseller,
                     isRecommended: isRecommended,
                     price: price,
-                    discountAmount: discountAmount,
-                    priceDiscount: priceDiscount
+                    discountAmount: discountAmount
                 )
             )
         }
