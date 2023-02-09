@@ -46,13 +46,4 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 150
         }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
-//        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-//
-//        let currentProducts = currentProducts[indexPath.row]
-//
-//        productInfoVC.product = currentProducts
-//
-//}
+}
