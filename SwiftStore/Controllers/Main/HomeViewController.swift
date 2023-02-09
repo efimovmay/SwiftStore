@@ -38,6 +38,17 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         tabBarController?.selectedViewController = tabBarController?.viewControllers?.first
     }
 
+    // Programmatically done segue to ProductInfoViewController
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productInfoVC = ProductsViewController()
+        switch collectionView {
+        case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
+        case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]
+        default: productInfoVC.product = recomendedProducts[indexPath.row]
+        }
+        present(productInfoVC, animated: true)
+    }
+    
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
