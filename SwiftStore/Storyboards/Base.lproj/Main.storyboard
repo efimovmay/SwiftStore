@@ -130,7 +130,7 @@
                                                                         <action selector="buyButtonTapped:" destination="7IF-A8-PiS" eventType="touchUpInside" id="hL8-g7-R7k"/>
                                                                     </connections>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple Watch Series 8 Red" translatesAutoresizingMaskIntoConstraints="NO" id="gu7-Lw-80e">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gu7-Lw-80e">
                                                                     <rect key="frame" x="14" y="8" width="111" height="136.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="gu7-Lw-80e" secondAttribute="height" multiplier="22:27" id="UPR-Rc-pSB"/>
@@ -232,7 +232,7 @@
                                                                         <action selector="buyButtonTapped:" destination="qVb-AR-B1o" eventType="touchUpInside" id="4zm-jh-59X"/>
                                                                     </connections>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple Watch SE Sunglow" translatesAutoresizingMaskIntoConstraints="NO" id="lMV-i4-Wcr">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lMV-i4-Wcr">
                                                                     <rect key="frame" x="14" y="8" width="111" height="136.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="lMV-i4-Wcr" secondAttribute="height" multiplier="22:27" id="1jh-sJ-ex5"/>
@@ -329,7 +329,7 @@
                                                                         <action selector="buyButtonTapped:" destination="Kr0-Oc-Kof" eventType="touchUpInside" id="wJF-Iv-4YN"/>
                                                                     </connections>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mac" translatesAutoresizingMaskIntoConstraints="NO" id="jgH-rJ-6yV">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgH-rJ-6yV">
                                                                     <rect key="frame" x="14" y="8" width="111" height="136.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="jgH-rJ-6yV" secondAttribute="height" multiplier="22:27" id="8Y1-C8-pg2"/>
@@ -438,9 +438,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Apple Watch SE Sunglow" width="1400" height="1400"/>
-        <image name="Apple Watch Series 8 Red" width="1400" height="1400"/>
-        <image name="mac" width="567" height="390"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

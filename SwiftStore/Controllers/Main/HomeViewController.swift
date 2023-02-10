@@ -40,13 +40,16 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 
     // Programmatically done segue to ProductInfoViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productInfoVC = ProductInfoViewController()
+        let storyBoard = UIStoryboard(name: "ProductInfo", bundle: nil)
+        if let productInfoVC = storyBoard.instantiateViewController(identifier: "productInfoVC") as? ProductInfoViewController {
+//        let productInfoVC = ProductInfoViewController()
         switch collectionView {
         case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
         case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]
         default: productInfoVC.product = recomendedProducts[indexPath.row]
         }
         present(productInfoVC, animated: true)
+        }
     }
     
     // MARK: - UICollectionViewDataSource
