@@ -86,56 +86,58 @@ extension Product {
         
         return products
     }
+    
+    static func getPrice(
+        model: String,
+        processor: String?,
+        memory: String?,
+        storage: String?,
+        display: String?
+    ) -> Int
+    {
+        var price = 0
+        
+        guard let info = DataStore.shared.prices[model] else { return 0 }
+        
+        if let basePrice = info["base"] as? Int {
+            price += basePrice
+        } else {
+            price += 0
+        }
+        
+        if let processorPrice = info["processor"] as? [String: Int] {
+            price += processorPrice[processor ?? ""] ?? 0
+        } else {
+            price += 0
+        }
+        
+        if let memoryPrice = info["memory"] as? [String: Int] {
+            price += memoryPrice[memory ?? ""] ?? 0
+        } else {
+            price += 0
+        }
+        
+        if let storagePrice = info["storage"] as? [String: Int] {
+            price += storagePrice[storage ?? ""] ?? 0
+        } else {
+            price += 0
+        }
+        
+        if let displayPrice = info["display"] as? [String: Int] {
+            price += displayPrice[display ?? ""] ?? 0
+        } else {
+            price += 0
+        }
+        
+        return price
+    }
+
+    static func getDiscountAmount(onSale: Bool) -> Int {
+        onSale == true ? Int.random(in: 5...25) : 0
+    }
 }
 
-private func getPrice(
-    model: String,
-    processor: String?,
-    memory: String?,
-    storage: String?,
-    display: String?
-) -> Int
-{
-    var price = 0
-    
-    guard let info = DataStore.shared.prices[model] else { return 0 }
-    
-    if let basePrice = info["base"] as? Int {
-        price += basePrice
-    } else {
-        price += 0
-    }
-    
-    if let processorPrice = info["processor"] as? [String: Int] {
-        price += processorPrice[processor ?? ""] ?? 0
-    } else {
-        price += 0
-    }
-    
-    if let memoryPrice = info["memory"] as? [String: Int] {
-        price += memoryPrice[memory ?? ""] ?? 0
-    } else {
-        price += 0
-    }
-    
-    if let storagePrice = info["storage"] as? [String: Int] {
-        price += storagePrice[storage ?? ""] ?? 0
-    } else {
-        price += 0
-    }
-    
-    if let displayPrice = info["display"] as? [String: Int] {
-        price += displayPrice[display ?? ""] ?? 0
-    } else {
-        price += 0
-    }
-    
-    return price
-}
 
-private func getDiscountAmount(onSale: Bool) -> Int {
-    onSale == true ? Int.random(in: 5...25) : 0
-}
 
 // MARK: - Equatable
 extension Product: Equatable {
