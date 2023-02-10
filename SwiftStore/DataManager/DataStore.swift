@@ -54,16 +54,16 @@ class DataStore {
         "iPad Pro 11",
         "iPad Pro 12.9",
         "iPad Air",
-        "iPad 10th generation",
-        "iPad 9th generation",
+        "iPad 10",
+        "iPad 9",
         "iPad mini"
     ]
     
     // MARK: - AirPods models
     let airPods = [
-        "AirPods (2nd generation)",
-        "AirPods (3nd generation)",
-        "AirPods Pro (2nd generation)",
+        "AirPods 2",
+        "AirPods 3",
+        "AirPods Pro 2",
         "AirPods Max"
     ]
     
@@ -599,13 +599,13 @@ class DataStore {
                 "256GB": 150
             ]
         ],
-        "iPad 10th generation": [
+        "iPad 10": [
             "base": 499,
             "storage": [
                 "256GB": 150
             ]
         ],
-        "iPad 9th generation": [
+        "iPad 9": [
             "base": 329,
             "storage": [
                 "256GB": 150
@@ -617,13 +617,13 @@ class DataStore {
                 "256GB": 150
             ]
         ],
-        "AirPods (2nd generation)": [
+        "AirPods 2": [
             "base": 129
         ],
-        "AirPods (3nd generation)": [
+        "AirPods 3": [
             "base": 169
         ],
-        "AirPods Pro (2nd generation)": [
+        "AirPods Pro 2": [
             "base": 249
         ],
         "AirPods Max": [
