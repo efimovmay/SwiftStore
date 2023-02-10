@@ -10,7 +10,7 @@ import UIKit
 class CatalogueViewController: UITableViewController {
     
     let categories = DataStore.shared.categories
-    let allProducts = Product.getProducts()
+    let allProducts = Product.getRandomProducts(count: 50)
 
     var cart: [Product]!
     
@@ -33,13 +33,19 @@ class CatalogueViewController: UITableViewController {
         
         content.text = category
         content.image = UIImage(named: category.lowercased())
-        
+        cell.selectionStyle = .none
         cell.contentConfiguration = content
         
         return cell
     }
     
-//     MARK: UITableViewDelegate
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let products = allProducts[indexPath.row]
+        performSegue(withIdentifier: "showCatagoryList", sender: products)
+    }
+    
+//     MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let catalogListVC = segue.destination as? CategoryListViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
