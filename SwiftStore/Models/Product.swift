@@ -34,7 +34,7 @@ extension Product {
         let shared = DataStore.shared
         var products: [Product] = []
         
-        for _ in 1...count {
+        while products.count < count {
             let category = shared.categories.randomElement() ?? "iPhone"
             let model: String
             
@@ -64,22 +64,24 @@ extension Product {
             let price = getPrice(model: model, processor: chip, memory: memory, storage: storage, display: display)
             let discountAmount = getDiscountAmount(onSale: onSale)
             
-            products.append(
-                Product(
-                    category: category,
-                    model: model,
-                    chip: chip,
-                    color: color,
-                    display: display,
-                    memory: memory,
-                    storage: storage,
-                    onSale: onSale,
-                    isBestseller: isBestseller,
-                    isRecommended: isRecommended,
-                    price: price,
-                    discountAmount: discountAmount
-                )
+            let product = Product(
+                category: category,
+                model: model,
+                chip: chip,
+                color: color,
+                display: display,
+                memory: memory,
+                storage: storage,
+                onSale: onSale,
+                isBestseller: isBestseller,
+                isRecommended: isRecommended,
+                price: price,
+                discountAmount: discountAmount
             )
+            
+            if !products.contains(product) {
+                products.append(product)
+            }
         }
         
         return products
@@ -133,4 +135,17 @@ private func getPrice(
 
 private func getDiscountAmount(onSale: Bool) -> Int {
     onSale == true ? Int.random(in: 5...25) : 0
+}
+
+// MARK: - Equatable
+extension Product: Equatable {
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        return
+            lhs.model == rhs.model &&
+            lhs.chip == rhs.chip &&
+            lhs.color == rhs.color &&
+            lhs.display == rhs.display &&
+            lhs.memory == rhs.memory &&
+            lhs.storage == rhs.storage
+    }
 }
