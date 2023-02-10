@@ -18,6 +18,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - Public Properties
 //    var products = Product.getRandomProducts(count: 1)
     var product: Product?
+    var cart: [Product]?
     
     // MARK: - Private Properties
     private var productSpecs: [String] {
@@ -32,8 +33,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         ]
     }
 
-    var cart: [Product]!
-    
+    // MARK: - Override ProductsViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTechSpecsTableView()
