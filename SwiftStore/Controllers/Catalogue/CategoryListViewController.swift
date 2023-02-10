@@ -25,6 +25,7 @@ class CategoryListViewController: UIViewController {
     }
 
 }
+
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         currentProducts.count
@@ -39,6 +40,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.productNameLabel.text = currentProducts.model
         cell.priceLabel.text = "\(currentProducts.price) $"
         cell.productImageView.image = UIImage(named: currentProducts.image)
+        cell.selectionStyle = .none
 
             return cell
         }
@@ -46,4 +48,15 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 150
         }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        let currentProduct = currentProducts[indexPath.row]
+        
+        productInfoVC.product = currentProduct
+    }
 }

@@ -2,90 +2,109 @@
 //  CartViewController.swift
 //  SwiftStore
 //
-//  Created by Виталий Гринчик on 31.01.23.
+//  Created by Aleksey Efimov on 31.01.23.
 //
 
 import UIKit
 
-class CartViewController: UITableViewController {
 
+class CartViewController: UIViewController {
+    
+    // MARK: - IBOutlet
+
+    @IBOutlet var cartTableView: UITableView!
+    @IBOutlet var buttonView: UIView!
+    
+    @IBOutlet var emptyCartStack: UIStackView!
+    
+    @IBOutlet var numberItemInCartLabel: UILabel!
+    @IBOutlet var fullPriceLabel: UILabel!
+    
     var cart: [Product]!
+    
+    // MARK: - Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cartTableView.delegate = self
+        cartTableView.dataSource = self
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        cart = Product.getRandomProducts(count: 13)
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    override func viewWillLayoutSubviews() {
+        hideTable()
+        settingsUI()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    // MARK: - IBActions
+    
+    @IBAction func designPressButton() {
+        let number = 333
+        showAlertController(title: "Заказ успешно оформлен",
+                            massege: "Номер вашего заказа: \(number)")
     }
+}
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+//MARK: - UI settings
 
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+extension CartViewController {
+    
+    private func hideTable() {
+        if cart == nil {
+            cartTableView.isHidden = true
+            buttonView.isHidden = true
+            emptyCartStack.isHidden = false
+        } else {
+            cartTableView.isHidden = false
+            buttonView.isHidden = false
+            emptyCartStack.isHidden = true
         }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    private func showAlertController(title: String, massege: String) {
+        let alert = UIAlertController(title: title, message: massege, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    private func settingsUI() {
+        if cart != nil {
+            
+            let fullPrice = 333
+            numberItemInCartLabel.text = "\(cart.count) товаров"
+            fullPriceLabel.text = "\(fullPrice) $"
+        }
     }
-    */
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//MARK: - UITableView delegate
+
+extension CartViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if cart == nil {
+            return 0
+        } else {
+            return cart.count
+        }
     }
-    */
-
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCartTableViewCell
+        let product = cart[indexPath.row]
+        
+        cell.productImage.image = UIImage(named: product.image)
+        cell.nameLable.text = product.model
+        cell.priceLable.text = "\(product.price) $"
+        
+        return cell
+    }
+    
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
 }

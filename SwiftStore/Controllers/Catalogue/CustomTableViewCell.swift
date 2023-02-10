@@ -14,8 +14,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     
-  
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         buyButton.layer.cornerRadius = buyButton.frame.height / 2
@@ -24,7 +22,6 @@ class CustomTableViewCell: UITableViewCell {
         buyButton.setTitle("Купить", for: .normal)
     }
     
-
     @IBAction func buyButtonDidTapped() {
 //            buyButton.configuration = setupButton(with: "В корзине")
         buyButton.setTitle("В корзине", for: .normal)
