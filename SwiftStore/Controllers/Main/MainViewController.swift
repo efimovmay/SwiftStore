@@ -9,17 +9,18 @@ import UIKit
 
 final class MainViewController: UITabBarController {
     
-    
-    let sellsProducts = Product.getRandomProducts(count: 8)
-    let bestProducts = Product.getRandomProducts(count: 6)
-    let recomendedProducts = Product.getRandomProducts(count: 8)
     // Empty cart
     var cart = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Transfer cart array to other view cintrollers
+        // Get random data for categories: Products for Sale, Bestsellers and Recomended to Buy
+        let sellsProducts = getProductsForSale(count: 8)
+        let bestProducts = Product.getRandomProducts(count: 6)
+        let recomendedProducts = Product.getRandomProducts(count: 8)
+        
+        // Transfer data to other view cintrollers
         viewControllers?.forEach { vc in
             switch vc {
             case let vc as HomeViewController:
@@ -36,5 +37,22 @@ final class MainViewController: UITabBarController {
             default: break
             }
         }
+    }
+}
+
+extension MainViewController {
+    // Get random products with discount
+    func getProductsForSale(count: Int) -> [Product] {
+        var products = [Product]()
+        var backCounter = count
+        
+        while backCounter > 0 {
+            guard let product = Product.getRandomProducts(count: 1).first else { continue }
+            if product.onSale {
+                products.append(product)
+                backCounter -= 1
+            }
+        }
+        return products
     }
 }
