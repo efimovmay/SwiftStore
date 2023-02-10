@@ -73,7 +73,16 @@ extension CartViewController {
     private func settingsUI() {
         if cart != nil {
             
-            let fullPrice = 333
+            var fullPrice = 0
+            
+            for item in cart {
+                if item.onSale {
+                    fullPrice += item.priceDiscount
+                } else {
+                    fullPrice += item.price
+                }
+            }
+            
             numberItemInCartLabel.text = "\(cart.count) товаров"
             fullPriceLabel.text = "\(fullPrice) $"
         }
