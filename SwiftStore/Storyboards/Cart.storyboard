@@ -75,6 +75,9 @@
                                                 <state key="normal" title="Оформить">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="designPressButton" destination="UUl-Mt-cuc" eventType="touchUpInside" id="oHJ-1e-ozH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -178,6 +181,8 @@
                         <outlet property="buttonView" destination="KDR-3T-0V9" id="Wsu-JU-4Ac"/>
                         <outlet property="cartTableView" destination="lvk-hf-lxG" id="Gyv-sy-6bR"/>
                         <outlet property="emptyCartStack" destination="gie-lU-mtk" id="5yn-k3-ZNc"/>
+                        <outlet property="fullPriceLabel" destination="Hwa-2m-xNf" id="dwC-Rl-5Zg"/>
+                        <outlet property="numberItemInCartLabel" destination="B0x-Kd-9Tc" id="c5x-Cs-mw4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIp-id-jFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
