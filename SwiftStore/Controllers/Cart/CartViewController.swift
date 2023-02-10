@@ -20,6 +20,8 @@ class CartViewController: UIViewController {
     @IBOutlet var numberItemInCartLabel: UILabel!
     @IBOutlet var fullPriceLabel: UILabel!
     
+    
+    
     var cart: [Product]!
     
     // MARK: - Override Methods
@@ -41,7 +43,7 @@ class CartViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func designPressButton() {
-        let number = 333
+        let number = Int.random(in: 1000...9999)
         showAlertController(title: "Заказ успешно оформлен",
                             massege: "Номер вашего заказа: \(number)")
     }
@@ -52,7 +54,7 @@ class CartViewController: UIViewController {
 extension CartViewController {
     
     private func hideTable() {
-        if cart == nil {
+        if cart.count == 0 {
             cartTableView.isHidden = true
             buttonView.isHidden = true
             emptyCartStack.isHidden = false
@@ -82,7 +84,6 @@ extension CartViewController {
                     fullPrice += item.price
                 }
             }
-            
             numberItemInCartLabel.text = "\(cart.count) товаров"
             fullPriceLabel.text = "\(fullPrice) $"
         }
@@ -102,18 +103,31 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCartTableViewCell
         let product = cart[indexPath.row]
         
         cell.productImage.image = UIImage(named: product.image)
-        cell.nameLable.text = product.model
-        cell.priceLable.text = "\(product.price) $"
+        cell.nameLabel.text = product.model
+        cell.priceLabel.text = "\(product.price) $"
+        
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(handleRegister(_:)),
+                                    for: .touchUpInside)
         
         return cell
+    }
+    
+    @objc func handleRegister(_ sender: UIButton){
+        cart.remove(at: sender.tag)
+        cartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)],
+                                 with: .none)
+        cartTableView.reloadData()
+        viewWillLayoutSubviews()
     }
     
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
+    
 }

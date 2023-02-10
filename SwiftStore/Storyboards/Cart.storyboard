@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -82,7 +83,8 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstItem="K3C-2G-QdK" firstAttribute="leading" secondItem="KDR-3T-0V9" secondAttribute="leading" constant="20" id="2VP-Mx-J20"/>
                                     <constraint firstItem="K3C-2G-QdK" firstAttribute="centerY" secondItem="KDR-3T-0V9" secondAttribute="centerY" id="IZs-Zj-Jse"/>
@@ -152,8 +154,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLable" destination="dpq-6T-Ncg" id="BBp-67-h9I"/>
-                                            <outlet property="priceLable" destination="7md-bQ-8fS" id="huS-z9-ukW"/>
+                                            <outlet property="deleteButton" destination="1vw-Dr-Wnl" id="HYU-YC-V2Y"/>
+                                            <outlet property="nameLabel" destination="dpq-6T-Ncg" id="BBp-67-h9I"/>
+                                            <outlet property="priceLabel" destination="7md-bQ-8fS" id="huS-z9-ukW"/>
                                             <outlet property="productImage" destination="Ogy-mG-Py7" id="HBZ-qE-FPK"/>
                                         </connections>
                                     </tableViewCell>
@@ -214,6 +217,9 @@
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

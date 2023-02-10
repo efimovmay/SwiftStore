@@ -86,10 +86,10 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.21333251559999999" green="0.60646230499999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="charpterLable" destination="sTb-YH-xTs" id="Lgp-p4-KKd"/>
+                                            <outlet property="charpterLabel" destination="sTb-YH-xTs" id="Lgp-p4-KKd"/>
                                             <outlet property="devImage" destination="QEK-HP-tH9" id="jYS-0R-UXq"/>
                                             <outlet property="githubLinkLabel" destination="IZ6-1o-VRe" id="Vuu-SK-od9"/>
-                                            <outlet property="nameLable" destination="LbC-mZ-uuo" id="6SW-QS-e7P"/>
+                                            <outlet property="nameLabel" destination="LbC-mZ-uuo" id="6SW-QS-e7P"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

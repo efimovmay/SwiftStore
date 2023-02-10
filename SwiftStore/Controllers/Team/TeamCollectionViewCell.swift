@@ -10,8 +10,9 @@ import UIKit
 class TeamCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var devImage: UIImageView!
-    @IBOutlet var nameLable: UILabel!
-    @IBOutlet var charpterLable: UILabel!
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var charpterLabel: UILabel!
     @IBOutlet var githubLinkLabel: UILabel!
     
 }
