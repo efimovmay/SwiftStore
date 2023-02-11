@@ -229,13 +229,13 @@ class DataStore {
             "Purple",
             "Starlight"
         ],
-        "iPad 10th generation" : [
+        "iPad 10" : [
             "Blue",
             "Pink",
             "Silver",
             "Yellow"
         ],
-        "iPad 9th generation" : [
+        "iPad 9" : [
             "Space Gray",
             "Silver"
         ],
