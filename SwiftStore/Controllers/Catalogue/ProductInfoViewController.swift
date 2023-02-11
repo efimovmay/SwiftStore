@@ -2,7 +2,7 @@
 //  ProductInfoViewController.swift
 //  SwiftStore
 //
-//  Created by Виталий Гринчик on 31.01.23.
+//  Created by Dmitry Polyakov on 31.01.23.
 //
 
 import UIKit
@@ -16,39 +16,77 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var techSpecsTableView: UITableView!
     
     // MARK: - Public Properties
-//    var products = Product.getRandomProducts(count: 1)
     var product: Product?
     var cart: [Product]?
     
     // MARK: - Private Properties
-    private var productSpecs: [String] {
-        [
-            "Категория: \(product?.category ?? "")",
-            "Модель: \(product?.model ?? "")",
-            "Процессор: \(product?.chip ?? "")",
-            "Цвет: \(product?.color ?? "")",
-            "Диагональ: \(product?.display ?? "")",
-            "Оперативная память: \(product?.memory ?? "")",
-            "Память: \(product?.storage ?? "")"
-        ]
+    var productSpecs: [String] {
+        getSpecs(for: product!)
     }
-
+    
     // MARK: - Override ProductsViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTechSpecsTableView()
-        productImage.image = UIImage(named: product?.image ?? "")
-        productLabel.text = product?.image
+        setupView()
+        
     }
     
-    // MARK: - Table view data source
+    // MARK: - Private Methods
+    private func setupView() {
+        guard let product = product else { return }
+        setupTechSpecsTableView()
+        
+        productImage.image = UIImage(named: product.image )
+        productLabel.text = product.title
+    }
+    
+    private func setupTechSpecsTableView() {
+        let rowHeight = 60
+        techSpecsTableView.rowHeight = CGFloat(rowHeight)
+        techSpecsHeight.constant = CGFloat(rowHeight * productSpecs.count)
+    }
+    
+    private func getSpecs(for product: Product) -> [String] {
+        
+        var productSpecs: [String] = []
+        
+        if product.category != "" {
+            productSpecs.append("Категория: \(product.category)")
+        }
+        if product.model != "" {
+            productSpecs.append("Модель: \(product.model)")
+        }
+        if product.chip != "" {
+            productSpecs.append("Процессор: \(product.chip)")
+        }
+        if product.color != "" {
+            productSpecs.append("Цвет: \(product.color)")
+        }
+        if product.display != "" {
+            productSpecs.append("Диагональ: \(product.display)")
+        }
+        if product.memory != "" {
+            productSpecs.append("Оперативная память: \(product.memory)")
+        }
+        if product.storage != "" {
+            productSpecs.append("Память: \(product.storage)")
+        }
+        
+        return productSpecs
+    }
+}
+
+// MARK: - Table view data source
+extension ProductInfoViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         productSpecs.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "techSpec", for: indexPath)
+        
+        cell.selectionStyle = .none
         
         var content = cell.defaultContentConfiguration()
         
@@ -59,12 +97,4 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         
         return cell
     }
-    
-    // MARK: - Private Methods
-    private func setupTechSpecsTableView() {
-        let rowHeight = 60
-        techSpecsTableView.rowHeight = CGFloat(rowHeight)
-        techSpecsHeight.constant = CGFloat(rowHeight * productSpecs.count)
-    }
-    
 }
