@@ -7,21 +7,32 @@
 
 import UIKit
 
-class BuyButton: UIButton {
+@IBDesignable final class BuyButton: UIButton {
 
-    init(title: String) {
-        super.init(frame: .zero)
-        setupButton(with: title)
-        }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    enum ButtonState {
+        case unTapped, tapped
     }
     
-    private func setupButton(with title: String) {
-        setTitle(title, for: .normal)
-        backgroundColor = .lightGray
-        backgroundColor = #colorLiteral(red: 0.9976320863, green: 0.9901652932, blue: 0.8451907039, alpha: 1)
-        layer.cornerRadius = 15
+    // Button view constants
+    private let untappedColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
+    private let tappedColor = UIColor.lightGray
+    
+    override func draw(_ rect: CGRect) {
+        // Initial button view
+        setButtonView(for: ButtonState.unTapped)
+    }
+    
+    func setButtonView(for state: ButtonState) {
+        setTitleColor(.black, for: .normal)
+        layer.cornerRadius = frame.height / 2
+        
+        if state == .tapped {
+            setTitle("В корзине", for: .normal)
+            layer.backgroundColor = tappedColor.cgColor
+            return
+        }
+        setTitle("Купить", for: .normal)
+        layer.backgroundColor = untappedColor.cgColor
+        return
     }
 }

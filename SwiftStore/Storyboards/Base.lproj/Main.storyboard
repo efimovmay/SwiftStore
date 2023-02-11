@@ -119,7 +119,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-YE-9DI">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-YE-9DI" customClass="BuyButton" customModule="SwiftStore" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="198" width="109" height="26"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="cDg-JZ-LsO"/>
@@ -221,7 +221,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwN-LQ-70q">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwN-LQ-70q" customClass="BuyButton" customModule="SwiftStore" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="198" width="109" height="26"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="Eq9-6I-wjZ"/>
@@ -318,7 +318,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHr-8R-exb">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHr-8R-exb" customClass="BuyButton" customModule="SwiftStore" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="198" width="109" height="26"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="eai-v0-q8A"/>
@@ -437,6 +437,17 @@
             <point key="canvasLocation" x="805" y="531"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="PHr-8R-exb">
+            <size key="intrinsicContentSize" width="38" height="26"/>
+        </designable>
+        <designable name="YwN-LQ-70q">
+            <size key="intrinsicContentSize" width="38" height="26"/>
+        </designable>
+        <designable name="qg0-YE-9DI">
+            <size key="intrinsicContentSize" width="38" height="26"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
