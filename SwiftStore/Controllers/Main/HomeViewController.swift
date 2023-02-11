@@ -69,14 +69,14 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let product = sellsProducts[indexPath.row]
             
             // Format nominal product price text to be stroken out
-            let productPriceText = String(product.price)
+            let productPriceText = String(product.price) + " $"
             let productPriceTextStroken = NSMutableAttributedString(string: productPriceText)
             productPriceTextStroken.addAttribute(.strikethroughStyle, value: 1, range: NSRange(location: 0, length: productPriceText.count))
             
             // Filling content of a cell
             cell.productImage.image = UIImage(named: product.image)
             cell.modelLabel.text = product.image
-            cell.priceDiscountLabel.text = String(product.priceDiscount)
+            cell.priceDiscountLabel.text = String(product.priceDiscount) + " $"
             cell.priceLabel.attributedText = productPriceTextStroken
             
             return cell
@@ -88,7 +88,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             // Filling content of a cell
             cell.productImage.image = UIImage(named: product.image)
             cell.modelLabel.text = product.image
-            cell.priceDiscountLabel.text = String(product.price)
+            cell.priceDiscountLabel.text = String(product.price) + " $"
             cell.priceLabel.isHidden = true
             
             return cell
@@ -100,7 +100,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             // Filling content of a cell
             cell.productImage.image = UIImage(named: product.image)
             cell.modelLabel.text = product.image
-            cell.priceDiscountLabel.text = String(product.price)
+            cell.priceDiscountLabel.text = String(product.price) + " $"
             cell.priceLabel.isHidden = true
             
             return cell
