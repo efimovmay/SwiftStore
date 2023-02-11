@@ -77,7 +77,13 @@ extension Product {
             let onSale = Bool.random()
             let isBestseller = Bool.random()
             let isRecommended = Bool.random()
-            let price = getPrice(model: model, processor: chip, memory: memory, storage: storage, display: display)
+            let price = getPrice(
+                model: model,
+                processor: chip,
+                memory: memory,
+                storage: storage,
+                display: display
+            )
             let discountAmount = getDiscountAmount(onSale: onSale)
             
             let product = Product(
@@ -117,32 +123,18 @@ extension Product {
         
         if let basePrice = info["base"] as? Int {
             price += basePrice
-        } else {
-            price += 0
         }
-        
         if let processorPrice = info["processor"] as? [String: Int] {
             price += processorPrice[processor ?? ""] ?? 0
-        } else {
-            price += 0
         }
-        
         if let memoryPrice = info["memory"] as? [String: Int] {
             price += memoryPrice[memory ?? ""] ?? 0
-        } else {
-            price += 0
         }
-        
         if let storagePrice = info["storage"] as? [String: Int] {
             price += storagePrice[storage ?? ""] ?? 0
-        } else {
-            price += 0
         }
-        
         if let displayPrice = info["display"] as? [String: Int] {
             price += displayPrice[display ?? ""] ?? 0
-        } else {
-            price += 0
         }
         
         return price
