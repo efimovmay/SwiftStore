@@ -5,7 +5,6 @@
 //  Created by Виталий Гринчик on 31.01.23.
 //
 
-
 import UIKit
 
 final class ProductInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -103,6 +102,8 @@ extension ProductInfoViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "techSpec", for: indexPath)
+        
+        cell.selectionStyle = .none
         
         var content = cell.defaultContentConfiguration()
         
