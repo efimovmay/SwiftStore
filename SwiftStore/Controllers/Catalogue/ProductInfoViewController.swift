@@ -103,6 +103,8 @@ extension ProductInfoViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "techSpec", for: indexPath)
         
+        cell.selectionStyle = .none
+        
         var content = cell.defaultContentConfiguration()
         
         content.text = productSpecs[indexPath.row]
