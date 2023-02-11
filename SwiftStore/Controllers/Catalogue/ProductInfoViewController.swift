@@ -2,7 +2,7 @@
 //  ProductInfoViewController.swift
 //  SwiftStore
 //
-//  Created by Виталий Гринчик on 31.01.23.
+//  Created by Dmitry Polyakov on 31.01.23.
 //
 
 import UIKit
@@ -37,30 +37,13 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         setupTechSpecsTableView()
         
         productImage.image = UIImage(named: product.image )
-        productLabel.text = getTitle(for: product)
+        productLabel.text = product.title
     }
     
     private func setupTechSpecsTableView() {
         let rowHeight = 60
         techSpecsTableView.rowHeight = CGFloat(rowHeight)
         techSpecsHeight.constant = CGFloat(rowHeight * productSpecs.count)
-    }
-    
-    private func getTitle(for product: Product) -> String {
-        switch product.category {
-        case "Mac":
-            if product.model.contains("M1") || product.model.contains("M2") {
-                return "\(product.model) \(product.color) \(product.memory)/\(product.storage)"
-            } else {
-                return "\(product.model) \(product.chip) \(product.color) \(product.memory)/\(product.storage)"
-            }
-        case "iPhone", "iPad":
-            return "\(product.model) \(product.color) \(product.storage)"
-        case "Watch":
-            return "\(product.model) \(product.display)"
-        default:
-            return "\(product.model)"
-        }
     }
     
     private func getSpecs(for product: Product) -> [String] {

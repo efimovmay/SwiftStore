@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  ProductInfoViewController.swift
 //  SwiftStore
 //
 //  Created by Dmitry Polyakov on 31.01.23.
@@ -26,6 +26,22 @@ struct Product {
         "\(model) \(color)".trimmingCharacters(in: .whitespaces)
     }
     var inCart = false
+    var title: String {
+        switch category {
+        case "Mac":
+            if model.contains("M1") || model.contains("M2") {
+                return "\(model) \(color) \(memory)/\(storage)"
+            } else {
+                return "\(model) \(chip)\(color == "" ? "" : " \(color)") \(memory)/\(storage)"
+            }
+        case "iPhone", "iPad":
+            return "\(model) \(color) \(storage)"
+        case "Watch":
+            return "\(model) \(display)"
+        default:
+            return "\(model)"
+        }
+    }
 }
 
 extension Product {
