@@ -5,6 +5,7 @@
 //  Created by Виталий Гринчик on 31.01.23.
 //
 
+
 import UIKit
 
 final class ProductInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
