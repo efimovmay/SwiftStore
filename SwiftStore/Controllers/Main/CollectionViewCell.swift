@@ -13,7 +13,7 @@ final class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var priceDiscountLabel: UILabel!
     @IBOutlet var modelLabel: UILabel!
-    @IBOutlet var buyButton: BuyButton!
+    @IBOutlet var buyButton: CustomButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +21,7 @@ final class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func buyButtonTapped(_ sender: UIButton) {
-        buyButton.setButtonView(for: .tapped)
+        buyButton.setButtonView(title: "В корзине", isTapped: true)
     }
     
     private func setupCellItem() {
