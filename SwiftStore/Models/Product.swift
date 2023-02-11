@@ -37,7 +37,7 @@ struct Product {
         case "iPhone", "iPad":
             return "\(model) \(color) \(storage)"
         case "Watch":
-            return "\(model) \(display)"
+            return "\(model)\(color == "" ? "" : " \(color)") \(display)"
         default:
             return model == "AirPods Max" ? "\(model) \(color)" : model
         }
