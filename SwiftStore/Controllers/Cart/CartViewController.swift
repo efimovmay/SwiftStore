@@ -20,8 +20,6 @@ class CartViewController: UIViewController {
     @IBOutlet var numberItemInCartLabel: UILabel!
     @IBOutlet var fullPriceLabel: UILabel!
     
-    
-    
     var cart: [Product]!
     
     // MARK: - Override Methods
@@ -39,6 +37,7 @@ class CartViewController: UIViewController {
         hideTable()
         settingsUI()
     }
+
     
     // MARK: - IBActions
     
@@ -107,9 +106,14 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCartTableViewCell
         let product = cart[indexPath.row]
         
+        if product.onSale {
+            cell.priceLabel.text = "\(product.priceDiscount)* $"
+        } else {
+            cell.priceLabel.text = "\(product.price) $"
+        }
+        
         cell.productImage.image = UIImage(named: product.image)
         cell.nameLabel.text = product.model
-        cell.priceLabel.text = "\(product.price) $"
         
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(handleRegister(_:)),
@@ -126,8 +130,18 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         viewWillLayoutSubviews()
     }
     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
+    }
+    
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
+        guard let indexPath = cartTableView.indexPathForSelectedRow else { return }
+
+        let currentProduct = cart[indexPath.row]
+        productInfoVC.product = currentProduct
     }
     
 }
