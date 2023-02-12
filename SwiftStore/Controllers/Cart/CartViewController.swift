@@ -20,6 +20,9 @@ class CartViewController: UIViewController {
     @IBOutlet var numberItemInCartLabel: UILabel!
     @IBOutlet var fullPriceLabel: UILabel!
     
+    @IBOutlet var mainScreenButton: UIButton!
+    @IBOutlet var designButton: UIButton!
+    
     var cart: [Product]!
     
     // MARK: - Override Methods
@@ -31,11 +34,13 @@ class CartViewController: UIViewController {
         cartTableView.dataSource = self
 
         cart = Product.getRandomProducts(count: 13)
+        
+        buttonSettings()
     }
     
     override func viewWillLayoutSubviews() {
-        hideTable()
-        settingsUI()
+        visibilityElementSettings()
+        labelSettings()
     }
 
     
@@ -52,7 +57,7 @@ class CartViewController: UIViewController {
 
 extension CartViewController {
     
-    private func hideTable() {
+    private func visibilityElementSettings() {
         if cart.count == 0 {
             cartTableView.isHidden = true
             buttonView.isHidden = true
@@ -71,7 +76,7 @@ extension CartViewController {
         present(alert, animated: true)
     }
     
-    private func settingsUI() {
+    private func labelSettings() {
         if cart != nil {
             
             var fullPrice = 0
@@ -86,6 +91,15 @@ extension CartViewController {
             numberItemInCartLabel.text = "\(cart.count) товаров"
             fullPriceLabel.text = "\(fullPrice) $"
         }
+    }
+    
+    private func buttonSettings() {
+        
+        mainScreenButton.layer.cornerRadius = mainScreenButton.frame.height / 2
+        mainScreenButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
+        
+        designButton.layer.cornerRadius = designButton.frame.height / 2
+        designButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
     }
 }
 

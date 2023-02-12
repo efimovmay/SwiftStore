@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="gie-lU-mtk">
-                                <rect key="frame" x="16" y="204" width="382" height="314"/>
+                                <rect key="frame" x="16" y="204" width="382" height="329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В корзине пока ничего нет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ki-Hu-0zB">
                                         <rect key="frame" x="63.5" y="0.0" width="255.5" height="24"/>
@@ -33,45 +33,58 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OA-9Z-D7f">
-                                        <rect key="frame" x="148" y="185" width="86.5" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Главная"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OA-9Z-D7f">
+                                        <rect key="frame" x="116" y="185" width="150" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="e7j-2v-15W"/>
+                                            <constraint firstAttribute="width" constant="150" id="yO1-3K-Y84"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Главная">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UG-7k-Gfb">
-                                        <rect key="frame" x="147.5" y="279.5" width="87.5" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Каталог"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UG-7k-Gfb">
+                                        <rect key="frame" x="149" y="290" width="84" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Каталог">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDR-3T-0V9">
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K3C-2G-QdK">
-                                        <rect key="frame" x="20" y="13.5" width="374" height="53"/>
+                                    <stackView opaque="NO" contentMode="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K3C-2G-QdK">
+                                        <rect key="frame" x="20" y="17.5" width="374" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="moq-4p-kII">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="214" height="45"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 товара" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0x-Kd-9Tc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="21.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2 товара" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0x-Kd-9Tc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="214" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 000 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwa-2m-xNf">
-                                                        <rect key="frame" x="0.0" y="31.5" width="177" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="31.5" width="214" height="13.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQ8-Ns-tvd">
-                                                <rect key="frame" x="197" y="7" width="177" height="39"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQ8-Ns-tvd">
+                                                <rect key="frame" x="224" y="0.0" width="150" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="TCp-yX-auw"/>
+                                                    <constraint firstAttribute="height" constant="45" id="TO7-4a-X77"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Оформить">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,10 +99,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstItem="K3C-2G-QdK" firstAttribute="leading" secondItem="KDR-3T-0V9" secondAttribute="leading" constant="20" id="2VP-Mx-J20"/>
-                                    <constraint firstItem="K3C-2G-QdK" firstAttribute="centerY" secondItem="KDR-3T-0V9" secondAttribute="centerY" id="IZs-Zj-Jse"/>
-                                    <constraint firstAttribute="height" constant="80" id="eQI-gb-9VT"/>
-                                    <constraint firstAttribute="trailing" secondItem="K3C-2G-QdK" secondAttribute="trailing" constant="20" id="evF-r9-Hsx"/>
+                                    <constraint firstItem="K3C-2G-QdK" firstAttribute="centerY" secondItem="KDR-3T-0V9" secondAttribute="centerY" id="Ehl-N6-xfS"/>
+                                    <constraint firstAttribute="height" constant="80" id="RMO-u6-Kjz"/>
+                                    <constraint firstItem="K3C-2G-QdK" firstAttribute="leading" secondItem="KDR-3T-0V9" secondAttribute="leading" constant="20" id="fQ2-pU-vYL"/>
+                                    <constraint firstAttribute="trailing" secondItem="K3C-2G-QdK" secondAttribute="trailing" constant="20" id="rfP-3s-hDr"/>
                                 </constraints>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lvk-hf-lxG">
@@ -171,27 +184,29 @@
                             <constraint firstItem="gie-lU-mtk" firstAttribute="centerX" secondItem="fEz-2T-m2J" secondAttribute="centerX" id="2P4-n6-adM"/>
                             <constraint firstItem="kRA-14-mhc" firstAttribute="trailing" secondItem="lvk-hf-lxG" secondAttribute="trailing" id="3bu-cS-fxI"/>
                             <constraint firstItem="gie-lU-mtk" firstAttribute="leading" secondItem="fEz-2T-m2J" secondAttribute="leading" constant="16" id="6z7-EZ-5mM"/>
-                            <constraint firstItem="kRA-14-mhc" firstAttribute="trailing" secondItem="KDR-3T-0V9" secondAttribute="trailing" id="E9M-06-58T"/>
                             <constraint firstItem="KDR-3T-0V9" firstAttribute="bottom" secondItem="kRA-14-mhc" secondAttribute="bottom" id="Tmp-ox-WbY"/>
                             <constraint firstItem="lvk-hf-lxG" firstAttribute="leading" secondItem="kRA-14-mhc" secondAttribute="leading" id="VEk-sl-XYV"/>
                             <constraint firstAttribute="trailing" secondItem="gie-lU-mtk" secondAttribute="trailing" constant="16" id="cwd-5h-6IE"/>
                             <constraint firstItem="gie-lU-mtk" firstAttribute="top" secondItem="kRA-14-mhc" secondAttribute="top" constant="60" id="eWA-EM-aTr"/>
-                            <constraint firstItem="KDR-3T-0V9" firstAttribute="leading" secondItem="kRA-14-mhc" secondAttribute="leading" id="k7Q-Up-55p"/>
+                            <constraint firstItem="KDR-3T-0V9" firstAttribute="leading" secondItem="kRA-14-mhc" secondAttribute="leading" id="oYJ-3Q-Xre"/>
                             <constraint firstItem="lvk-hf-lxG" firstAttribute="top" secondItem="kRA-14-mhc" secondAttribute="top" id="wu5-Kp-CWz"/>
+                            <constraint firstItem="KDR-3T-0V9" firstAttribute="trailing" secondItem="kRA-14-mhc" secondAttribute="trailing" id="xHZ-5s-3sm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Корзина" id="0EQ-bv-cYL"/>
                     <connections>
                         <outlet property="buttonView" destination="KDR-3T-0V9" id="Wsu-JU-4Ac"/>
                         <outlet property="cartTableView" destination="lvk-hf-lxG" id="Gyv-sy-6bR"/>
+                        <outlet property="designButton" destination="sQ8-Ns-tvd" id="Zrt-8t-XsL"/>
                         <outlet property="emptyCartStack" destination="gie-lU-mtk" id="5yn-k3-ZNc"/>
                         <outlet property="fullPriceLabel" destination="Hwa-2m-xNf" id="dwC-Rl-5Zg"/>
+                        <outlet property="mainScreenButton" destination="0OA-9Z-D7f" id="25Z-To-APh"/>
                         <outlet property="numberItemInCartLabel" destination="B0x-Kd-9Tc" id="c5x-Cs-mw4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIp-id-jFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4139" y="384"/>
+            <point key="canvasLocation" x="4137.68115942029" y="383.70535714285711"/>
         </scene>
         <!--Корзина-->
         <scene sceneID="zLn-H7-2Xq">
@@ -233,9 +248,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
