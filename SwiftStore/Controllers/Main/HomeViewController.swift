@@ -14,24 +14,19 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet var bestCollectionView: UICollectionView!
     @IBOutlet var recommendCollectionView: UICollectionView!
     
-    // MARK: - Data for collection views
-    let sellsProducts = Product.getRandomProducts(count: 8)
-    let bestProducts = Product.getRandomProducts(count: 6)
-    let recomendedProducts = Product.getRandomProducts(count: 8)
-    
+    // Data being received from MainViewController
+    var sellsProducts: [Product]!
+    var bestProducts: [Product]!
+    var recommendedProducts: [Product]!
     var cart: [Product]!
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-     
-    // MARK: - Setup views
-    private func setupUI() {
         setupTabBar()
     }
-    
+     
+    // MARK: - Setup tab view
     private func setupTabBar() {
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"
@@ -39,12 +34,27 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         tabBarController?.selectedViewController = tabBarController?.viewControllers?.first
     }
 
+    //MARK: - Navigation
+    // Programmed segue to ProductInfoViewController
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "ProductInfo", bundle: nil)
+        if let productInfoVC = storyBoard.instantiateViewController(identifier: "productInfoVC") as? ProductInfoViewController {
+
+        switch collectionView {
+        case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
+        case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]
+        default: productInfoVC.product = recommendedProducts[indexPath.row]
+        }
+        present(productInfoVC, animated: true)
+        }
+    }
+    
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case sellsCollectionView: return sellsProducts.count
         case bestCollectionView: return bestProducts.count
-        default: return recomendedProducts.count
+        default: return recommendedProducts.count
         }
     }
     
@@ -54,43 +64,40 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         case sellsCollectionView:
             let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! CollectionViewCell
             let product = sellsProducts[indexPath.row]
-            
-            // Format nominal product price text to be stroken out
-            let productPriceText = String(product.price)
-            let productPriceTextStroken = NSMutableAttributedString(string: productPriceText)
-            productPriceTextStroken.addAttribute(.strikethroughStyle, value: 1, range: NSRange(location: 0, length: productPriceText.count))
-            
-            // Filling content of a cell
-            cell.productImage.image = UIImage(named: product.image)
-            cell.modelLabel.text = product.image
-            cell.priceDiscountLabel.text = String(product.priceDiscount)
-            cell.priceLabel.attributedText = productPriceTextStroken
-            
-            return cell
+            let configuredCell = configureCell(cell, for: product)
+            return configuredCell
             
         case bestCollectionView:
             let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! CollectionViewCell
             let product = bestProducts[indexPath.row]
-            
-            // Filling content of a cell
-            cell.productImage.image = UIImage(named: product.image)
-            cell.modelLabel.text = product.image
-            cell.priceDiscountLabel.text = String(product.price)
-            cell.priceLabel.isHidden = true
-            
-            return cell
+            let configuredCell = configureCell(cell, for: product)
+            return configuredCell
             
         default:
             let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! CollectionViewCell
-            let product = recomendedProducts[indexPath.row]
-            
-            // Filling content of a cell
-            cell.productImage.image = UIImage(named: product.image)
-            cell.modelLabel.text = product.image
-            cell.priceDiscountLabel.text = String(product.price)
-            cell.priceLabel.isHidden = true
-            
-            return cell
+            let product = recommendedProducts[indexPath.row]
+            let configuredCell = configureCell(cell, for: product)
+            return configuredCell
         }
+    }
+    
+    // Fill cell content
+    private func configureCell(_ cell: CollectionViewCell, for product: Product) -> UICollectionViewCell {
+        cell.productImage.image = UIImage(named: product.image)
+        cell.modelLabel.text = product.image
+        
+        if product.onSale {
+            // Strike out price text for discounted products
+            let priceText = String(product.price) + " $"
+            let priceTextstroken = NSMutableAttributedString(string: priceText)
+            priceTextstroken.addAttribute(.strikethroughStyle, value: 1, range: NSRange(location: 0, length: priceText.count))
+            
+            cell.priceDiscountLabel.text = String(product.priceDiscount) + " $"
+            cell.priceLabel.attributedText = priceTextstroken
+        } else {
+            cell.priceDiscountLabel.text = String(product.price) + " $"
+            cell.priceLabel.isHidden = true
+        }
+        return cell
     }
 }
