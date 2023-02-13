@@ -157,11 +157,11 @@
             </objects>
             <point key="canvasLocation" x="3910" y="144"/>
         </scene>
-        <!--Catalog-->
+        <!--Каталог-->
         <scene sceneID="jJH-Vg-KrX">
             <objects>
                 <navigationController storyboardIdentifier="navigationCatalogVC" automaticallyAdjustsScrollViewInsets="NO" id="j3b-ee-6md" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Catalog" image="list.bullet.rectangle.portrait.fill" catalog="system" id="aFv-WO-k9v"/>
+                    <tabBarItem key="tabBarItem" title="Каталог" image="list.bullet.rectangle.portrait.fill" catalog="system" id="aFv-WO-k9v"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7gL-7s-k0U">
                         <rect key="frame" x="0.0" y="48" width="414" height="96"/>
