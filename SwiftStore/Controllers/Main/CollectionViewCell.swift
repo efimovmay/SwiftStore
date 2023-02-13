@@ -17,16 +17,13 @@ final class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCellItem()
     }
     
     @IBAction func buyButtonTapped(_ sender: UIButton) {
-        buyButton.setButtonView(title: "В корзине", isTapped: true)
-    }
-    
-    private func setupCellItem() {
-        layer.cornerRadius = 15
-        productImage.layer.cornerRadius = 15
-        productImage.backgroundColor = .white
+        // Eliminate odd code execution
+        if !buyButton.isTapped {
+            buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
+            buyButton.isTapped = true
+        }
     }
 }

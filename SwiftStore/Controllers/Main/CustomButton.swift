@@ -9,26 +9,29 @@ import UIKit
 
 @IBDesignable final class CustomButton: UIButton {
 
+    enum State {
+        case unTapped, tapped
+    }
     
     // Button appearance constants
     private let untappedColor = UIColor.white
-    private let tappedColor = UIColor.lightGray
+    private let tappedColor = UIColor.systemBlue
     
     var isTapped = false
     
     override func draw(_ rect: CGRect) {
         // Initial button appearance
-        setButtonView(title: "Купить", isTapped: isTapped)
+        setButtonView(withTitle: "Купить", for: .unTapped)
     }
     
     // Configure title and appearance in accordance with button state
-    func setButtonView(title: String, isTapped: Bool) {
+    func setButtonView(withTitle title: String, for state: CustomButton.State) {
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1
         setTitle(title, for: .normal)
     
-        if isTapped {
-            setTitleColor(.black, for: .normal)
+        if state == .tapped {
+            setTitleColor(.white, for: .normal)
             layer.backgroundColor = tappedColor.cgColor
             layer.borderColor = tappedColor.cgColor
         } else {

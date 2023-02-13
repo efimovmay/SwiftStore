@@ -17,20 +17,16 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     // Data being received from MainViewController
     var sellsProducts: [Product]!
     var bestProducts: [Product]!
-    var recomendedProducts: [Product]!
+    var recommendedProducts: [Product]!
     var cart: [Product]!
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-     
-    // MARK: - Setup views
-    private func setupUI() {
         setupTabBar()
     }
-    
+     
+    // MARK: - Setup tab view
     private func setupTabBar() {
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"
@@ -39,15 +35,15 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     }
 
     //MARK: - Navigation
-    // Programmatically done segue to ProductInfoViewController
+    // Programmed segue to ProductInfoViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "ProductInfo", bundle: nil)
         if let productInfoVC = storyBoard.instantiateViewController(identifier: "productInfoVC") as? ProductInfoViewController {
-//        let productInfoVC = ProductInfoViewController()
+
         switch collectionView {
         case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
         case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]
-        default: productInfoVC.product = recomendedProducts[indexPath.row]
+        default: productInfoVC.product = recommendedProducts[indexPath.row]
         }
         present(productInfoVC, animated: true)
         }
@@ -58,7 +54,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         switch collectionView {
         case sellsCollectionView: return sellsProducts.count
         case bestCollectionView: return bestProducts.count
-        default: return recomendedProducts.count
+        default: return recommendedProducts.count
         }
     }
     
@@ -79,7 +75,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             
         default:
             let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! CollectionViewCell
-            let product = recomendedProducts[indexPath.row]
+            let product = recommendedProducts[indexPath.row]
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
         }
