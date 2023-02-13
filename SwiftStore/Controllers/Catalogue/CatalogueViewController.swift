@@ -17,6 +17,7 @@ class CatalogueViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 200
+        
 
     }
     // MARK: - Table view data source
@@ -54,8 +55,8 @@ class CatalogueViewController: UITableViewController {
         case "Mac":
             for mac in allProducts {
                 if mac.category == "Mac" {
-                    catalogListVC.currentProducts.append(mac)
                     catalogListVC.currentTitle = mac.category
+                    catalogListVC.currentProducts.append(mac)
                 }
             }
         case "iPhone":

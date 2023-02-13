@@ -41,7 +41,7 @@
                             <outlet property="delegate" destination="aXl-5B-htC" id="cUK-sE-P7h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Каталог" id="ACl-Z4-1LV"/>
+                    <navigationItem key="navigationItem" title="Каталог" largeTitleDisplayMode="always" id="ACl-Z4-1LV"/>
                     <connections>
                         <segue destination="LTo-it-EQz" kind="show" identifier="showCatagoryList" id="PLq-2m-CrU"/>
                     </connections>
@@ -58,8 +58,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-bG-Zgf">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-bG-Zgf">
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category" rowHeight="149" id="gPo-LO-3RT" customClass="CustomTableViewCell" customModule="SwiftStore" customModuleProvider="target">
@@ -135,12 +135,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q8N-bG-Zgf" firstAttribute="leading" secondItem="ebg-gl-yjD" secondAttribute="leading" id="8VD-Pt-Fes"/>
-                            <constraint firstItem="q8N-bG-Zgf" firstAttribute="top" secondItem="ebg-gl-yjD" secondAttribute="top" id="Aqh-oe-MGm"/>
+                            <constraint firstItem="q8N-bG-Zgf" firstAttribute="top" secondItem="ebg-gl-yjD" secondAttribute="top" constant="6" id="Aqh-oe-MGm"/>
                             <constraint firstItem="ebg-gl-yjD" firstAttribute="trailing" secondItem="q8N-bG-Zgf" secondAttribute="trailing" id="cPj-lh-5y8"/>
                             <constraint firstItem="ebg-gl-yjD" firstAttribute="bottom" secondItem="q8N-bG-Zgf" secondAttribute="bottom" id="gmi-M3-YGa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WEM-CM-SiC"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="WEM-CM-SiC"/>
                     <connections>
                         <outlet property="tableView" destination="q8N-bG-Zgf" id="p5I-pB-RvG"/>
                     </connections>
@@ -177,6 +177,11 @@
             <point key="canvasLocation" x="1418.840579710145" y="131.91964285714286"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="lxt-H1-eLV">
+            <size key="intrinsicContentSize" width="50" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
