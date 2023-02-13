@@ -40,7 +40,7 @@ struct Product {
         return price
     }
     var discountAmount: Int {
-        onSale == true ? Int.random(in: 5...25) : 0
+        onSale ? Int.random(in: 5...25) : 0
     }
     var priceDiscount: Int {
         price - price * discountAmount / 100
