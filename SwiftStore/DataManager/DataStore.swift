@@ -54,16 +54,16 @@ class DataStore {
         "iPad Pro 11",
         "iPad Pro 12.9",
         "iPad Air",
-        "iPad 10th generation",
-        "iPad 9th generation",
+        "iPad 10",
+        "iPad 9",
         "iPad mini"
     ]
     
     // MARK: - AirPods models
     let airPods = [
-        "AirPods (2nd generation)",
-        "AirPods (3nd generation)",
-        "AirPods Pro (2nd generation)",
+        "AirPods 2",
+        "AirPods 3",
+        "AirPods Pro 2",
         "AirPods Max"
     ]
     
@@ -98,8 +98,8 @@ class DataStore {
         "iPad Pro 11": ["M2"],
         "iPad Pro 12.9": ["M2"],
         "iPad Air": ["M1"],
-        "iPad 10th generation": ["A14"],
-        "iPad 9th generation": ["A13"],
+        "iPad 10": ["A14"],
+        "iPad 9": ["A13"],
         "iPad mini": ["A15"],
         "AirPods 2nd generation": ["H1"],
         "AirPods 3nd generation": ["H1"],
@@ -229,13 +229,13 @@ class DataStore {
             "Purple",
             "Starlight"
         ],
-        "iPad 10th generation" : [
+        "iPad 10" : [
             "Blue",
             "Pink",
             "Silver",
             "Yellow"
         ],
-        "iPad 9th generation" : [
+        "iPad 9" : [
             "Space Gray",
             "Silver"
         ],
@@ -282,8 +282,8 @@ class DataStore {
         "iPad Pro 11": ["11"],
         "iPad Pro 12.9": ["12.9"],
         "iPad Air": ["10.9"],
-        "iPad 10th generation": ["10.9"],
-        "iPad 9th generation": ["10.2"],
+        "iPad 10": ["10.9"],
+        "iPad 9": ["10.2"],
         "iPad mini": ["8.3"],
         "AirPods 2nd generation": [],
         "AirPods 3nd generation": [],
@@ -324,8 +324,8 @@ class DataStore {
         "iPad Pro 11": ["8GB"],
         "iPad Pro 12.9": ["8GB"],
         "iPad Air": ["8GB"],
-        "iPad 10th generation": [],
-        "iPad 9th generation": [],
+        "iPad 10": [],
+        "iPad 9": [],
         "iPad mini": [],
         "AirPods 2nd generation": [],
         "AirPods 3nd generation": [],
@@ -358,8 +358,8 @@ class DataStore {
         "iPad Pro 11": ["128GB", "256GB", "512GB", "1TB", "2TB"],
         "iPad Pro 12.9": ["128GB", "256GB", "512GB", "1TB", "2TB"],
         "iPad Air": ["64GB", "256GB"],
-        "iPad 10th generation": ["64GB", "256GB"],
-        "iPad 9th generation": ["64GB", "256GB"],
+        "iPad 10": ["64GB", "256GB"],
+        "iPad 9": ["64GB", "256GB"],
         "iPad mini": ["64GB", "256GB"],
         "AirPods 2nd generation": [],
         "AirPods 3nd generation": [],
@@ -599,13 +599,13 @@ class DataStore {
                 "256GB": 150
             ]
         ],
-        "iPad 10th generation": [
+        "iPad 10": [
             "base": 499,
             "storage": [
                 "256GB": 150
             ]
         ],
-        "iPad 9th generation": [
+        "iPad 9": [
             "base": 329,
             "storage": [
                 "256GB": 150
@@ -617,13 +617,13 @@ class DataStore {
                 "256GB": 150
             ]
         ],
-        "AirPods (2nd generation)": [
+        "AirPods 2": [
             "base": 129
         ],
-        "AirPods (3nd generation)": [
+        "AirPods 3": [
             "base": 169
         ],
-        "AirPods Pro (2nd generation)": [
+        "AirPods Pro 2": [
             "base": 249
         ],
         "AirPods Max": [
