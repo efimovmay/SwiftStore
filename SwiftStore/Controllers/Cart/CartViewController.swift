@@ -33,24 +33,31 @@ class CartViewController: UIViewController {
         cartTableView.delegate = self
         cartTableView.dataSource = self
 
-        cart = Product.getRandomProducts(count: 13)
+      // cart = Product.getRandomProducts(count: 7)
         
         buttonSettings()
-    }
-    
-    override func viewWillLayoutSubviews() {
         visibilityElementSettings()
         labelSettings()
     }
 
-    
-    // MARK: - IBActions
+    // MARK: - IB Actions
     
     @IBAction func designPressButton() {
         let number = Int.random(in: 1000...9999)
         showAlertController(title: "Заказ успешно оформлен",
                             massege: "Номер вашего заказа: \(number)")
     }
+    
+    @IBAction func mainScreenButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func catalogScreenButtonPressed(_ sender: Any) {
+//        dismiss(animated: false)
+        performSegue(withIdentifier: "catalogueSegue", sender: nil)
+
+    }
+
 }
 
 //MARK: - UI settings
@@ -58,7 +65,9 @@ class CartViewController: UIViewController {
 extension CartViewController {
     
     private func visibilityElementSettings() {
-        if cart.count == 0 {
+
+        
+        if cart == nil || cart.count == 0 {
             cartTableView.isHidden = true
             buttonView.isHidden = true
             emptyCartStack.isHidden = false
@@ -78,9 +87,7 @@ extension CartViewController {
     
     private func labelSettings() {
         if cart != nil {
-            
             var fullPrice = 0
-            
             for item in cart {
                 if item.onSale {
                     fullPrice += item.priceDiscount
@@ -121,7 +128,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         let product = cart[indexPath.row]
         
         if product.onSale {
-            cell.priceLabel.text = "\(product.priceDiscount)* $"
+            cell.priceLabel.text = "\(product.priceDiscount) $"
         } else {
             cell.priceLabel.text = "\(product.price) $"
         }
@@ -140,8 +147,10 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         cart.remove(at: sender.tag)
         cartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)],
                                  with: .none)
+        
         cartTableView.reloadData()
-        viewWillLayoutSubviews()
+        visibilityElementSettings()
+        labelSettings()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -151,6 +160,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
         guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
         guard let indexPath = cartTableView.indexPathForSelectedRow else { return }
 

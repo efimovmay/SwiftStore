@@ -44,6 +44,10 @@
                                         <state key="normal" title="Главная">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="mainScreenButtonPressed:" destination="UUl-Mt-cuc" eventType="touchUpInside" id="5ZM-tz-jek"/>
+                                            <segue destination="38M-ye-g10" kind="show" id="2Y9-2I-wlF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UG-7k-Gfb">
                                         <rect key="frame" x="149" y="290" width="84" height="39"/>
@@ -52,6 +56,9 @@
                                         <state key="normal" title="Каталог">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="catalogScreenButtonPressed:" destination="UUl-Mt-cuc" eventType="touchUpInside" id="d1h-VN-Rf5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -202,6 +209,7 @@
                         <outlet property="fullPriceLabel" destination="Hwa-2m-xNf" id="dwC-Rl-5Zg"/>
                         <outlet property="mainScreenButton" destination="0OA-9Z-D7f" id="25Z-To-APh"/>
                         <outlet property="numberItemInCartLabel" destination="B0x-Kd-9Tc" id="c5x-Cs-mw4"/>
+                        <segue destination="eni-j7-ips" kind="showDetail" identifier="catalogueSegue" id="eX9-OG-66b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIp-id-jFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -212,7 +220,9 @@
         <scene sceneID="zLn-H7-2Xq">
             <objects>
                 <navigationController storyboardIdentifier="cartVC" automaticallyAdjustsScrollViewInsets="NO" id="MkU-vA-Ate" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Корзина" image="cart.fill" catalog="system" id="WGl-J6-eUq"/>
+                    <tabBarItem key="tabBarItem" title="Корзина" image="cart.fill" catalog="system" id="WGl-J6-eUq">
+                        <color key="badgeColor" red="0.21333251559999999" green="0.60646230499999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="pnK-cT-i5A">
@@ -237,7 +247,27 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kh-lR-voE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4761" y="384"/>
+            <point key="canvasLocation" x="4822" y="350"/>
+        </scene>
+        <!--mainVC-->
+        <scene sceneID="qeD-7M-pFv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="mainVC" id="38M-ye-g10" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0sg-hV-bnh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xIC-Z4-j7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4796" y="399"/>
+        </scene>
+        <!--navigationCatalogVC-->
+        <scene sceneID="KxK-O7-Zsf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Catalogue" referencedIdentifier="navigationCatalogVC" id="eni-j7-ips" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bht-00-gS0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epL-tO-oYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4856" y="443"/>
         </scene>
     </scenes>
     <resources>
