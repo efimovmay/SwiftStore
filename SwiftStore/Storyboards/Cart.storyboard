@@ -19,54 +19,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="gie-lU-mtk">
-                                <rect key="frame" x="16" y="204" width="382" height="329"/>
+                                <rect key="frame" x="16" y="204" width="382" height="328.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В корзине пока ничего нет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ki-Hu-0zB">
-                                        <rect key="frame" x="63.5" y="0.0" width="255.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <rect key="frame" x="52" y="0.0" width="278" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы можете начать свой выбор с главной страницы или со списка товаров" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdi-4j-T7u">
-                                        <rect key="frame" x="27" y="84" width="328.5" height="41"/>
+                                        <rect key="frame" x="27" y="86.5" width="328.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OA-9Z-D7f">
-                                        <rect key="frame" x="116" y="185" width="150" height="45"/>
+                                        <rect key="frame" x="116" y="187.5" width="150" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="e7j-2v-15W"/>
                                             <constraint firstAttribute="width" constant="150" id="yO1-3K-Y84"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Главная">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="mainScreenButtonPressed:" destination="UUl-Mt-cuc" eventType="touchUpInside" id="5ZM-tz-jek"/>
-                                            <segue destination="38M-ye-g10" kind="show" id="2Y9-2I-wlF"/>
+                                            <action selector="transitionOnTabBar:" destination="UUl-Mt-cuc" eventType="touchUpInside" id="LRa-Fm-Qf6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UG-7k-Gfb">
-                                        <rect key="frame" x="149" y="290" width="84" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UG-7k-Gfb">
+                                        <rect key="frame" x="152.5" y="292.5" width="77" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Каталог">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="catalogScreenButtonPressed:" destination="UUl-Mt-cuc" eventType="touchUpInside" id="d1h-VN-Rf5"/>
+                                            <action selector="transitionOnTabBar:" destination="UUl-Mt-cuc" eventType="touchUpInside" id="4ni-uE-FEF"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDR-3T-0V9">
-                                <rect key="frame" x="0.0" y="733" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="743" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K3C-2G-QdK">
-                                        <rect key="frame" x="20" y="17.5" width="374" height="45"/>
+                                        <rect key="frame" x="20" y="12.5" width="374" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="moq-4p-kII">
                                                 <rect key="frame" x="0.0" y="0.0" width="214" height="45"/>
@@ -91,7 +90,7 @@
                                                     <constraint firstAttribute="width" constant="150" id="TCp-yX-auw"/>
                                                     <constraint firstAttribute="height" constant="45" id="TO7-4a-X77"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Оформить">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,13 +106,13 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstItem="K3C-2G-QdK" firstAttribute="centerY" secondItem="KDR-3T-0V9" secondAttribute="centerY" id="Ehl-N6-xfS"/>
-                                    <constraint firstAttribute="height" constant="80" id="RMO-u6-Kjz"/>
+                                    <constraint firstAttribute="height" constant="70" id="RMO-u6-Kjz"/>
                                     <constraint firstItem="K3C-2G-QdK" firstAttribute="leading" secondItem="KDR-3T-0V9" secondAttribute="leading" constant="20" id="fQ2-pU-vYL"/>
                                     <constraint firstAttribute="trailing" secondItem="K3C-2G-QdK" secondAttribute="trailing" constant="20" id="rfP-3s-hDr"/>
                                 </constraints>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lvk-hf-lxG">
-                                <rect key="frame" x="0.0" y="144" width="414" height="589"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="599"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="dkl-J7-Vam" customClass="ItemCartTableViewCell" customModule="SwiftStore" customModuleProvider="target">
@@ -209,7 +208,6 @@
                         <outlet property="fullPriceLabel" destination="Hwa-2m-xNf" id="dwC-Rl-5Zg"/>
                         <outlet property="mainScreenButton" destination="0OA-9Z-D7f" id="25Z-To-APh"/>
                         <outlet property="numberItemInCartLabel" destination="B0x-Kd-9Tc" id="c5x-Cs-mw4"/>
-                        <segue destination="eni-j7-ips" kind="showDetail" identifier="catalogueSegue" id="eX9-OG-66b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIp-id-jFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,27 +245,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kh-lR-voE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4822" y="350"/>
-        </scene>
-        <!--mainVC-->
-        <scene sceneID="qeD-7M-pFv">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="mainVC" id="38M-ye-g10" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="0sg-hV-bnh"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xIC-Z4-j7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4796" y="399"/>
-        </scene>
-        <!--navigationCatalogVC-->
-        <scene sceneID="KxK-O7-Zsf">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Catalogue" referencedIdentifier="navigationCatalogVC" id="eni-j7-ips" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="bht-00-gS0"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="epL-tO-oYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4856" y="443"/>
+            <point key="canvasLocation" x="4801" y="384"/>
         </scene>
     </scenes>
     <resources>

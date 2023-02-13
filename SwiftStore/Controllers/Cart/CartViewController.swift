@@ -33,7 +33,7 @@ class CartViewController: UIViewController {
         cartTableView.delegate = self
         cartTableView.dataSource = self
 
-      // cart = Product.getRandomProducts(count: 7)
+    //   cart = Product.getRandomProducts(count: 7)
         
         buttonSettings()
         visibilityElementSettings()
@@ -48,16 +48,12 @@ class CartViewController: UIViewController {
                             massege: "Номер вашего заказа: \(number)")
     }
     
-    @IBAction func mainScreenButtonPressed(_ sender: Any) {
-        dismiss(animated: true)
+    @IBAction func transitionOnTabBar(_ sender: UIButton) {
+        tabBarController?.selectedIndex = sender.tag
+        
+        guard let homeVC = tabBarController?.viewControllers?[sender.tag] as? HomeViewController else { return }
+        homeVC.cart = cart
     }
-    
-    @IBAction func catalogScreenButtonPressed(_ sender: Any) {
-//        dismiss(animated: false)
-        performSegue(withIdentifier: "catalogueSegue", sender: nil)
-
-    }
-
 }
 
 //MARK: - UI settings
@@ -66,7 +62,6 @@ extension CartViewController {
     
     private func visibilityElementSettings() {
 
-        
         if cart == nil || cart.count == 0 {
             cartTableView.isHidden = true
             buttonView.isHidden = true
@@ -76,13 +71,6 @@ extension CartViewController {
             buttonView.isHidden = false
             emptyCartStack.isHidden = true
         }
-    }
-    
-    private func showAlertController(title: String, massege: String) {
-        let alert = UIAlertController(title: title, message: massege, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(okButton)
-        present(alert, animated: true)
     }
     
     private func labelSettings() {
@@ -96,17 +84,23 @@ extension CartViewController {
                 }
             }
             numberItemInCartLabel.text = "\(cart.count) товаров"
-            fullPriceLabel.text = "\(fullPrice) $"
+            fullPriceLabel.text = "На $\(fullPrice)"
         }
     }
     
     private func buttonSettings() {
-        
         mainScreenButton.layer.cornerRadius = mainScreenButton.frame.height / 2
         mainScreenButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
         
         designButton.layer.cornerRadius = designButton.frame.height / 2
         designButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
+    }
+    
+    private func showAlertController(title: String, massege: String) {
+        let alert = UIAlertController(title: title, message: massege, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
 }
 
@@ -128,13 +122,13 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         let product = cart[indexPath.row]
         
         if product.onSale {
-            cell.priceLabel.text = "\(product.priceDiscount) $"
+            cell.priceLabel.text = "$\(product.priceDiscount)"
         } else {
-            cell.priceLabel.text = "\(product.price) $"
+            cell.priceLabel.text = "$\(product.price)"
         }
         
         cell.productImage.image = UIImage(named: product.image)
-        cell.nameLabel.text = product.model
+        cell.nameLabel.text = product.title
         
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(handleRegister(_:)),
