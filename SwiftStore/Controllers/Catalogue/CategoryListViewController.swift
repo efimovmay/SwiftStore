@@ -38,7 +38,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         let currentProducts = currentProducts[indexPath.row]
       
         cell.productNameLabel.text = currentProducts.title
-        cell.priceLabel.text = "\(currentProducts.price) $"
+        cell.priceLabel.text = "$\(currentProducts.price)"
         cell.productImageView.image = UIImage(named: currentProducts.image)
         cell.selectionStyle = .none
 
