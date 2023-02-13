@@ -12,6 +12,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - IB Outlets
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var techSpecsHeight: NSLayoutConstraint!
     @IBOutlet weak var techSpecsTableView: UITableView!
     
@@ -38,6 +39,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         
         productImage.image = UIImage(named: product.image )
         productLabel.text = product.title
+        priceLabel.text = "$\(product.price)"
     }
     
     private func setupTechSpecsTableView() {
