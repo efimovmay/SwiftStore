@@ -13,6 +13,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var oldPriceLabel: UILabel!
     @IBOutlet weak var techSpecsHeight: NSLayoutConstraint!
     @IBOutlet weak var techSpecsTableView: UITableView!
     
@@ -39,7 +40,16 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         
         productImage.image = UIImage(named: product.image )
         productLabel.text = product.title
-        priceLabel.text = "$\(product.price)"
+        
+        if product.onSale {
+            priceLabel.text = "$\(product.priceDiscount)"
+            oldPriceLabel.text = "$\(product.price)"
+        } else {
+            oldPriceLabel.isHidden = true
+            priceLabel.text = "$\(product.price)"
+        }
+        
+        
     }
     
     private func setupTechSpecsTableView() {
