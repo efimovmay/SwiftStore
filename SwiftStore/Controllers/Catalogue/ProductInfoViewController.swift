@@ -24,7 +24,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: - Private Properties
     var productSpecs: [String] {
-        getSpecs(for: product!)
+        getSpecs(for: product)
     }
     
     // MARK: - Override ProductsViewController
@@ -41,6 +41,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         productImage.image = UIImage(named: product.image )
         productLabel.text = product.title
         
+        // Product price configuration
         if product.onSale {
             priceLabel.text = "$\(product.priceDiscount)"
             
@@ -55,6 +56,10 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
             priceLabel.text = "$\(product.price)"
             oldPriceLabel.isHidden = true
         }
+        
+        if product.inCart {
+            print("Product in cart")
+        }
     }
     
     private func setupTechSpecsTableView() {
@@ -63,7 +68,8 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         techSpecsHeight.constant = CGFloat(rowHeight * productSpecs.count)
     }
     
-    private func getSpecs(for product: Product) -> [String] {
+    private func getSpecs(for product: Product?) -> [String] {
+        guard let product = product else { return [""] }
         
         var productSpecs: [String] = []
         
@@ -94,8 +100,16 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     
     @IBAction func buyButtonAction() {
         if !buyButton.isTapped {
+//            guard let product = product else { return }
+//            guard var cart = cart else { return }
+//            print(product)
+//            cart.append(product)
+            print("Product was successfully added to your cart")
+//            print(cart)
             buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
             buyButton.isTapped = true
+        } else {
+            // Here will be the code for sending data to the cart page
         }
     }
 }
