@@ -455,12 +455,15 @@ class DataStore {
             ],
             "memory": [
                 "16GB": 200,
-                "24GB": 400
+                "24GB": 400,
+                "32GB": 800
             ],
             "storage": [
                 "512GB": 200,
                 "1TB": 400,
-                "2TB": 800
+                "2TB": 800,
+                "4TB": 1400,
+                "8TB": 2600
             ]
         ],
         "Mac Studio": [

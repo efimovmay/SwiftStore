@@ -12,6 +12,9 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - IB Outlets
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var oldPriceLabel: UILabel!
+    @IBOutlet weak var buyButton: CustomButton!
     @IBOutlet weak var techSpecsHeight: NSLayoutConstraint!
     @IBOutlet weak var techSpecsTableView: UITableView!
     
@@ -21,14 +24,13 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: - Private Properties
     var productSpecs: [String] {
-        getSpecs(for: product!)
+        getSpecs(for: product)
     }
     
     // MARK: - Override ProductsViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
     }
     
     // MARK: - Private Methods
@@ -38,6 +40,26 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         
         productImage.image = UIImage(named: product.image )
         productLabel.text = product.title
+        
+        // Product price configuration
+        if product.onSale {
+            priceLabel.text = "$\(product.priceDiscount)"
+            
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(product.price)")
+            attributeString.addAttribute(
+                NSAttributedString.Key.strikethroughStyle,
+                value: 1,
+                range: NSRange(location: 0, length: attributeString.length)
+            )
+            oldPriceLabel.attributedText = attributeString
+        } else {
+            priceLabel.text = "$\(product.price)"
+            oldPriceLabel.isHidden = true
+        }
+        
+        if product.inCart {
+            print("Product in cart")
+        }
     }
     
     private func setupTechSpecsTableView() {
@@ -46,7 +68,8 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         techSpecsHeight.constant = CGFloat(rowHeight * productSpecs.count)
     }
     
-    private func getSpecs(for product: Product) -> [String] {
+    private func getSpecs(for product: Product?) -> [String] {
+        guard let product = product else { return [""] }
         
         var productSpecs: [String] = []
         
@@ -73,6 +96,21 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         }
         
         return productSpecs
+    }
+    
+    @IBAction func buyButtonAction() {
+        if !buyButton.isTapped {
+//            guard let product = product else { return }
+//            guard var cart = cart else { return }
+//            print(product)
+//            cart.append(product)
+            print("Product was successfully added to your cart")
+//            print(cart)
+            buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
+            buyButton.isTapped = true
+        } else {
+            // Here will be the code for sending data to the cart page
+        }
     }
 }
 
