@@ -11,10 +11,8 @@ class ItemCartTableViewCell: UITableViewCell {
     
     @IBOutlet var productImage: UIImageView!
     
-    @IBOutlet var nameLable: UILabel!
-    @IBOutlet var priceLable: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
     
-
-    
-    
+    @IBOutlet var deleteButton: UIButton!
 }

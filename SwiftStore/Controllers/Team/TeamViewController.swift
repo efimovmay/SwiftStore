@@ -38,8 +38,8 @@ extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.devImage.widthAnchor.constraint(
             equalToConstant: cell.frame.width - 17).isActive = true
         
-        cell.nameLable.text = currentDeveloper.name
-        cell.charpterLable.text = "Разделы: \(currentDeveloper.charpter)"
+        cell.nameLabel.text = currentDeveloper.name
+        cell.charpterLabel.text = "Разделы: \(currentDeveloper.charpter)"
         cell.githubLinkLabel.text = currentDeveloper.githubLink
         
         cell.layer.cornerRadius = 15
@@ -55,7 +55,7 @@ extension TeamViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: teamCollectionView.frame.width/2 - 21 ,
-                      height: teamCollectionView.frame.width/2 - 21)
+                      height: teamCollectionView.frame.height/2 - 31)
     }
     
     func collectionView(_ collectionView: UICollectionView,
