@@ -16,6 +16,7 @@ struct Product {
     let onSale: Bool
     let isBestseller: Bool
     let isRecommended: Bool
+    let discountAmount: Int
     
     var price: Int {
         var price = 0
@@ -38,9 +39,6 @@ struct Product {
         }
         
         return price
-    }
-    var discountAmount: Int {
-        onSale ? Int.random(in: 5...25) : 0
     }
     var priceDiscount: Int {
         price - price * discountAmount / 100
@@ -98,6 +96,7 @@ extension Product {
             let storage = shared.storageConfigurations[model]?.randomElement()
             ?? ""
             let onSale = Bool.random()
+            let discountAmount = onSale ? Int.random(in: 5...25) : 0
             let isBestseller = Bool.random()
             let isRecommended = Bool.random()
             
@@ -111,7 +110,8 @@ extension Product {
                 storage: storage,
                 onSale: onSale,
                 isBestseller: isBestseller,
-                isRecommended: isRecommended
+                isRecommended: isRecommended,
+                discountAmount: discountAmount
             )
             
             if !products.contains(product) {
