@@ -7,6 +7,15 @@
 
 import UIKit
 
+protocol CustomButtonDelegate {
+    
+    func putIntoCart(_ product: Product)
+    
+    func removeFromCart(_ product: Product)
+    
+    func goToCart()
+}
+
 final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     // MARK: - IB Outlets
@@ -39,13 +48,14 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "ProductInfo", bundle: nil)
         if let productInfoVC = storyBoard.instantiateViewController(identifier: "productInfoVC") as? ProductInfoViewController {
-
-        switch collectionView {
-        case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
-        case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]
-        default: productInfoVC.product = recommendedProducts[indexPath.row]
-        }
-        present(productInfoVC, animated: true)
+            
+            switch collectionView {
+            case sellsCollectionView: productInfoVC.product = sellsProducts[indexPath.row]
+            case bestCollectionView: productInfoVC.product = bestProducts[indexPath.row]
+            default: productInfoVC.product = recommendedProducts[indexPath.row]
+            }
+            
+            present(productInfoVC, animated: true)
         }
     }
     
@@ -63,19 +73,25 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         switch collectionView {
         case sellsCollectionView:
             let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! CollectionViewCell
-            let product = sellsProducts[indexPath.row]
-            let configuredCell = configureCell(cell, for: product)
-            return configuredCell
+            cell.buyButton.delegate = self // указываем, что делегатом для кнопки (экземпляр класса CustomButton) является ЭТОТ (self - "сам") вью контроллер
+            let product = sellsProducts[indexPath.row]  // определяем экземпляр продукта для ячейки
+            cell.cellProduct = product  // передаем экземпляр продукта в свойство ячейки
+            let configuredCell = configureCell(cell, for: product) // заполняем ячейку отображаемыми данными
+            return configuredCell   // выдаем готовую ячейку
             
         case bestCollectionView:
             let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! CollectionViewCell
+            cell.buyButton.delegate = self
             let product = bestProducts[indexPath.row]
+            cell.cellProduct = product
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
             
         default:
             let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! CollectionViewCell
+            cell.buyButton.delegate = self
             let product = recommendedProducts[indexPath.row]
+            cell.cellProduct = product
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
         }
@@ -88,16 +104,47 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         
         if product.onSale {
             // Strike out price text for discounted products
-            let priceText = String(product.price) + " $"
+            let priceText = "$\(product.price)"
             let priceTextstroken = NSMutableAttributedString(string: priceText)
             priceTextstroken.addAttribute(.strikethroughStyle, value: 1, range: NSRange(location: 0, length: priceText.count))
             
-            cell.priceDiscountLabel.text = String(product.priceDiscount) + " $"
+            cell.priceDiscountLabel.text = "$\(product.priceDiscount)"
             cell.priceLabel.attributedText = priceTextstroken
         } else {
-            cell.priceDiscountLabel.text = String(product.price) + " $"
+            cell.priceDiscountLabel.text = "$\(product.price)"
             cell.priceLabel.isHidden = true
         }
         return cell
+    }
+}
+
+// MARK: - CollectionViewCellDelegate
+// Реализация метода протокола
+extension HomeViewController: CustomButtonDelegate {
+    
+    func goToCart() {
+        let storyboard = UIStoryboard(name: "Cart", bundle: nil)
+        guard let cartVC = storyboard.instantiateViewController(identifier: "cartVC") as? CartViewController else { return }
+        // Transfer actual cart data to CartViewController
+        cartVC.cart = cart
+        present(cartVC, animated: true)
+    }
+    
+    func putIntoCart(_ product: Product) {
+        cart.append(product)
+        printCart() // for function check
+    }
+        
+    func removeFromCart(_ product: Product) {
+//        printCart()
+    }
+}
+
+// function check of cart update
+extension HomeViewController {
+    private func printCart() {
+        var output = ""
+        cart.forEach { output.append($0.model + "_") }
+        print(output)
     }
 }

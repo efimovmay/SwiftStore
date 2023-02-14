@@ -9,36 +9,47 @@ import UIKit
 
 @IBDesignable final class CustomButton: UIButton {
 
-    enum State {
-        case unTapped, tapped
-    }
-    
     // Button appearance constants
-    private let untappedColor = UIColor.white
-    private let tappedColor = UIColor.systemBlue
+    private let initTextColor = UIColor.systemBlue
+    private let initBackColor = UIColor.white
+    private let tappedTextColor = UIColor.white
+    private let tappedBackColor = UIColor.systemBlue
     
-    var isTapped = false
+    // Titles by default
+    var initTitle = "В корзину"  // Title in init state
+    var tappedTitle = "Оформить" // Title on button tapped
+    // Init satet by default
+    var initState = true
     
+    var delegate: CustomButtonDelegate!
+    /* Говорит о том, что экземпляры этого класса (т.е. кнопки) будут использовать делегат
+     
+     delegate - "указатель" на протокол, содержащий св-ва и метод(ы) для выполнения каких-то действий одним классом - ДЕЛЕГАТОМ - по поручению (от имени) другого, ДЕЛЕГИРУЮЩЕГО, класса.
+     В нашем случае класс CustomButton делегирующий. Он делегирует (поручает) классу HomeViewController выполнять следующие действия:
+            - добавления продукта из  конкретной ячейки коллекшн вью в корзину
+            - переход в корзину, если кнопка была нажата дважды (по ТЗ)
+     */
+   
     override func draw(_ rect: CGRect) {
-        // Initial button appearance
-        setButtonView(withTitle: "Купить", for: .unTapped)
-    }
-    
-    // Configure title and appearance in accordance with button state
-    func setButtonView(withTitle title: String, for state: CustomButton.State) {
+        // Initial button appearance for default values
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1
-        setTitle(title, for: .normal)
+        updateView()
+    }
     
-        if state == .tapped {
-            setTitleColor(.white, for: .normal)
-            layer.backgroundColor = tappedColor.cgColor
-            layer.borderColor = tappedColor.cgColor
+    // Update button appearance depending on its state
+    func updateView() {
+        let title = initState ? initTitle : tappedTitle
+        
+        if initState {
+            setTitle(title, for: .normal)
+            setTitleColor(initTextColor, for: .normal)
+            layer.backgroundColor = initBackColor.cgColor
+            layer.borderColor = initTextColor.cgColor
         } else {
             setTitle(title, for: .normal)
-            setTitleColor(.systemBlue, for: .normal)
-            layer.backgroundColor = untappedColor.cgColor
-            layer.borderColor = UIColor.systemBlue.cgColor
+            setTitleColor(tappedTextColor, for: .normal)
+            layer.backgroundColor = tappedBackColor.cgColor
         }
         return
     }
