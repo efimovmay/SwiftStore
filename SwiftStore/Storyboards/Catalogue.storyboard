@@ -157,11 +157,11 @@
             </objects>
             <point key="canvasLocation" x="3910" y="144"/>
         </scene>
-        <!--Catalog-->
+        <!--Каталог-->
         <scene sceneID="jJH-Vg-KrX">
             <objects>
                 <navigationController storyboardIdentifier="navigationCatalogVC" automaticallyAdjustsScrollViewInsets="NO" id="j3b-ee-6md" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Catalog" image="list.bullet.rectangle.portrait.fill" catalog="system" id="aFv-WO-k9v"/>
+                    <tabBarItem key="tabBarItem" title="Каталог" image="list.bullet" catalog="system" id="aFv-WO-k9v"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7gL-7s-k0U">
                         <rect key="frame" x="0.0" y="48" width="414" height="96"/>
@@ -183,7 +183,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
