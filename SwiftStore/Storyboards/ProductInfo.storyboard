@@ -33,12 +33,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-2h-WUp" customClass="CustomButton" customModule="SwiftStore" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="521" width="166" height="51"/>
+                                                <rect key="frame" x="103.5" y="521" width="207" height="51"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Купить">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buyButtonAction" destination="nSA-Op-ZOw" eventType="touchUpInside" id="TgG-EA-vLH"/>
+                                                </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cif-65-kYd">
                                                 <rect key="frame" x="0.0" y="596" width="414" height="300"/>
@@ -83,7 +86,7 @@
                                         <constraints>
                                             <constraint firstItem="kjw-2h-WUp" firstAttribute="centerX" secondItem="sxB-xa-Any" secondAttribute="centerX" id="36S-Nd-QO0"/>
                                             <constraint firstAttribute="trailing" secondItem="m5T-hD-wd8" secondAttribute="trailing" constant="16" id="GVg-0Y-u4Y"/>
-                                            <constraint firstItem="kjw-2h-WUp" firstAttribute="width" secondItem="sxB-xa-Any" secondAttribute="width" multiplier="0.4" id="Hr1-bG-wuT"/>
+                                            <constraint firstItem="kjw-2h-WUp" firstAttribute="width" secondItem="sxB-xa-Any" secondAttribute="width" multiplier="0.5" id="Hr1-bG-wuT"/>
                                             <constraint firstAttribute="trailing" secondItem="x98-SE-mhx" secondAttribute="trailing" id="Lco-m7-xK2"/>
                                             <constraint firstItem="m5T-hD-wd8" firstAttribute="top" secondItem="x98-SE-mhx" secondAttribute="bottom" constant="24" id="OMc-SP-MpL"/>
                                             <constraint firstItem="cif-65-kYd" firstAttribute="leading" secondItem="sxB-xa-Any" secondAttribute="leading" id="QEl-6Z-gO4"/>
@@ -122,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buyButton" destination="kjw-2h-WUp" id="Pc5-TK-6WK"/>
                         <outlet property="oldPriceLabel" destination="vj4-th-WSp" id="9Ck-Bg-amD"/>
                         <outlet property="priceLabel" destination="Ywr-YW-xtB" id="sde-Hk-Ipy"/>
                         <outlet property="productImage" destination="x98-SE-mhx" id="Nts-Vs-pxB"/>

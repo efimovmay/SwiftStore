@@ -14,6 +14,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var oldPriceLabel: UILabel!
+    @IBOutlet weak var buyButton: CustomButton!
     @IBOutlet weak var techSpecsHeight: NSLayoutConstraint!
     @IBOutlet weak var techSpecsTableView: UITableView!
     
@@ -30,7 +31,6 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
     }
     
     // MARK: - Private Methods
@@ -43,13 +43,18 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         
         if product.onSale {
             priceLabel.text = "$\(product.priceDiscount)"
-            oldPriceLabel.text = "$\(product.price)"
+            
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(product.price)")
+            attributeString.addAttribute(
+                NSAttributedString.Key.strikethroughStyle,
+                value: 1,
+                range: NSRange(location: 0, length: attributeString.length)
+            )
+            oldPriceLabel.attributedText = attributeString
         } else {
-            oldPriceLabel.isHidden = true
             priceLabel.text = "$\(product.price)"
+            oldPriceLabel.isHidden = true
         }
-        
-        
     }
     
     private func setupTechSpecsTableView() {
@@ -85,6 +90,13 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         }
         
         return productSpecs
+    }
+    
+    @IBAction func buyButtonAction() {
+        if !buyButton.isTapped {
+            buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
+            buyButton.isTapped = true
+        }
     }
 }
 
