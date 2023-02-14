@@ -13,6 +13,8 @@ class CategoryListViewController: UIViewController {
     
     var currentProducts: [Product] = []
     var currentTitle: String!
+    var cart: [Product]!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,5 +60,6 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         let currentProduct = currentProducts[indexPath.row]
         
         productInfoVC.product = currentProduct
+        productInfoVC.cart = cart
     }
 }
