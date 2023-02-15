@@ -99,18 +99,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func buyButtonAction() {
-        if !buyButton.isTapped {
-//            guard let product = product else { return }
-//            guard var cart = cart else { return }
-//            print(product)
-//            cart.append(product)
-            print("Product was successfully added to your cart")
-//            print(cart)
-            buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
-            buyButton.isTapped = true
-        } else {
-            // Here will be the code for sending data to the cart page
-        }
+
     }
 }
 
