@@ -19,7 +19,11 @@ import UIKit
     var initTitle = "В корзину"  // Title in init state
     var tappedTitle = "Оформить" // Title on button tapped
     // Init satet by default
-    var initState = true
+    var initState = true {
+        didSet {
+            updateView()
+        }
+    }
     
     var delegate: CustomButtonDelegate!
     /* Говорит о том, что экземпляры этого класса (т.е. кнопки) будут использовать делегат
@@ -52,5 +56,11 @@ import UIKit
             layer.backgroundColor = tappedBackColor.cgColor
         }
         return
+    }
+    
+    // Change button view to initial state
+    func reset() {
+        initState = true
+        updateView()
     }
 }

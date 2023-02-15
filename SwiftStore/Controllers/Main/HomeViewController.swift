@@ -7,7 +7,8 @@
 
 import UIKit
 
-protocol CustomButtonDelegate {
+// MARK: - CustomButtonDelegate
+protocol CustomButtonDelegate { // Для понимания можно читать, как "делегат класса CustomButton"
     
     func putIntoCart(_ product: Product)
     
@@ -75,6 +76,12 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self // указываем, что делегатом для кнопки (экземпляр класса CustomButton) является ЭТОТ (self - "сам") вью контроллер
             let product = sellsProducts[indexPath.row]  // определяем экземпляр продукта для ячейки
+//
+//            if !cart.contains(product) {
+//                cell.buyButton.reset()
+//                collectionView.reloadItems(at: [indexPath])
+//            }
+            
             cell.cellProduct = product  // передаем экземпляр продукта в свойство ячейки
             let configuredCell = configureCell(cell, for: product) // заполняем ячейку отображаемыми данными
             return configuredCell   // выдаем готовую ячейку
@@ -102,6 +109,8 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         cell.productImage.image = UIImage(named: product.image)
         cell.modelLabel.text = product.image
         
+        cell.buyButton.initState = cart.contains(product) ? false : true
+        
         if product.onSale {
             // Strike out price text for discounted products
             let priceText = "$\(product.price)"
@@ -120,6 +129,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 
 // MARK: - CollectionViewCellDelegate
 // Реализация метода протокола
+// Для понимания можно читать, как "Класс HomeViewController - делегат класса CustomButton"
 extension HomeViewController: CustomButtonDelegate {
     
     func goToCart() {
@@ -144,7 +154,7 @@ extension HomeViewController: CustomButtonDelegate {
 extension HomeViewController {
     private func printCart() {
         var output = ""
-        cart.forEach { output.append($0.model + "_") }
+        cart.forEach { output.append($0.model + " || ") }
         print(output)
     }
 }
