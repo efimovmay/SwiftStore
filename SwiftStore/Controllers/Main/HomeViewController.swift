@@ -8,7 +8,8 @@
 import UIKit
 
 // MARK: - CustomButtonDelegate
-protocol CustomButtonDelegate { // Для понимания можно читать, как "делегат класса CustomButton"
+// Для понимания можно читать, как "делегат класса CustomButton"
+protocol CustomButtonDelegate {
     
     func putIntoCart(_ product: Product)
     
@@ -28,20 +29,26 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     var sellsProducts: [Product]!
     var bestProducts: [Product]!
     var recommendedProducts: [Product]!
-    var cart: [Product]!
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
     }
-     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        #warning("Do cell update if cart has been changed")
+    }
+    
+    //Testing
+    override func viewDidDisappear(_ animated: Bool) {
+        Cart.printOut(from: "HOME")
+    }
+    
     // MARK: - Setup tab view
     private func setupTabBar() {
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"
-        // First tab selection on lounch
-        tabBarController?.selectedViewController = tabBarController?.viewControllers?.first
     }
 
     //MARK: - Navigation
@@ -76,11 +83,6 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self // указываем, что делегатом для кнопки (экземпляр класса CustomButton) является ЭТОТ (self - "сам") вью контроллер
             let product = sellsProducts[indexPath.row]  // определяем экземпляр продукта для ячейки
-//
-//            if !cart.contains(product) {
-//                cell.buyButton.reset()
-//                collectionView.reloadItems(at: [indexPath])
-//            }
             
             cell.cellProduct = product  // передаем экземпляр продукта в свойство ячейки
             let configuredCell = configureCell(cell, for: product) // заполняем ячейку отображаемыми данными
@@ -109,7 +111,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         cell.productImage.image = UIImage(named: product.image)
         cell.modelLabel.text = product.image
         
-        cell.buyButton.initState = cart.contains(product) ? false : true
+        cell.buyButton.initState = Cart.shared.cart.contains(product) ? false : true
         
         if product.onSale {
             // Strike out price text for discounted products
@@ -135,26 +137,13 @@ extension HomeViewController: CustomButtonDelegate {
     func goToCart() {
         let storyboard = UIStoryboard(name: "Cart", bundle: nil)
         guard let cartVC = storyboard.instantiateViewController(identifier: "cartVC") as? CartViewController else { return }
-        // Transfer actual cart data to CartViewController
-        cartVC.cart = cart
         present(cartVC, animated: true)
     }
     
     func putIntoCart(_ product: Product) {
-        cart.append(product)
-        printCart() // for function check
+        Cart.shared.cart.append(product)
     }
         
     func removeFromCart(_ product: Product) {
-//        printCart()
-    }
-}
-
-// function check of cart update
-extension HomeViewController {
-    private func printCart() {
-        var output = ""
-        cart.forEach { output.append($0.model + " || ") }
-        print(output)
     }
 }

@@ -18,7 +18,8 @@ import UIKit
     // Titles by default
     var initTitle = "В корзину"  // Title in init state
     var tappedTitle = "Оформить" // Title on button tapped
-    // Init satet by default
+    
+    // Button changes each time this property changes
     var initState = true {
         didSet {
             updateView()

@@ -10,9 +10,8 @@ import UIKit
 class CatalogueViewController: UITableViewController {
     
     let categories = DataStore.shared.categories
-    let allProducts = Product.getRandomProducts(count: 50)
 
-    var cart: [Product]!
+    var allProducts: [Product]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

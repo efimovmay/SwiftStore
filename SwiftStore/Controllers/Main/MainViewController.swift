@@ -15,8 +15,6 @@ final class MainViewController: UITabBarController {
         case recommended
     }
     
-    // Empty cart
-    var cart = [Product]()
     // All products at store
     let allProducts = Product.getRandomProducts(count: 100)
     
@@ -30,20 +28,17 @@ final class MainViewController: UITabBarController {
         
         // Transfer data to other view controllers
         viewControllers?.forEach { vc in
-            switch vc {
-            case let vc as HomeViewController:
-                vc.cart = cart
-                vc.sellsProducts = sellsProducts
-                vc.bestProducts = bestProducts
-                vc.recommendedProducts = recomendedProducts
-            case let vc as CatalogueViewController:
-                vc.cart = cart
-            case let vc as CartViewController:
-                vc.cart = cart
-            case let vc as ProductInfoViewController:
-                vc.cart = cart
-            default: break
+            if let homeVC = vc as? HomeViewController {
+                homeVC.sellsProducts = sellsProducts
+                homeVC.bestProducts = bestProducts
+                homeVC.recommendedProducts = recomendedProducts
             }
+                
+            if let catalogNaviVC = vc as? UINavigationController {
+                if let catalogVC = catalogNaviVC.topViewController as? CatalogueViewController {
+                    catalogVC.allProducts = allProducts
+                }
+            }          
         }
     }
 }

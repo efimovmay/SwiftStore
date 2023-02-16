@@ -18,10 +18,10 @@ class CustomTableViewCell: UITableViewCell {
 //        super.awakeFromNib()
 //
 //    }
-//    @IBAction func buyButtonDidTapped() {
+    @IBAction func buyButtonDidTapped() {
 //        if !buyButton.isTapped {
 //            buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
 //            buyButton.isTapped = true
 //        }
-//    }
+    }
 }

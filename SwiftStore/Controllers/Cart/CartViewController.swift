@@ -23,8 +23,6 @@ class CartViewController: UIViewController {
     @IBOutlet var mainScreenButton: UIButton!
     @IBOutlet var designButton: UIButton!
     
-    var cart: [Product]!
-    
     // MARK: - Override Methods
     
     override func viewDidLoad() {
@@ -40,6 +38,17 @@ class CartViewController: UIViewController {
         labelSettings()
     }
 
+    // Fix bug. On start: CART Tab -> HOME Tab -> select item -> CART TAB -> bug: cart is empty
+    override func viewWillAppear(_ animated: Bool) {
+        cartTableView.reloadData()
+        visibilityElementSettings()
+    }
+    
+    // Testing
+    override func viewDidDisappear(_ animated: Bool) {
+        Cart.printOut(from: "CART")
+    }
+   
     // MARK: - IB Actions
     
     @IBAction func designPressButton() {
@@ -49,10 +58,10 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func transitionOnTabBar(_ sender: UIButton) {
-        tabBarController?.selectedIndex = sender.tag
-        
-        guard let homeVC = tabBarController?.viewControllers?[sender.tag] as? HomeViewController else { return }
-        homeVC.cart = cart
+//        tabBarController?.selectedIndex = sender.tag
+//
+//        guard let homeVC = tabBarController?.viewControllers?[sender.tag] as? HomeViewController else { return }
+//        homeVC.cart = cart
     }
 }
 
@@ -62,7 +71,7 @@ extension CartViewController {
     
     private func visibilityElementSettings() {
 
-        if cart == nil || cart.count == 0 {
+        if Cart.shared.cart.isEmpty {
             cartTableView.isHidden = true
             buttonView.isHidden = true
             emptyCartStack.isHidden = false
@@ -74,16 +83,16 @@ extension CartViewController {
     }
     
     private func labelSettings() {
-        if cart != nil {
+        if !Cart.shared.cart.isEmpty {
             var fullPrice = 0
-            for item in cart {
+            for item in Cart.shared.cart {
                 if item.onSale {
                     fullPrice += item.priceDiscount
                 } else {
                     fullPrice += item.price
                 }
             }
-            numberItemInCartLabel.text = "\(cart.count) товаров"
+            numberItemInCartLabel.text = "\(Cart.shared.cart.count) товаров"
             fullPriceLabel.text = "На $\(fullPrice)"
         }
     }
@@ -110,16 +119,16 @@ extension CartViewController {
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if cart == nil {
+        if Cart.shared.cart.isEmpty {
             return 0
         } else {
-            return cart.count
+            return Cart.shared.cart.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCartTableViewCell
-        let product = cart[indexPath.row]
+        let product = Cart.shared.cart[indexPath.row]
         
         if product.onSale {
             cell.priceLabel.text = "$\(product.priceDiscount)"
@@ -138,7 +147,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func handleRegister(_ sender: UIButton){
-        cart.remove(at: sender.tag)
+        Cart.shared.cart.remove(at: sender.tag)
         cartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)],
                                  with: .none)
         
@@ -158,7 +167,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
         guard let indexPath = cartTableView.indexPathForSelectedRow else { return }
 
-        let currentProduct = cart[indexPath.row]
+        let currentProduct = Cart.shared.cart[indexPath.row]
         productInfoVC.product = currentProduct
     }
     
