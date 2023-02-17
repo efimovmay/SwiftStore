@@ -135,9 +135,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 extension HomeViewController: CustomButtonDelegate {
     
     func goToCart() {
-        let storyboard = UIStoryboard(name: "Cart", bundle: nil)
-        guard let cartVC = storyboard.instantiateViewController(identifier: "cartVC") as? CartViewController else { return }
-        present(cartVC, animated: true)
+
     }
     
     func putIntoCart(_ product: Product) {

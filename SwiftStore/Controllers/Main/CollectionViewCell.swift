@@ -16,11 +16,7 @@ final class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var buyButton: CustomButton!
     
     var product: Product!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+   
     @IBAction func buyButtonTapped(_ sender: UIButton) {
         // First tap changes button appearance and add product into the cart
         if buyButton.initState {
