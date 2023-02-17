@@ -16,8 +16,8 @@ import UIKit
     private let tappedBackColor = UIColor.systemBlue
     
     // Titles by default
-    var initTitle = "В корзину"  // Title in init state
-    var tappedTitle = "Оформить" // Title on button tapped
+    var initTitle = "Купить"  // Title in init state
+    var tappedTitle = "В корзине" // Title on button tapped
     
     // Button changes each time this property changes
     var initState = true {

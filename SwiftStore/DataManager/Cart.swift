@@ -5,7 +5,7 @@
 //  Created by Виталий Гринчик on 16.02.23.
 //
 
-struct Cart {
+class Cart {
     
     static var shared = Cart()
     

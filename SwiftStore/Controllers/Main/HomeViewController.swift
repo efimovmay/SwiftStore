@@ -84,7 +84,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             cell.buyButton.delegate = self // указываем, что делегатом для кнопки (экземпляр класса CustomButton) является ЭТОТ (self - "сам") вью контроллер
             let product = sellsProducts[indexPath.row]  // определяем экземпляр продукта для ячейки
             
-            cell.cellProduct = product  // передаем экземпляр продукта в свойство ячейки
+            cell.product = product  // передаем экземпляр продукта в свойство ячейки
             let configuredCell = configureCell(cell, for: product) // заполняем ячейку отображаемыми данными
             return configuredCell   // выдаем готовую ячейку
             
@@ -92,7 +92,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self
             let product = bestProducts[indexPath.row]
-            cell.cellProduct = product
+            cell.product = product
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
             
@@ -100,7 +100,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self
             let product = recommendedProducts[indexPath.row]
-            cell.cellProduct = product
+            cell.product = product
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
         }
@@ -145,5 +145,8 @@ extension HomeViewController: CustomButtonDelegate {
     }
         
     func removeFromCart(_ product: Product) {
+        if let index = Cart.shared.cart.firstIndex(of: product) {
+            Cart.shared.cart.remove(at: index)            
+        }
     }
 }
