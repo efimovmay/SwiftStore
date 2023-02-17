@@ -13,12 +13,13 @@ class CatalogueViewController: UITableViewController {
 
     var allProducts: [Product]!
     
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 200
         
-
     }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         categories.count
@@ -33,6 +34,7 @@ class CatalogueViewController: UITableViewController {
         
         content.text = category
         content.image = UIImage(named: category.lowercased())
+        
         cell.selectionStyle = .none
         cell.contentConfiguration = content
         

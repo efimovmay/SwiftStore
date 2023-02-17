@@ -9,6 +9,7 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
+    // MARK: - IB Outlets
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
