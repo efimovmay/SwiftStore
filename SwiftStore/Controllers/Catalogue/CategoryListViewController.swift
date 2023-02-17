@@ -9,13 +9,15 @@ import UIKit
 
 class CategoryListViewController: UIViewController {
     
+    // MARK: IB Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Public Properties
     var currentProducts: [Product] = []
-    var currentTitle: String!
     var cart: [Product]!
+    var currentTitle: String!
 
-
+    // MARK: Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,9 +25,7 @@ class CategoryListViewController: UIViewController {
         tableView.delegate = self
         
         title = currentTitle
-        
     }
-
 }
 
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -43,7 +43,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.priceLabel.text = "$\(currentProducts.price)"
         cell.productImageView.image = UIImage(named: currentProducts.image)
         cell.selectionStyle = .none
-
+      
             return cell
         }
 

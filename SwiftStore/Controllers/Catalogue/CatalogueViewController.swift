@@ -9,17 +9,20 @@ import UIKit
 
 class CatalogueViewController: UITableViewController {
     
-    let categories = DataStore.shared.categories
-    let allProducts = Product.getRandomProducts(count: 50)
-
+    // MARK: - Private Properties
+    private let categories = DataStore.shared.categories
+    
+    // MARK: - Public Properties
+    var allProducts = Product.getRandomProducts(count: 50)
     var cart: [Product]!
     
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 200
         
-
     }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         categories.count
@@ -34,6 +37,7 @@ class CatalogueViewController: UITableViewController {
         
         content.text = category
         content.image = UIImage(named: category.lowercased())
+        
         cell.selectionStyle = .none
         cell.contentConfiguration = content
         
