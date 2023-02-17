@@ -16,6 +16,8 @@ protocol CustomButtonDelegate {
     func removeFromCart(_ product: Product)
     
     func goToCart()
+    
+    func updateCartBadge()
 }
 
 final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -38,6 +40,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewWillAppear(_ animated: Bool) {
         #warning("Do cell update if cart has been changed")
+        updateCartBadge()
     }
     
     //Testing
@@ -49,6 +52,10 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     private func setupTabBar() {
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"
+        
+        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
+        cardVC.tabBarItem.image = UIImage(systemName: "cart")
+        cardVC.tabBarItem.title = "Корзина"
     }
 
     //MARK: - Navigation
@@ -146,5 +153,10 @@ extension HomeViewController: CustomButtonDelegate {
         if let index = Cart.shared.cart.firstIndex(of: product) {
             Cart.shared.cart.remove(at: index)            
         }
+    }
+    
+    func updateCartBadge() {
+        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
+        cardVC.tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
     }
 }
