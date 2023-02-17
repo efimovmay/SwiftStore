@@ -9,12 +9,9 @@ import UIKit
 
 class CatalogueViewController: UITableViewController {
     
-    // MARK: - Private Properties
-    private let categories = DataStore.shared.categories
-    
-    // MARK: - Public Properties
-    var allProducts = Product.getRandomProducts(count: 50)
-    var cart: [Product]!
+    let categories = DataStore.shared.categories
+
+    var allProducts: [Product]!
     
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {

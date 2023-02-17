@@ -14,10 +14,9 @@ class CategoryListViewController: UIViewController {
     
     // MARK: Public Properties
     var currentProducts: [Product] = []
-    var cart: [Product]!
+
     var currentTitle: String!
 
-    // MARK: Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +59,6 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         let currentProduct = currentProducts[indexPath.row]
         
         productInfoVC.product = currentProduct
-        productInfoVC.cart = cart
+//        productInfoVC.cart = cart
     }
 }

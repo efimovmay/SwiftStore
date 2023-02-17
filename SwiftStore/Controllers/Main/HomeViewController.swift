@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - CustomButtonDelegate
+// Для понимания можно читать, как "делегат класса CustomButton"
 protocol CustomButtonDelegate {
     
     func putIntoCart(_ product: Product)
@@ -14,6 +16,8 @@ protocol CustomButtonDelegate {
     func removeFromCart(_ product: Product)
     
     func goToCart()
+    
+    func updateCartBadge()
 }
 
 final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -27,20 +31,31 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     var sellsProducts: [Product]!
     var bestProducts: [Product]!
     var recommendedProducts: [Product]!
-    var cart: [Product]!
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
     }
-     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        #warning("Do cell update if cart has been changed")
+        updateCartBadge()
+    }
+    
+    //Testing
+    override func viewDidDisappear(_ animated: Bool) {
+        Cart.printOut(from: "HOME")
+    }
+    
     // MARK: - Setup tab view
     private func setupTabBar() {
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"
-        // First tab selection on lounch
-        tabBarController?.selectedViewController = tabBarController?.viewControllers?.first
+        
+        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
+        cardVC.tabBarItem.image = UIImage(systemName: "cart")
+        cardVC.tabBarItem.title = "Корзина"
     }
 
     //MARK: - Navigation
@@ -75,7 +90,8 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = sellsCollectionView.dequeueReusableCell(withReuseIdentifier: "sellsCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self // указываем, что делегатом для кнопки (экземпляр класса CustomButton) является ЭТОТ (self - "сам") вью контроллер
             let product = sellsProducts[indexPath.row]  // определяем экземпляр продукта для ячейки
-            cell.cellProduct = product  // передаем экземпляр продукта в свойство ячейки
+            
+            cell.product = product  // передаем экземпляр продукта в свойство ячейки
             let configuredCell = configureCell(cell, for: product) // заполняем ячейку отображаемыми данными
             return configuredCell   // выдаем готовую ячейку
             
@@ -83,7 +99,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = bestCollectionView.dequeueReusableCell(withReuseIdentifier: "bestCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self
             let product = bestProducts[indexPath.row]
-            cell.cellProduct = product
+            cell.product = product
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
             
@@ -91,7 +107,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             let cell = recommendCollectionView.dequeueReusableCell(withReuseIdentifier: "recomendedCell", for: indexPath) as! CollectionViewCell
             cell.buyButton.delegate = self
             let product = recommendedProducts[indexPath.row]
-            cell.cellProduct = product
+            cell.product = product
             let configuredCell = configureCell(cell, for: product)
             return configuredCell
         }
@@ -101,6 +117,8 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     private func configureCell(_ cell: CollectionViewCell, for product: Product) -> UICollectionViewCell {
         cell.productImage.image = UIImage(named: product.image)
         cell.modelLabel.text = product.image
+        
+        cell.buyButton.initState = Cart.shared.cart.contains(product) ? false : true
         
         if product.onSale {
             // Strike out price text for discounted products
@@ -120,31 +138,25 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 
 // MARK: - CollectionViewCellDelegate
 // Реализация метода протокола
+// Для понимания можно читать, как "Класс HomeViewController - делегат класса CustomButton"
 extension HomeViewController: CustomButtonDelegate {
     
     func goToCart() {
-        let storyboard = UIStoryboard(name: "Cart", bundle: nil)
-        guard let cartVC = storyboard.instantiateViewController(identifier: "cartVC") as? CartViewController else { return }
-        // Transfer actual cart data to CartViewController
-        cartVC.cart = cart
-        present(cartVC, animated: true)
+
     }
     
     func putIntoCart(_ product: Product) {
-        cart.append(product)
-        printCart() // for function check
+        Cart.shared.cart.append(product)
     }
         
     func removeFromCart(_ product: Product) {
-//        printCart()
+        if let index = Cart.shared.cart.firstIndex(of: product) {
+            Cart.shared.cart.remove(at: index)            
+        }
     }
-}
-
-// function check of cart update
-extension HomeViewController {
-    private func printCart() {
-        var output = ""
-        cart.forEach { output.append($0.model + "_") }
-        print(output)
+    
+    func updateCartBadge() {
+        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
+        cardVC.tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
     }
 }

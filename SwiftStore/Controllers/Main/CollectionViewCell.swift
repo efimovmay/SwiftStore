@@ -15,22 +15,21 @@ final class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var modelLabel: UILabel!
     @IBOutlet var buyButton: CustomButton!
     
-    var cellProduct: Product!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+    var product: Product!
+   
     @IBAction func buyButtonTapped(_ sender: UIButton) {
         // First tap changes button appearance and add product into the cart
         if buyButton.initState {
             buyButton.initState = false
             buyButton.updateView()
             // момент делегирования, т.е. выполнения метода другим классом (HomeViewController)
-            buyButton.delegate.putIntoCart(cellProduct) // Put product into cart
+            buyButton.delegate.putIntoCart(product) // Put product into cart
+            buyButton.delegate.updateCartBadge()
         } else {
             // Second tap: perform programmed segue to CartViewController
-            buyButton.delegate.goToCart()
+            buyButton.reset()
+            buyButton.delegate.removeFromCart(product)
+            buyButton.delegate.updateCartBadge()
         }
     }
 }
