@@ -9,9 +9,10 @@ import UIKit
 
 class CatalogueViewController: UITableViewController {
     
+    // MARK: - Public Properties
+    var allProducts: [Product]!
     let categories = DataStore.shared.categories
 
-    var allProducts: [Product]!
     
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class CatalogueViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let products = allProducts[indexPath.row]
-        performSegue(withIdentifier: "showCatagoryList", sender: products)
+        performSegue(withIdentifier: "showCategoryList", sender: products)
     }
     
 //     MARK: - Navigation

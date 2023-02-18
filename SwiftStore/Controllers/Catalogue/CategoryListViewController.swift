@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class CategoryListViewController: UIViewController {
     
     // MARK: IB Outlets
@@ -14,8 +16,8 @@ class CategoryListViewController: UIViewController {
     
     // MARK: Public Properties
     var currentProducts: [Product] = []
-
     var currentTitle: String!
+    var cart: [Product]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.priceLabel.text = "$\(currentProducts.price)"
         cell.productImageView.image = UIImage(named: currentProducts.image)
         cell.selectionStyle = .none
-      
+        
             return cell
         }
 
@@ -51,7 +53,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         }
     
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -59,6 +61,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         let currentProduct = currentProducts[indexPath.row]
         
         productInfoVC.product = currentProduct
-//        productInfoVC.cart = cart
+        productInfoVC.cart = cart
     }
 }
+
