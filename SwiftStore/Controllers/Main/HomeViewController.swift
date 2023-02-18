@@ -46,6 +46,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     //Testing
+    #warning("Delete this method on closing the project")
     override func viewDidDisappear(_ animated: Bool) {
         Cart.printOut(from: "HOME")
     }
