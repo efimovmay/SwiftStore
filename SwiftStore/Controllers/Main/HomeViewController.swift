@@ -39,8 +39,13 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        #warning("Do cell update if cart has been changed")
-        updateCartBadge()
+        // Change Custom button appearance for items removed from cart
+        updateCells(for: sellsCollectionView)
+        updateCells(for: bestCollectionView)
+        updateCells(for: recommendCollectionView)
+        
+        // Temporary till othec code has been written
+        updateCartBadge() // временно
     }
     
     //Testing
@@ -158,5 +163,13 @@ extension HomeViewController: CustomButtonDelegate {
     func updateCartBadge() {
         guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
         cardVC.tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+    }
+}
+
+extension HomeViewController {
+    private func updateCells(for collectionView: UICollectionView) {
+        let cellsForUpdate = collectionView.visibleCells
+        let cellsIndexesForUpdate = cellsForUpdate.map { collectionView.indexPath(for: $0)! }
+        collectionView.reloadItems(at: cellsIndexesForUpdate)
     }
 }
