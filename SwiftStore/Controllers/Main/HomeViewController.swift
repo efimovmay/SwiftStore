@@ -53,9 +53,8 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"
         
-        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
-        cardVC.tabBarItem.image = UIImage(systemName: "cart")
-        cardVC.tabBarItem.title = "Корзина"
+        tabBarController?.tabBar.items?[2].image = UIImage(systemName: "cart.fill")
+        tabBarController?.tabBar.items?[2].title = "Корзина"
     }
 
     //MARK: - Navigation
@@ -156,7 +155,6 @@ extension HomeViewController: CustomButtonDelegate {
     }
     
     func updateCartBadge() {
-        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else { return }
-        cardVC.tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
     }
 }
