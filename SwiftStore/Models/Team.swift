@@ -15,19 +15,19 @@ struct Developer {
     static func getTeam() -> [Developer] {
         [
             Developer(name: "Vitaly",
-                      image: "foto",
+                      image: "dev1",
                       charpter: "Team lead, Главный Экран",
                       githubLink: "vitaly-grinchik"),
             Developer(name: "Dmitry",
-                      image: "foto",
+                      image: "dev2",
                       charpter: "DataStore, Карточка товара",
                       githubLink: "dypolyakov"),
             Developer(name: "Kirill",
-                      image: "foto",
+                      image: "dev3",
                       charpter: "Каталог, Список товаров",
                       githubLink: "Kirilloao"),
             Developer(name: "Aleksey",
-                      image: "foto",
+                      image: "dev4",
                       charpter: "Корзина, Профиль",
                       githubLink: "smaylik121")
         ]

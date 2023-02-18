@@ -31,17 +31,13 @@ class CartViewController: UIViewController {
         cartTableView.delegate = self
         cartTableView.dataSource = self
 
-    //   cart = Product.getRandomProducts(count: 7)
-        
         buttonSettings()
-        visibilityElementSettings()
-        labelSettings()
     }
 
-    // Fix bug. On start: CART Tab -> HOME Tab -> select item -> CART TAB -> bug: cart is empty
     override func viewWillAppear(_ animated: Bool) {
         cartTableView.reloadData()
         visibilityElementSettings()
+        labelSettings()
     }
     
     // Testing
@@ -58,10 +54,7 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func transitionOnTabBar(_ sender: UIButton) {
-//        tabBarController?.selectedIndex = sender.tag
-//
-//        guard let homeVC = tabBarController?.viewControllers?[sender.tag] as? HomeViewController else { return }
-//        homeVC.cart = cart
+        tabBarController?.selectedIndex = sender.tag
     }
 }
 
@@ -92,17 +85,26 @@ extension CartViewController {
                     fullPrice += item.price
                 }
             }
-            numberItemInCartLabel.text = "\(Cart.shared.cart.count) товаров"
+            
+            let numberItemText: String
+            if Cart.shared.cart.count == 1 {
+                numberItemText = "\(Cart.shared.cart.count) товар"
+            } else if Cart.shared.cart.count < 4 {
+                numberItemText = "\(Cart.shared.cart.count) товара"
+            } else {
+                numberItemText = "\(Cart.shared.cart.count) товаров"
+            }
+            numberItemInCartLabel.text = numberItemText
             fullPriceLabel.text = "На $\(fullPrice)"
         }
     }
     
     private func buttonSettings() {
         mainScreenButton.layer.cornerRadius = mainScreenButton.frame.height / 2
-        mainScreenButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
+        mainScreenButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
         
         designButton.layer.cornerRadius = designButton.frame.height / 2
-        designButton.backgroundColor = #colorLiteral(red: 0.9640280604, green: 0.8113391995, blue: 0.2740806341, alpha: 1)
+        designButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
     }
     
     private func showAlertController(title: String, massege: String) {
@@ -154,6 +156,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         cartTableView.reloadData()
         visibilityElementSettings()
         labelSettings()
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
