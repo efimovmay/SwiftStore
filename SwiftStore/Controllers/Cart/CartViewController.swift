@@ -31,17 +31,13 @@ class CartViewController: UIViewController {
         cartTableView.delegate = self
         cartTableView.dataSource = self
 
-    //   cart = Product.getRandomProducts(count: 7)
-        
         buttonSettings()
-        visibilityElementSettings()
-        labelSettings()
     }
 
-    // Fix bug. On start: CART Tab -> HOME Tab -> select item -> CART TAB -> bug: cart is empty
     override func viewWillAppear(_ animated: Bool) {
         cartTableView.reloadData()
         visibilityElementSettings()
+        labelSettings()
     }
     
     // Testing
@@ -58,10 +54,7 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func transitionOnTabBar(_ sender: UIButton) {
-//        tabBarController?.selectedIndex = sender.tag
-//
-//        guard let homeVC = tabBarController?.viewControllers?[sender.tag] as? HomeViewController else { return }
-//        homeVC.cart = cart
+        tabBarController?.selectedIndex = sender.tag
     }
 }
 
@@ -92,7 +85,16 @@ extension CartViewController {
                     fullPrice += item.price
                 }
             }
-            numberItemInCartLabel.text = "\(Cart.shared.cart.count) товаров"
+            
+            let numberItemText: String
+            if Cart.shared.cart.count == 1 {
+                numberItemText = "\(Cart.shared.cart.count) товар"
+            } else if Cart.shared.cart.count < 5 {
+                numberItemText = "\(Cart.shared.cart.count) товара"
+            } else {
+                numberItemText = "\(Cart.shared.cart.count) товаров"
+            }
+            numberItemInCartLabel.text = numberItemText
             fullPriceLabel.text = "На $\(fullPrice)"
         }
     }
