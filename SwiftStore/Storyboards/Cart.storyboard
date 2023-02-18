@@ -214,14 +214,11 @@
             </objects>
             <point key="canvasLocation" x="4137.68115942029" y="383.70535714285711"/>
         </scene>
-        <!--Корзина-->
+        <!--Navigation Controller-->
         <scene sceneID="zLn-H7-2Xq">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH0-Qt-9gb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navigationCartVC" automaticallyAdjustsScrollViewInsets="NO" id="MkU-vA-Ate" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Корзина" image="cart.fill" catalog="system" id="WGl-J6-eUq">
-                        <color key="badgeColor" red="0.21333251559999999" green="0.60646230499999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="pnK-cT-i5A">
@@ -248,7 +245,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
