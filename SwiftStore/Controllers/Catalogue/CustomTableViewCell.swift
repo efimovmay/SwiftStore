@@ -32,7 +32,7 @@ class CustomTableViewCell: UITableViewCell {
         } else {
             // Second tap: perform programmed segue to CartViewController
             buyButton.reset()
-            buyButton.delegate.removeFromCart(product)
+//            buyButton.delegate.removeFromCart(product)
 //            buyButton.delegate.updateCartBadge()
         }
     }
