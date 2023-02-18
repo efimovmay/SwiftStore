@@ -14,6 +14,7 @@ class Cart {
     init() {}
     
     // For testing
+    #warning("Delete this method on closing the project")
     static func printOut(from viewController: String) {
         var output = ""
         Cart.shared.cart.forEach { output.append($0.model + " | ") }
