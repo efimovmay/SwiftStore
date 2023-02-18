@@ -19,7 +19,7 @@ import UIKit
     var initTitle = "Купить"  // Title in init state
     var tappedTitle = "В корзине" // Title on button tapped
     
-    // Button changes each time this property changes
+    // Property observer: button appearance changes each time this property changes
     var initState = true {
         didSet {
             updateView()
@@ -42,7 +42,7 @@ import UIKit
         updateView()
     }
     
-    // Update button appearance depending on its state
+    // Update button appearance corresponding its state
     func updateView() {
         let title = initState ? initTitle : tappedTitle
         

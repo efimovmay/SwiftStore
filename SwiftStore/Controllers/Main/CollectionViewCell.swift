@@ -9,6 +9,7 @@ import UIKit
 
 final class CollectionViewCell: UICollectionViewCell {
     
+    // MARK: - IB Outlets
     @IBOutlet var productImage: UIImageView!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var priceDiscountLabel: UILabel!
@@ -17,6 +18,7 @@ final class CollectionViewCell: UICollectionViewCell {
     
     var product: Product!
    
+    // Change button view appearance
     @IBAction func buyButtonTapped(_ sender: UIButton) {
         // First tap changes button appearance and add product into the cart
         if buyButton.initState {

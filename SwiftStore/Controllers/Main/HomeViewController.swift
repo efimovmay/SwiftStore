@@ -38,14 +38,11 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         setupTabBar()
     }
     
+    // Change Custom button appearance for items removed from cart
     override func viewWillAppear(_ animated: Bool) {
-        // Change Custom button appearance for items removed from cart
         updateCells(for: sellsCollectionView)
         updateCells(for: bestCollectionView)
         updateCells(for: recommendCollectionView)
-        
-        // Temporary till othec code has been written
-        updateCartBadge() // временно
     }
     
     //Testing
@@ -164,6 +161,7 @@ extension HomeViewController: CustomButtonDelegate {
     }
 }
 
+// Update visible collection cells custom button in accordance with cart content
 extension HomeViewController {
     private func updateCells(for collectionView: UICollectionView) {
         let cellsForUpdate = collectionView.visibleCells
