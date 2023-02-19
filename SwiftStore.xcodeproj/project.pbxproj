@@ -32,7 +32,6 @@
 		D8AEFA66298987EC003737A9 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AEFA65298987EC003737A9 /* Team.storyboard */; };
 		D8AEFA8C298AE751003737A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEFA8B298AE751003737A9 /* HomeViewController.swift */; };
 		D8AEFA8E298AFE33003737A9 /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AEFA8D298AFE33003737A9 /* ProductInfo.storyboard */; };
-		D8E9499C299E7E7D0004368B /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E9499B299E7E7D0004368B /* CustomCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		D8AEFA65298987EC003737A9 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		D8AEFA8B298AE751003737A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D8AEFA8D298AFE33003737A9 /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
-		D8E9499B299E7E7D0004368B /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 		D8AEFA3329897E07003737A9 /* SwiftStore */ = {
 			isa = PBXGroup;
 			children = (
-				D8E9499A299E7E170004368B /* Protocols */,
 				D8AEFA4C298980D0003737A9 /* DataManager */,
 				D8AEFA4B298980B8003737A9 /* Models */,
 				D8AEFA4A29897EA3003737A9 /* App */,
@@ -199,14 +196,6 @@
 			path = Team;
 			sourceTree = "<group>";
 		};
-		D8E9499A299E7E170004368B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				D8E9499B299E7E7D0004368B /* CustomCellDelegate.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,7 +280,6 @@
 				D8AEFA502989813E003737A9 /* Product.swift in Sources */,
 				D8AEFA3529897E08003737A9 /* AppDelegate.swift in Sources */,
 				D8AEFA54298983C0003737A9 /* ProductInfoViewController.swift in Sources */,
-				D8E9499C299E7E7D0004368B /* CustomCellDelegate.swift in Sources */,
 				D8AEFA3729897E08003737A9 /* SceneDelegate.swift in Sources */,
 				D8AEFA8C298AE751003737A9 /* HomeViewController.swift in Sources */,
 				D8AEFA5D2989862B003737A9 /* CartViewController.swift in Sources */,

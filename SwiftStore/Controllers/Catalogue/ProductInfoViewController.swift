@@ -23,7 +23,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     var cart: [Product]?
     
     // MARK: - Private Properties
-    var productSpecs: [String] {
+    private var productSpecs: [String] {
         getSpecs(for: product)
     }
     
@@ -36,12 +36,19 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - Private Methods
     private func setupView() {
         guard let product = product else { return }
-        setupTechSpecsTableView()
         
         productImage.image = UIImage(named: product.image )
         productLabel.text = product.title
+        setupPrices()
+        setupBuyButton()
+        setupTechSpecsTableView()
+        buyButton.initState = Cart.shared.cart.contains(product) ? false : true
         
-        // Product price configuration
+        
+    }
+    
+    private func setupPrices() {
+        guard let product = product else { return }
         if product.onSale {
             priceLabel.text = "$\(product.priceDiscount)"
             
@@ -56,10 +63,12 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
             priceLabel.text = "$\(product.price)"
             oldPriceLabel.isHidden = true
         }
-        
-        if product.inCart {
-            print("Product in cart")
-        }
+    }
+    
+    private func setupBuyButton() {
+        buyButton.delegate = self
+        buyButton.initTitle = "Купить"
+        buyButton.tappedTitle = "В корзине"
     }
     
     private func setupTechSpecsTableView() {
@@ -99,7 +108,20 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func buyButtonAction() {
-
+        guard let product = product else { return }
+        
+        if !Cart.shared.cart.contains(product) {
+            putIntoCart(product)
+        } else if Cart.shared.cart.contains(product) {
+            removeFromCart(product)
+        }
+        // debug
+        Cart.shared.cart.forEach {
+            print($0.model)
+        }
+        
+        updateCartBadge()
+        buyButton.initState = Cart.shared.cart.contains(product) ? false : true
     }
 }
 
@@ -124,4 +146,25 @@ extension ProductInfoViewController {
         
         return cell
     }
+}
+
+extension ProductInfoViewController: CustomButtonDelegate {
+    func putIntoCart(_ product: Product) {
+        Cart.shared.cart.append(product)
+    }
+    
+    func removeFromCart(_ product: Product) {
+        if let index = Cart.shared.cart.firstIndex(of: product) {
+            Cart.shared.cart.remove(at: index)
+        }
+    }
+    
+    func goToCart() {
+        
+    }
+    
+    func updateCartBadge() {
+    }
+    
+    
 }
