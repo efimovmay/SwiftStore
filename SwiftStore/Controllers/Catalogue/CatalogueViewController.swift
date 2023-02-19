@@ -13,7 +13,6 @@ class CatalogueViewController: UITableViewController {
     var allProducts: [Product]!
     let categories = DataStore.shared.categories
 
-    
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +43,7 @@ class CatalogueViewController: UITableViewController {
     
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let products = allProducts[indexPath.row]
-        performSegue(withIdentifier: "showCategoryList", sender: products)
+        performSegue(withIdentifier: "showCategoryList", sender: nil)
     }
     
 //     MARK: - Navigation
