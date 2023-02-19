@@ -10,7 +10,7 @@ import UIKit
 
 
 class CategoryListViewController: UIViewController {
-    
+
     // MARK: IB Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,6 +44,7 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.priceLabel.text = "$\(currentProducts.price)"
         cell.productImageView.image = UIImage(named: currentProducts.image)
         cell.selectionStyle = .none
+        cell.buyButton.delegate = self
         
             return cell
         }
@@ -53,7 +54,6 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         }
     
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let productInfoVC = segue.destination as? ProductInfoViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -64,4 +64,29 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         productInfoVC.cart = cart
     }
 }
+
+extension CategoryListViewController: CustomButtonDelegate {
+    func putIntoCart(_ product: Product) {
+        Cart.shared.cart.append(product)
+    }
+    
+    func removeFromCart(_ product: Product) {
+        if let index = Cart.shared.cart.firstIndex(of: product) {
+            Cart.shared.cart.remove(at: index)
+        }
+    }
+    
+    func goToCart() {
+        
+    }
+    
+    func updateCartBadge() {
+        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else {
+            return }
+        
+        cardVC.tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+        }
+    }
+    
+    
 
