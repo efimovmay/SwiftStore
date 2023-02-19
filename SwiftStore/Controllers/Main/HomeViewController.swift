@@ -15,8 +15,6 @@ protocol CustomButtonDelegate {
     
     func removeFromCart(_ product: Product)
     
-    func goToCart()
-    
     func updateCartBadge()
 }
 
@@ -142,10 +140,6 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 // Реализация метода протокола
 // Для понимания можно читать, как "Класс HomeViewController - делегат класса CustomButton"
 extension HomeViewController: CustomButtonDelegate {
-    
-    func goToCart() {
-
-    }
     
     func putIntoCart(_ product: Product) {
         Cart.shared.cart.append(product)

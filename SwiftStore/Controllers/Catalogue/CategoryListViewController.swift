@@ -27,6 +27,11 @@ class CategoryListViewController: UIViewController {
         
         title = currentTitle
     }
+    
+    // Testing
+    override func viewDidDisappear(_ animated: Bool) {
+        Cart.printOut(from: "CATALOG")
+    }
 }
 
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -38,11 +43,12 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
 
         let cell =  tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! CustomTableViewCell
         
-        let currentProducts = currentProducts[indexPath.row]
+        let currentProduct = currentProducts[indexPath.row]
       
-        cell.productNameLabel.text = currentProducts.title
-        cell.priceLabel.text = "$\(currentProducts.price)"
-        cell.productImageView.image = UIImage(named: currentProducts.image)
+        cell.product = currentProduct
+        cell.productNameLabel.text = currentProduct.title
+        cell.priceLabel.text = "$\(currentProduct.price)"
+        cell.productImageView.image = UIImage(named: currentProduct.image)
         cell.selectionStyle = .none
         cell.buyButton.delegate = self
         
@@ -76,15 +82,9 @@ extension CategoryListViewController: CustomButtonDelegate {
         }
     }
     
-    func goToCart() {
-        
-    }
-    
     func updateCartBadge() {
-        guard let cardVC = tabBarController?.viewControllers?[2] as? CartViewController else {
-            return }
-        
-        cardVC.tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+        tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
         }
     }
     
