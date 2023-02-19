@@ -28,13 +28,13 @@ class CustomTableViewCell: UITableViewCell {
             buyButton.initState = false
             buyButton.updateView()
             // момент делегирования, т.е. выполнения метода другим классом (HomeViewController)
-            buyButton.delegate.putIntoCart(product) // Put product into cart
-            buyButton.delegate.updateCartBadge()
+//            buyButton.delegate.putIntoCart(product) // Put product into cart
+//            buyButton.delegate.updateCartBadge()
         } else {
             // Second tap: perform programmed segue to CartViewController
             buyButton.reset()
-            buyButton.delegate.removeFromCart(product)
-            buyButton.delegate.updateCartBadge()
+//            buyButton.delegate.removeFromCart(product)
+//            buyButton.delegate.updateCartBadge()
         }
     }
 }
