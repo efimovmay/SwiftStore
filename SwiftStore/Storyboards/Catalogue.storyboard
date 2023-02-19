@@ -178,7 +178,7 @@
     </scenes>
     <designables>
         <designable name="lxt-H1-eLV">
-            <size key="intrinsicContentSize" width="73" height="30"/>
+            <size key="intrinsicContentSize" width="50" height="30"/>
         </designable>
     </designables>
     <resources>
