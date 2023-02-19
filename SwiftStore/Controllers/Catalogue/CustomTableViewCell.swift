@@ -15,14 +15,25 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var buyButton: CustomButton!
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//
-//    }
+    var product: Product!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+ 
+
+    }
     @IBAction func buyButtonDidTapped() {
-//        if !buyButton.isTapped {
-//            buyButton.setButtonView(withTitle: "В корзине", for: .tapped)
-//            buyButton.isTapped = true
-//        }
+        if buyButton.initState {
+            buyButton.initState = false
+            buyButton.updateView()
+            // момент делегирования, т.е. выполнения метода другим классом (HomeViewController)
+//            buyButton.delegate.putIntoCart(product) // Put product into cart
+//            buyButton.delegate.updateCartBadge()
+        } else {
+            // Second tap: perform programmed segue to CartViewController
+            buyButton.reset()
+//            buyButton.delegate.removeFromCart(product)
+//            buyButton.delegate.updateCartBadge()
+        }
     }
 }
