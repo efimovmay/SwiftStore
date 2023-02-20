@@ -11,14 +11,19 @@ class CustomTableViewCell: UITableViewCell {
     
     // MARK: - IB Outlets
     @IBOutlet weak var productImageView: UIImageView!
+    
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    
     @IBOutlet weak var buyButton: CustomButton!
     
+    // MARK: - IB Public Properties
     var product: Product!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+
+    // MARK: - Override Methods
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.buyButton.initState = true
     }
     
     //MARK: - IB Actions

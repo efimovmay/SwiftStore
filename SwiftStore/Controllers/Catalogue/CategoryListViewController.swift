@@ -19,6 +19,7 @@ class CategoryListViewController: UIViewController {
     var currentTitle: String!
     var cart: [Product]?
 
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,18 +28,13 @@ class CategoryListViewController: UIViewController {
         
         title = currentTitle
     }
-    
-    // Testing
-    override func viewDidDisappear(_ animated: Bool) {
-        Cart.printOut(from: "CATALOG")
-    }
 }
 
-extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate {
+extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         currentProducts.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell =  tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! CustomTableViewCell
@@ -49,12 +45,14 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.productNameLabel.text = currentProduct.title
         cell.priceLabel.text = "$\(currentProduct.price)"
         cell.productImageView.image = UIImage(named: currentProduct.image)
-        cell.selectionStyle = .none
-        cell.buyButton.delegate = self
         
+        cell.selectionStyle = .none
+        
+        cell.buyButton.delegate = self
+      
             return cell
         }
-
+    
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 150
         }
@@ -88,5 +86,5 @@ extension CategoryListViewController: CustomButtonDelegate {
         }
     }
     
-    
+
 
