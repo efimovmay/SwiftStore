@@ -19,11 +19,7 @@ class CustomTableViewCell: UITableViewCell {
     
     // MARK: - IB Public Properties
     var product: Product!
-    
-    // MARK: - Life Cycles Methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+
     // MARK: - Override Methods
     override func prepareForReuse() {
         super.prepareForReuse()
