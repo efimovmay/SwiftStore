@@ -46,6 +46,8 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.priceLabel.text = "$\(currentProduct.price)"
         cell.productImageView.image = UIImage(named: currentProduct.image)
         
+        cell.buyButton.initState = Cart.shared.cart.contains(currentProduct) ? false : true
+        
         cell.selectionStyle = .none
         
         cell.buyButton.delegate = self
