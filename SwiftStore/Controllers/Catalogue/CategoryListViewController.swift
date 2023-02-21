@@ -44,6 +44,10 @@ class CategoryListViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         Cart.printOut(from: "CATEGORY")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateCells(for: tableView)
+    }
 }
 
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate{
@@ -63,7 +67,9 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.productNameLabel.text = currentProduct.title
         cell.priceLabel.text = "$\(currentProduct.price)"
         cell.productImageView.image = UIImage(named: currentProduct.image)
+
         cell.buyButton.initState = Cart.contains(currentProduct) ? false : true
+
         cell.selectionStyle = .none
         
             return cell
