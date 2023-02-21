@@ -21,6 +21,16 @@ class Cart {
         Cart.shared.cart.contains(product)
     }
 
+    static func append(_ product: Product) {
+        Cart.shared.cart.append(product)
+    }
+    
+    static func remove(_ product: Product) {
+        if let index = Cart.shared.cart.firstIndex(of: product) {
+            Cart.shared.cart.remove(at: index)
+        }
+    }
+    
     // For testing
     #warning("Delete this method on closing the project")
     static func printOut(from viewController: String) {

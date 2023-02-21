@@ -33,14 +33,21 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateCartBadge),
+            name: Notification.Name("updateTabBadge"),
+            object: nil
+        )
+        
         setupTabBar()
     }
     
     // Change Custom button appearance for items removed from cart
     override func viewWillAppear(_ animated: Bool) {
-        updateCells(for: sellsCollectionView)
-        updateCells(for: bestCollectionView)
-        updateCells(for: recommendCollectionView)
+        updateVisibleCells()
+//        updateCartBadge()
     }
     
     //Testing
@@ -142,25 +149,32 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 extension HomeViewController: CustomButtonDelegate {
     
     func putIntoCart(_ product: Product) {
-        Cart.shared.cart.append(product)
+        Cart.append(product)
     }
         
     func removeFromCart(_ product: Product) {
-        if let index = Cart.shared.cart.firstIndex(of: product) {
-            Cart.shared.cart.remove(at: index)            
-        }
+            Cart.remove(product)
     }
     
-    func updateCartBadge() {
-        tabBarController?.tabBar.items?[2].badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+    @objc func updateCartBadge() {
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.isEmpty ? nil : String(Cart.shared.cart.count)
+        updateVisibleCells()
     }
 }
 
 // Update visible collection cells custom button in accordance with cart content
 extension HomeViewController {
+    
+    private func updateVisibleCells() {
+        updateCells(for: sellsCollectionView)
+        updateCells(for: bestCollectionView)
+        updateCells(for: recommendCollectionView)
+    }
+    
     private func updateCells(for collectionView: UICollectionView) {
         let cellsForUpdate = collectionView.visibleCells
         let cellsIndexesForUpdate = cellsForUpdate.map { collectionView.indexPath(for: $0)! }
         collectionView.reloadItems(at: cellsIndexesForUpdate)
     }
+    
 }
