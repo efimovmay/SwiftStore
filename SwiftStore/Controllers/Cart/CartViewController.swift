@@ -32,12 +32,21 @@ class CartViewController: UIViewController {
         cartTableView.dataSource = self
 
         buttonSettings()
+        
+        // Assign notification observer: if notification occurs (has been "posted") center calls designated function
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateView),
+            name: Notification.Name("updateView"),
+            object: nil
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        cartTableView.reloadData()
-        visibilityElementSettings()
+        super.viewWillAppear(animated)
+        
         labelSettings()
+        updateView()
     }
     
     // Testing
@@ -64,7 +73,7 @@ extension CartViewController {
     
     private func visibilityElementSettings() {
 
-        if Cart.shared.cart.isEmpty {
+        if Cart.isEmpty {
             cartTableView.isHidden = true
             buttonView.isHidden = true
             emptyCartStack.isHidden = false
@@ -76,7 +85,7 @@ extension CartViewController {
     }
     
     private func labelSettings() {
-        if !Cart.shared.cart.isEmpty {
+        if !Cart.isEmpty {
             var fullPrice = 0
             for item in Cart.shared.cart {
                 if item.onSale {
@@ -87,12 +96,12 @@ extension CartViewController {
             }
             
             let numberItemText: String
-            if Cart.shared.cart.count == 1 {
-                numberItemText = "\(Cart.shared.cart.count) товар"
+            if Cart.count == 1 {
+                numberItemText = "\(Cart.count) товар"
             } else if Cart.shared.cart.count < 4 {
-                numberItemText = "\(Cart.shared.cart.count) товара"
+                numberItemText = "\(Cart.count) товара"
             } else {
-                numberItemText = "\(Cart.shared.cart.count) товаров"
+                numberItemText = "\(Cart.count) товаров"
             }
             numberItemInCartLabel.text = numberItemText
             fullPriceLabel.text = "На $\(fullPrice)"
@@ -121,10 +130,10 @@ extension CartViewController {
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if Cart.shared.cart.isEmpty {
+        if Cart.isEmpty {
             return 0
         } else {
-            return Cart.shared.cart.count
+            return Cart.count
         }
     }
     
@@ -156,7 +165,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         cartTableView.reloadData()
         visibilityElementSettings()
         labelSettings()
-        tabBarController?.tabBar.items?[2].badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+        
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.isEmpty ? nil : String(Cart.count)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -174,4 +184,18 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         productInfoVC.product = currentProduct
     }
     
+}
+
+// Update view after presented controller has been dismissed
+extension CartViewController {
+    
+    private func updateCartBadge() {
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.isEmpty ? nil : String(Cart.count)
+    }
+    
+    @objc private func updateView() {
+        updateCartBadge()
+        cartTableView.reloadData()
+        visibilityElementSettings()
+    }
 }

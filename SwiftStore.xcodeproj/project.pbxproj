@@ -171,9 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				D8AEFA51298982E6003737A9 /* CatalogueViewController.swift */,
-				D8AEFA53298983C0003737A9 /* ProductInfoViewController.swift */,
 				D8AEFA552989840B003737A9 /* CategoryListViewController.swift */,
 				D813D4332994369F00CB9991 /* CustomTableViewCell.swift */,
+				D8AEFA53298983C0003737A9 /* ProductInfoViewController.swift */,
 			);
 			path = Catalogue;
 			sourceTree = "<group>";

@@ -15,7 +15,7 @@ protocol CustomButtonDelegate {
     
     func removeFromCart(_ product: Product)
     
-    func updateCartBadge()
+    func updateCartBage()
 }
 
 final class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -33,18 +33,25 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Assign notification observer: if notification occurs (has been "posted") center calls designated function
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateView),
+            name: Notification.Name("updateView"),
+            object: nil
+        )
+        
         setupTabBar()
     }
     
-    // Change Custom button appearance for items removed from cart
+    // Set custom buttons appearance in accordance with a cart
     override func viewWillAppear(_ animated: Bool) {
-        updateCells(for: sellsCollectionView)
-        updateCells(for: bestCollectionView)
-        updateCells(for: recommendCollectionView)
+        super.viewWillAppear(animated)
+        updateVisibleCells()
     }
     
-    //Testing
-    #warning("Delete this method on closing the project")
+    // Testing
     override func viewDidDisappear(_ animated: Bool) {
         Cart.printOut(from: "HOME")
     }
@@ -118,7 +125,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
         cell.productImage.image = UIImage(named: product.image)
         cell.modelLabel.text = product.image
         
-        cell.buyButton.initState = Cart.shared.cart.contains(product) ? false : true
+        cell.buyButton.initState = Cart.contains(product) ? false : true
         
         if product.onSale {
             // Strike out price text for discounted products
@@ -142,22 +149,33 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
 extension HomeViewController: CustomButtonDelegate {
     
     func putIntoCart(_ product: Product) {
-        Cart.shared.cart.append(product)
+        Cart.append(product)
     }
         
     func removeFromCart(_ product: Product) {
-        if let index = Cart.shared.cart.firstIndex(of: product) {
-            Cart.shared.cart.remove(at: index)            
-        }
+            Cart.remove(product)
     }
     
-    func updateCartBadge() {
-        tabBarController?.tabBar.items?[2].badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
+    func updateCartBage() {
+        tabBarController?.tabBar.items?[2].badgeValue = Cart.isEmpty ? nil : String(Cart.count)
     }
 }
 
-// Update visible collection cells custom button in accordance with cart content
 extension HomeViewController {
+    
+    // Update self view after presented controller has been dismissed
+    @objc private func updateView() {
+        updateCartBage()
+        updateVisibleCells()
+    }
+  
+    // Update visible collection cells custom button in accordance with cart content
+    private func updateVisibleCells() {
+        updateCells(for: sellsCollectionView)
+        updateCells(for: bestCollectionView)
+        updateCells(for: recommendCollectionView)
+    }
+    
     private func updateCells(for collectionView: UICollectionView) {
         let cellsForUpdate = collectionView.visibleCells
         let cellsIndexesForUpdate = cellsForUpdate.map { collectionView.indexPath(for: $0)! }
