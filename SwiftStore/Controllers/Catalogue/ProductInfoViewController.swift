@@ -20,7 +20,6 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: - Public Properties
     var product: Product?
-    var cart: [Product]?
     
     // MARK: - Private Properties
     private var productSpecs: [String] {
@@ -33,12 +32,17 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         setupView()
     }
     
-    // Post notification to presenting view controller to execute its update
+    // Posts notification to presenting view controller to execute its update
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "updateTabBadge"),
+            name: NSNotification.Name(rawValue: "updateView"),
             object: nil
         )
+        
+        //Testing
+        Cart.printOut(from: "INFO")
     }
     
     // MARK: - Private Methods
@@ -121,8 +125,6 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
             removeFromCart(product)
             buyButton.initState = true
         }
-        // debug
-        Cart.printOut(from: "INFO")
     }
 }
 
@@ -158,9 +160,9 @@ extension ProductInfoViewController: CustomButtonDelegate {
         Cart.remove(product)
     }
     
-    func updateCartBadge() {
+    func updateCartBage() {
         if let tabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainVC") as? UITabBarController {
-            tabBarController.tabBar.items?[2].badgeValue = Cart.isEmpty ? nil : String(Cart.shared.cart.count)
+            tabBarController.tabBar.items?[2].badgeValue = Cart.isEmpty ? nil : String(Cart.count)
         }
     }
 }

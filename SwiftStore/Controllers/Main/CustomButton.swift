@@ -22,7 +22,7 @@ import UIKit
     // Property observer: button appearance changes each time this property changes
     var initState = true {
         didSet {
-            updateView()
+            updateButtonView()
         }
     }
     
@@ -39,11 +39,11 @@ import UIKit
         // Initial button appearance for default values
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1
-        updateView()
+        updateButtonView()
     }
     
     // Update button appearance corresponding its state
-    func updateView() {
+    func updateButtonView() {
         let title = initState ? initTitle : tappedTitle
         
         if initState {
@@ -62,6 +62,6 @@ import UIKit
     // Change button view to initial state
     func reset() {
         initState = true
-        updateView()
+        updateButtonView()
     }
 }

@@ -13,6 +13,10 @@ class Cart {
         Cart.shared.cart.isEmpty
     }
     
+    static var count: Int {
+        Cart.shared.cart.count
+    }
+
     var cart = [Product]()
     
     init() {}
@@ -30,6 +34,7 @@ class Cart {
             Cart.shared.cart.remove(at: index)
         }
     }
+    
     
     // For testing
     #warning("Delete this method on closing the project")
