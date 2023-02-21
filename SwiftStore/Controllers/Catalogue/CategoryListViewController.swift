@@ -28,6 +28,10 @@ class CategoryListViewController: UIViewController {
         
         title = currentTitle
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateCells(for: tableView)
+    }
 }
 
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate{
@@ -45,6 +49,8 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         cell.productNameLabel.text = currentProduct.title
         cell.priceLabel.text = "$\(currentProduct.price)"
         cell.productImageView.image = UIImage(named: currentProduct.image)
+        
+        cell.buyButton.initState = Cart.shared.cart.contains(currentProduct) ? false : true
         
         cell.selectionStyle = .none
         
@@ -85,6 +91,13 @@ extension CategoryListViewController: CustomButtonDelegate {
         tabBarItem.badgeValue = Cart.shared.cart.isEmpty ? nil : String(Cart.shared.cart.count)
         }
     }
-    
+ // Обновление кнопки в ячейки в зависимости от наполнения корзины
+extension CategoryListViewController {
+        private func updateCells(for tableView: UITableView) {
+            let cellsForUpdate = tableView.visibleCells
+            let cellsIndexesForUpdate = cellsForUpdate.map { tableView.indexPath(for: $0)! }
+            tableView.reloadRows(at: cellsIndexesForUpdate, with: .none)
+        }
+}
 
 
