@@ -19,7 +19,7 @@ import UIKit
     var initTitle = "Купить"  // Title in init state
     var tappedTitle = "В корзине" // Title on button tapped
     
-    // Property observer: button appearance changes each time this property changes
+    // Property observer: button appearance changes on button tap
     var initState = true {
         didSet {
             updateButtonView()

@@ -41,9 +41,9 @@ class CategoryListViewController: UIViewController {
     }
     
     //Testing
-    override func viewDidDisappear(_ animated: Bool) {
-        Cart.printOut(from: "CATEGORY")
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        Cart.printOut(from: "CATEGORY")
+//    }
 }
 
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate{

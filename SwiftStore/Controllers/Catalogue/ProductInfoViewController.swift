@@ -42,7 +42,7 @@ final class ProductInfoViewController: UIViewController, UITableViewDelegate, UI
         )
         
         //Testing
-        Cart.printOut(from: "INFO")
+//        Cart.printOut(from: "INFO")
     }
     
     // MARK: - Private Methods
