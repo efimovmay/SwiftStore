@@ -25,7 +25,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet var bestCollectionView: UICollectionView!
     @IBOutlet var recommendCollectionView: UICollectionView!
     
-    // Data being received from MainViewController
+    // Data source for collection views
     var sellsProducts: [Product]!
     var bestProducts: [Product]!
     var recommendedProducts: [Product]!
@@ -33,6 +33,7 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTabBar()
         
         // Assign notification observer: if notification occurs (has been "posted") center calls designated function
         NotificationCenter.default.addObserver(
@@ -41,8 +42,6 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
             name: Notification.Name("updateView"),
             object: nil
         )
-        
-        setupTabBar()
     }
     
     // Set custom buttons appearance in accordance with a cart
@@ -52,11 +51,11 @@ final class HomeViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     // Testing
-    override func viewDidDisappear(_ animated: Bool) {
-        Cart.printOut(from: "HOME")
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        Cart.printOut(from: "HOME")
+//    }
     
-    // MARK: - Setup tab view
+    // MARK: - Setup tabbar view
     private func setupTabBar() {
         tabBarItem.image = UIImage(systemName: "house.fill")
         tabBarItem.title = "Главная"

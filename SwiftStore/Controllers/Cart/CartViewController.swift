@@ -50,9 +50,9 @@ class CartViewController: UIViewController {
     }
     
     // Testing
-    override func viewDidDisappear(_ animated: Bool) {
-        Cart.printOut(from: "CART")
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        Cart.printOut(from: "CART")
+//    }
    
     // MARK: - IB Actions
     

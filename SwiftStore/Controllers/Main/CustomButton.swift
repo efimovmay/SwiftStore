@@ -19,7 +19,7 @@ import UIKit
     var initTitle = "Купить"  // Title in init state
     var tappedTitle = "В корзине" // Title on button tapped
     
-    // Property observer: button appearance changes each time this property changes
+    // Property observer: button appearance changes on button tap
     var initState = true {
         didSet {
             updateButtonView()
@@ -39,6 +39,7 @@ import UIKit
         // Initial button appearance for default values
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1
+        layer.borderColor = initTextColor.cgColor
         updateButtonView()
     }
     

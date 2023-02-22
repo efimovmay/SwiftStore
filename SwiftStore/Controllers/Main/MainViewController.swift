@@ -20,10 +20,8 @@ final class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Убрал полупрозрачный tabBar
-           setupTransparencyTabBar()
+        setupTransparencyTabBar()
       
-        
         // Get random data for categories: Products for Sale, Bestsellers and Recomended to Buy
         let sellsProducts = getProductsForGroup(.onSale, count: 8)
         let bestProducts = getProductsForGroup(.bestseller, count: 6)
@@ -44,8 +42,9 @@ final class MainViewController: UITabBarController {
             }          
         }
     }
+    
     //MARK: Private methods
-    // Настройка прозрачности tabBar
+    // Set tabbar to be opaque
     private func setupTransparencyTabBar() {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()
