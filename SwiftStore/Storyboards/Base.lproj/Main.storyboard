@@ -119,23 +119,23 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-YE-9DI" customClass="CustomButton" customModule="SwiftStore" customModuleProvider="target">
-                                                                    <rect key="frame" x="15" y="198" width="109" height="26"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="26" id="cDg-JZ-LsO"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                    <state key="normal" title="Купить"/>
-                                                                    <connections>
-                                                                        <action selector="buyButtonTapped:" destination="7IF-A8-PiS" eventType="touchUpInside" id="hL8-g7-R7k"/>
-                                                                    </connections>
-                                                                </button>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gu7-Lw-80e">
                                                                     <rect key="frame" x="14" y="8" width="111" height="136.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="gu7-Lw-80e" secondAttribute="height" multiplier="22:27" id="UPR-Rc-pSB"/>
                                                                     </constraints>
                                                                 </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-YE-9DI" customClass="CustomButton" customModule="SwiftStore" customModuleProvider="target">
+                                                                    <rect key="frame" x="15" y="198" width="109" height="26"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="26" id="cDg-JZ-LsO"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <state key="normal" title="Купить"/>
+                                                                    <connections>
+                                                                        <action selector="buyButtonTapped:" destination="7IF-A8-PiS" eventType="touchUpInside" id="hL8-g7-R7k"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="gu7-Lw-80e" firstAttribute="centerX" secondItem="X3f-SW-5Oz" secondAttribute="centerX" id="5hB-wb-1Kw"/>
@@ -226,7 +226,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="Eq9-6I-wjZ"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <state key="normal" title="Купить"/>
                                                                     <connections>
                                                                         <action selector="buyButtonTapped:" destination="qVb-AR-B1o" eventType="touchUpInside" id="4zm-jh-59X"/>
@@ -323,7 +323,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="eai-v0-q8A"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <state key="normal" title="Купить"/>
                                                                     <connections>
                                                                         <action selector="buyButtonTapped:" destination="Kr0-Oc-Kof" eventType="touchUpInside" id="wJF-Iv-4YN"/>
@@ -439,13 +439,13 @@
     </scenes>
     <designables>
         <designable name="PHr-8R-exb">
-            <size key="intrinsicContentSize" width="38" height="26"/>
+            <size key="intrinsicContentSize" width="50" height="30"/>
         </designable>
         <designable name="YwN-LQ-70q">
-            <size key="intrinsicContentSize" width="38" height="26"/>
+            <size key="intrinsicContentSize" width="50" height="30"/>
         </designable>
         <designable name="qg0-YE-9DI">
-            <size key="intrinsicContentSize" width="38" height="26"/>
+            <size key="intrinsicContentSize" width="50" height="30"/>
         </designable>
     </designables>
     <resources>

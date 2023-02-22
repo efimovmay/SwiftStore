@@ -39,6 +39,7 @@ import UIKit
         // Initial button appearance for default values
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1
+        layer.borderColor = initTextColor.cgColor
         updateButtonView()
     }
     
