@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeamCollectionViewCell: UICollectionViewCell {
+final class TeamCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var devImage: UIImageView!
     
@@ -15,4 +15,18 @@ class TeamCollectionViewCell: UICollectionViewCell {
     @IBOutlet var charpterLabel: UILabel!
     @IBOutlet var githubLinkLabel: UILabel!
     
+    func settings(currentDeveloper: Developer) {
+       
+        devImage.image = UIImage(named: currentDeveloper.image)
+        devImage.widthAnchor.constraint(
+            equalToConstant: frame.width - 17).isActive = true
+        
+        nameLabel.text = currentDeveloper.name
+        charpterLabel.text = "Разделы: \(currentDeveloper.charpter)"
+        githubLinkLabel.text = currentDeveloper.githubLink
+        
+        layer.cornerRadius = 15
+        devImage.layer.cornerRadius = 15
+
+    }
 }

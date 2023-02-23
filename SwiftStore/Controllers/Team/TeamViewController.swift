@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamViewController: UIViewController {
+final class TeamViewController: UIViewController {
     
     let team = Developer.getTeam()
 
@@ -32,19 +32,7 @@ extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = teamCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TeamCollectionViewCell
         
-        let currentDeveloper = team[indexPath.item]
-        
-        cell.devImage.image = UIImage(named: currentDeveloper.image)
-        cell.devImage.widthAnchor.constraint(
-            equalToConstant: cell.frame.width - 17).isActive = true
-        
-        cell.nameLabel.text = currentDeveloper.name
-        cell.charpterLabel.text = "Разделы: \(currentDeveloper.charpter)"
-        cell.githubLinkLabel.text = currentDeveloper.githubLink
-        
-        cell.layer.cornerRadius = 15
-        cell.devImage.layer.cornerRadius = 15
-        
+        cell.settings(currentDeveloper: team[indexPath.item])
         return cell
     }
 }
@@ -52,22 +40,23 @@ extension TeamViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //MARK: - CollectionViewDelegateFlowLayout
 
 extension TeamViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: teamCollectionView.frame.width/2 - 21 ,
-                      height: teamCollectionView.frame.height/2 - 31)
+        let numberCellInRow: CGFloat = 2
+        return CGSize(width: teamCollectionView.frame.width/numberCellInRow - 21 ,
+                      height: teamCollectionView.frame.height/numberCellInRow - 31)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        10
         
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        10
     }
 }

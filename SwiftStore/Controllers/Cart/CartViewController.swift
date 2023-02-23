@@ -33,7 +33,7 @@ class CartViewController: UIViewController {
 
         buttonSettings()
         
-        // Assign notification observer: if notification occurs (has been "posted") center calls designated function
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateView),
@@ -49,10 +49,6 @@ class CartViewController: UIViewController {
         updateView()
     }
     
-    // Testing
-//    override func viewDidDisappear(_ animated: Bool) {
-//        Cart.printOut(from: "CART")
-//    }
    
     // MARK: - IB Actions
     
@@ -72,16 +68,9 @@ class CartViewController: UIViewController {
 extension CartViewController {
     
     private func visibilityElementSettings() {
-
-        if Cart.isEmpty {
-            cartTableView.isHidden = true
-            buttonView.isHidden = true
-            emptyCartStack.isHidden = false
-        } else {
-            cartTableView.isHidden = false
-            buttonView.isHidden = false
-            emptyCartStack.isHidden = true
-        }
+            cartTableView.isHidden = Cart.isEmpty
+            buttonView.isHidden = Cart.isEmpty
+            emptyCartStack.isHidden = !Cart.isEmpty
     }
     
     private func labelSettings() {
@@ -130,29 +119,14 @@ extension CartViewController {
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if Cart.isEmpty {
-            return 0
-        } else {
-            return Cart.count
-        }
+        Cart.isEmpty ? 0 : Cart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCartTableViewCell
-        let product = Cart.shared.cart[indexPath.row]
-        
-        if product.onSale {
-            cell.priceLabel.text = "$\(product.priceDiscount)"
-        } else {
-            cell.priceLabel.text = "$\(product.price)"
-        }
-        
-        cell.productImage.image = UIImage(named: product.image)
-        cell.nameLabel.text = product.title
-        
-        cell.deleteButton.tag = indexPath.row
-        cell.deleteButton.addTarget(self, action: #selector(handleRegister(_:)),
-                                    for: .touchUpInside)
+
+        cell.settings(cellForRowAt: indexPath)
+        cell.deleteButton.addTarget(self, action: #selector(handleRegister(_:)), for: .touchUpInside)
         
         return cell
     }
